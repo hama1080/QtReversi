@@ -28,13 +28,15 @@ SOURCES += \
         mainwindow.cpp \
     cell.cpp \
     board.cpp \
-    player.cpp
+    player.cpp \
+    stone.cpp
 
 HEADERS += \
         mainwindow.h \
     cell.h \
     board.h \
-    player.h
+    player.h \
+    stone.h
 
 FORMS += \
         mainwindow.ui

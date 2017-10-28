@@ -3,6 +3,7 @@
 Cell::Cell()
 {
     cell_state_ = CELL_STATE::EMPTY;
+    stone_ = nullptr;
     return;
 }
 

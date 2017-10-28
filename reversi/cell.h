@@ -4,14 +4,16 @@
 enum class CELL_STATE
 {
     EMPTY,
-    BLACK,
-    WHITE
+    STONE
 };
+
+class Stone;
 
 class Cell
 {
 private:
     CELL_STATE cell_state_;
+    Stone* stone_;
 
 public:
     Cell();

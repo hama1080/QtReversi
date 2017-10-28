@@ -17,8 +17,6 @@ public:
     Cell();
     void SetCellState(CELL_STATE state);
     CELL_STATE GetCellState();
-
-    void Reverse();
 };
 
 #endif // CELL_H

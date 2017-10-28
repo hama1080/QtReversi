@@ -15,7 +15,7 @@ private:
 
 public:
     Cell();
-    void SetCellState();
+    void SetCellState(CELL_STATE state);
     CELL_STATE GetCellState();
 
     void Reverse();

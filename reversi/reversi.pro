@@ -29,14 +29,16 @@ SOURCES += \
     cell.cpp \
     board.cpp \
     player.cpp \
-    stone.cpp
+    stone.cpp \
+    vector2d.cpp
 
 HEADERS += \
         mainwindow.h \
     cell.h \
     board.h \
     player.h \
-    stone.h
+    stone.h \
+    vector2d.h
 
 FORMS += \
         mainwindow.ui

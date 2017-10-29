@@ -1,4 +1,5 @@
 #include "cell.h"
+#include "stone.h"
 
 Cell::Cell()
 {

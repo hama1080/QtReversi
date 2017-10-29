@@ -7,9 +7,10 @@ Cell::Cell()
     return;
 }
 
-void Cell::SetCellState(CELL_STATE state)
+void Cell::SetStone(STONE_COLOR color)
 {
-    cell_state_ = state;
+    stone_ = new Stone(color);
+    cell_state_ = CELL_STATE::STONE;
     return;
 }
 

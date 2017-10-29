@@ -17,7 +17,7 @@ private:
 
 public:
     Cell();
-    void SetCellState(CELL_STATE state);
+    void SetStone(STONE_COLOR color);
     CELL_STATE GetCellState();
 };
 

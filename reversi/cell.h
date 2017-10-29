@@ -7,6 +7,7 @@ enum class CELL_STATE
     STONE
 };
 
+enum class STONE_COLOR;
 class Stone;
 
 class Cell
@@ -19,6 +20,7 @@ public:
     Cell();
     void SetStone(STONE_COLOR color);
     CELL_STATE GetCellState();
+    STONE_COLOR GetStoneColor();
 };
 
 #endif // CELL_H

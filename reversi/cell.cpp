@@ -18,3 +18,8 @@ CELL_STATE Cell::GetCellState()
 {
     return cell_state_;
 }
+
+STONE_COLOR Cell::GetStoneColor()
+{
+    return stone_->GetStoneColor();
+}

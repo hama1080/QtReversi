@@ -10,6 +10,9 @@ public:
     Vector2d();
     Vector2d(unsigned int x, unsigned int y);
 
+	unsigned int GetX();
+	unsigned int GetY();
+
     const Vector2d operator+(const Vector2d& rhs);
     const Vector2d operator-(const Vector2d& rhs);
 };

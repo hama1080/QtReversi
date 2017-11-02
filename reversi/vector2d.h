@@ -12,6 +12,7 @@ public:
 
 	unsigned int GetX();
 	unsigned int GetY();
+	unsigned int Length() const;
 
     const Vector2d operator+(const Vector2d& rhs);
     const Vector2d operator-(const Vector2d& rhs);

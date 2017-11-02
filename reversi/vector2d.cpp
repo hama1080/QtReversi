@@ -1,4 +1,5 @@
 #include "vector2d.h"
+#include <math.h>
 
 Vector2d::Vector2d()
 {
@@ -21,6 +22,12 @@ unsigned int Vector2d::GetY()
 {
 	return y_;
 }
+
+unsigned int Vector2d::Length() const
+{
+	return sqrt(static_cast<double>(x_ * x_ + y_ * y_));
+}
+
 
 const Vector2d Vector2d::operator+(const Vector2d& rhs)
 {

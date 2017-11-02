@@ -16,6 +16,7 @@ public:
 
     const Vector2d operator+(const Vector2d& rhs);
     const Vector2d operator-(const Vector2d& rhs);
+	bool operator<(const Vector2d& rhs) const;
 	bool operator==(const Vector2d& rhs);
 	bool operator!=(const Vector2d& rhs);
 };

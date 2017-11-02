@@ -15,7 +15,7 @@ private:
 	map<STONE_COLOR, unsigned int> stone_cnt_; // Express the number of each stone.
 
 public:
-    Board();
+    Board(unsigned int size_x = 8, unsigned int size_y = 8);
 	
 	void Initialize();
 	void PutStone(Vector2d pos);

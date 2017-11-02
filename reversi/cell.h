@@ -4,6 +4,7 @@
 enum class CELL_STATE
 {
     EMPTY,
+	AROUND,
     STONE
 };
 

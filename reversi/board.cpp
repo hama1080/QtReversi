@@ -2,7 +2,7 @@
 #include "vector2d.h"
 #include "cell.h"
 
-Board::Board(unsigned int size_x = 8, unsigned int size_y = 8)
+Board::Board(unsigned int size_x, unsigned int size_y)
 {
 	for (unsigned int x = 0; x != size_x + 2; x++)
 	{

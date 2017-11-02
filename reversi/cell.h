@@ -18,7 +18,7 @@ private:
     Stone* stone_;
 
 public:
-    Cell();
+	Cell(CELL_STATE state = CELL_STATE::EMPTY);
     void SetStone(STONE_COLOR color);
     CELL_STATE GetCellState();
     STONE_COLOR GetStoneColor();

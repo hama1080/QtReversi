@@ -1,9 +1,9 @@
 #include "cell.h"
 #include "stone.h"
 
-Cell::Cell()
+Cell::Cell(CELL_STATE state)
 {
-    cell_state_ = CELL_STATE::EMPTY;
+    cell_state_ = state;
     stone_ = nullptr;
     return;
 }

@@ -70,6 +70,9 @@
     <ClCompile Include="human.cpp">
       <Filter>Player</Filter>
     </ClCompile>
+    <ClCompile Include="reversi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="board.h">
@@ -95,6 +98,9 @@
     </ClInclude>
     <ClInclude Include="human.h">
       <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="reversi.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

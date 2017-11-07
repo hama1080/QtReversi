@@ -146,6 +146,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
     <ClCompile Include="player.cpp" />
+    <ClCompile Include="reversi.cpp" />
     <ClCompile Include="stone.cpp" />
     <ClCompile Include="vector2d.cpp" />
   </ItemGroup>
@@ -165,6 +166,7 @@
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h" />
     <ClInclude Include="human.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="reversi.h" />
     <ClInclude Include="stone.h" />
     <ClInclude Include="vector2d.h" />
   </ItemGroup>

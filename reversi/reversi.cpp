@@ -19,3 +19,8 @@ void Reversi::Initialize()
 	player_list_.push_back(new Human(STONE_COLOR::BLACK));
 	player_list_.push_back(new Human(STONE_COLOR::WHITE));
 }
+
+Board* Reversi::GetBoardPtr()
+{
+	return board_;
+}

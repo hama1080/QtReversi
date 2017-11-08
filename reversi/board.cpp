@@ -3,6 +3,7 @@
 #include "cell.h"
 
 Board::Board(unsigned int size_x, unsigned int size_y)
+:board_size_(size_x, size_y)
 {
 	for (unsigned int x = 0; x != size_x + 2; x++)
 	{
@@ -26,6 +27,11 @@ Board::Board(unsigned int size_x, unsigned int size_y)
 	board_[Vector2d(x1, y0)].SetStone(STONE_COLOR::BLACK);
 	board_[Vector2d(x1, y1)].SetStone(STONE_COLOR::WHITE);
 
+}
+
+Vector2d Board::GetBoardSize()
+{
+	return board_size_;
 }
 
 Cell Board::GetCell(Vector2d pos)

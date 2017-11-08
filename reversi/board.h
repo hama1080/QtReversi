@@ -19,6 +19,7 @@ public:
 	
 	void Initialize();
 	void PutStone(Vector2d pos);
+	Cell GetCell(Vector2d pos);
 };
 
 #endif // BOARD_H

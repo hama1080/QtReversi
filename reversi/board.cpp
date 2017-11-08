@@ -28,3 +28,8 @@ Board::Board(unsigned int size_x, unsigned int size_y)
 
 }
 
+Cell Board::GetCell(Vector2d pos)
+{
+	return board_[pos];
+}
+

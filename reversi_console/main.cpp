@@ -10,12 +10,12 @@ using namespace std;
 void RenderBoard(Board* board)
 {
 	cout << "render board" << endl;
-	Vector2d size = board->GetBoardSize();
-	for (unsigned int x = 1; x != size.GetX() + 1; x++)
+	Vec2d size = board->GetBoardSize();
+	for (unsigned int x = 0; x != size.first + 2; x++)
 	{
-		for (unsigned int y = 1; y != size.GetY() + 1; y++)
+		for (unsigned int y = 0; y != size.second + 2; y++)
 		{
-			Vector2d pos(x, y);
+			Vec2d pos(x, y);
 			Cell cell = board->GetCell(pos);
 			CELL_STATE state = cell.GetCellState();
 			switch (state)

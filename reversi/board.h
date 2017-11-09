@@ -1,6 +1,7 @@
 #ifndef BOARD_H
 #define BOARD_H
 
+#define Vec2d pair<unsigned int, unsigned int> 
 #include <map>
 #include "stone.h"
 #include "vector2d.h"

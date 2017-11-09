@@ -1,4 +1,4 @@
-#include "player.h"
+﻿#include "player.h"
 
 Player::Player(STONE_COLOR color)
 {

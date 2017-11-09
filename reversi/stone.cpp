@@ -1,4 +1,4 @@
-#include "stone.h"
+﻿#include "stone.h"
 
 Stone::Stone(STONE_COLOR color)
 {

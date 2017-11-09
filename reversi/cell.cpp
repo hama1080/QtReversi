@@ -1,4 +1,4 @@
-#include "cell.h"
+﻿#include "cell.h"
 #include "stone.h"
 
 Cell::Cell(CELL_STATE state)

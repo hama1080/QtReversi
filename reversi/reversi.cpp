@@ -1,4 +1,4 @@
-#include "reversi.h"
+﻿#include "reversi.h"
 #include "board.h"
 #include "human.h"
 

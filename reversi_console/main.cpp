@@ -1,4 +1,4 @@
-#include <QtCore/QCoreApplication>
+ï»¿#include <QtCore/QCoreApplication>
 #include <iostream>
 
 #include <reversi.h>
@@ -21,20 +21,20 @@ void RenderBoard(Board* board)
 			switch (state)
 			{
 			case CELL_STATE::EMPTY:
-				cout << " ";
+				cout << "â–¡";
 				break;
 			case CELL_STATE::AROUND:
-				cout << "@";
+				cout << "ã€€";
 				break;
 			case CELL_STATE::STONE:
 				switch (cell.GetStoneColor())
 				{
 				case STONE_COLOR::BLACK:
-					cout << "›";
+					cout << "â—‹";
 					break;
 
 				case STONE_COLOR::WHITE:
-					cout << "œ";
+					cout << "â—";
 					break;
 
 				default:

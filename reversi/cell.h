@@ -1,4 +1,4 @@
-#ifndef CELL_H
+﻿#ifndef CELL_H
 #define CELL_H
 
 enum class CELL_STATE

@@ -1,4 +1,4 @@
-#ifndef STONE_H
+﻿#ifndef STONE_H
 #define STONE_H
 
 enum class STONE_COLOR

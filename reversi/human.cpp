@@ -1,4 +1,4 @@
-#include "human.h"
+﻿#include "human.h"
 #include "vector2d.h"
 
 Human::Human(STONE_COLOR color) 

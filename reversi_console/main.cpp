@@ -21,13 +21,26 @@ void RenderBoard(Board* board)
 			switch (state)
 			{
 			case CELL_STATE::EMPTY:
-				cout << "E";
+				cout << " ";
 				break;
 			case CELL_STATE::AROUND:
-				cout << "A";
+				cout << "@";
 				break;
 			case CELL_STATE::STONE:
-				cout << "S";
+				switch (cell.GetStoneColor())
+				{
+				case STONE_COLOR::BLACK:
+					cout << "›";
+					break;
+
+				case STONE_COLOR::WHITE:
+					cout << "œ";
+					break;
+
+				default:
+					break;
+				}
+
 				break;
 			default:
 				break;

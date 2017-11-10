@@ -19,9 +19,10 @@ public:
     Board(unsigned int size_x = 8, unsigned int size_y = 8);
 	
 	void Initialize();
-	void PutStone(Vec2d pos);
-	Cell GetCell(Vec2d pos);
 	Vec2d GetBoardSize();
+	Cell GetCell(Vec2d pos);
+
+	void PutStone(Vec2d pos, STONE_COLOR color);
 };
 
 #endif // BOARD_H

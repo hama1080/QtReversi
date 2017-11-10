@@ -39,3 +39,8 @@ Cell Board::GetCell(Vec2d pos)
 	return board_[pos];
 }
 
+void Board::PutStone(Vec2d pos, STONE_COLOR color)
+{
+	board_[pos].SetStone(color);
+	return;
+}

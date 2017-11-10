@@ -55,6 +55,10 @@ int main(int argc, char *argv[])
 	QCoreApplication a(argc, argv);
 	Reversi reversi;
 	RenderBoard(reversi.GetBoardPtr());
+	reversi.GetBoardPtr()->PutStone(Vec2d(1, 1), STONE_COLOR::BLACK);
+	reversi.GetBoardPtr()->PutStone(Vec2d(1, 2), STONE_COLOR::WHITE);
+	RenderBoard(reversi.GetBoardPtr());
+
 	return a.exec();
 }
 

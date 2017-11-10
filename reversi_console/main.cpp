@@ -11,9 +11,9 @@ void RenderBoard(Board* board)
 {
 	cout << "render board" << endl;
 	Vec2d size = board->GetBoardSize();
-	for (unsigned int x = 0; x != size.first + 2; x++)
+	for (unsigned int y = 0; y != size.first + 2; y++)
 	{
-		for (unsigned int y = 0; y != size.second + 2; y++)
+		for (unsigned int x = 0; x != size.second + 2; x++)
 		{
 			Vec2d pos(x, y);
 			Cell cell = board->GetCell(pos);

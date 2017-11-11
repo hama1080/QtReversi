@@ -1,13 +1,20 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <qevent.h>
-#include <qpainter.h>
+#include <QGraphicsScene>
+#include <QGraphicsView>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
+	scene_ = new QGraphicsScene(QRect(0, 0, 800, 800));
+	scene_->addRect(0, 0, 600, 600, QPen(Qt::black), QBrush(Qt::darkGreen));   //  [2]
+	view_ = new QGraphicsView(scene_);
+	view_->setBackgroundBrush(QBrush(Qt::gray));
+	setCentralWidget(view_);
+
+    //ui->setupUi(this);
 }
 
 MainWindow::~MainWindow()
@@ -24,13 +31,6 @@ void MainWindow::MousePressEvent(QMouseEvent *event)
 
 void MainWindow::paintEvent(QPaintEvent *event)
 {
-	QPainter painter(this);
-	painter.setRenderHint(QPainter::Antialiasing, true);
-	painter.setPen(Qt::black);
-	painter.setBrush(QBrush(Qt::black, Qt::SolidPattern));
-	painter.drawEllipse(20, 20, 80, 80);
-
-	painter.setPen(Qt::white);
-	painter.setBrush(QBrush(Qt::white, Qt::SolidPattern));
-	painter.drawEllipse(20, 120, 80, 80);
+	scene_->addEllipse(QRect(20, 20, 80, 80), QPen(Qt::black), QBrush(Qt::black, Qt::SolidPattern));
+	scene_->addEllipse(QRect(20, 120, 80, 80), QPen(Qt::white), QBrush(Qt::white, Qt::SolidPattern));
 }

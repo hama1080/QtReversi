@@ -20,6 +20,9 @@ protected:
 	void paintEvent(QPaintEvent *event);
 
 private:
+	class QGraphicsScene* scene_;
+	class QGraphicsView* view_;
+
     Ui::MainWindow *ui;
 };
 

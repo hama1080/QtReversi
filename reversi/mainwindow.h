@@ -2,6 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "stone.h"
+
+using namespace std;
+
 
 namespace Ui {
 class MainWindow;
@@ -20,6 +24,7 @@ protected:
 	void paintEvent(QPaintEvent *event);
 
 private:
+	void PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR color)
 	class QGraphicsScene* scene_;
 	class QGraphicsView* view_;
 

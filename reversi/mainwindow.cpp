@@ -29,6 +29,11 @@ void MainWindow::MousePressEvent(QMouseEvent *event)
 	}
 }
 
+void MainWindow::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR color)
+{
+
+}
+
 void MainWindow::paintEvent(QPaintEvent *event)
 {
 	scene_->addEllipse(QRect(20, 20, 80, 80), QPen(Qt::black), QBrush(Qt::black, Qt::SolidPattern));

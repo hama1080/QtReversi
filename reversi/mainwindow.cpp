@@ -31,11 +31,37 @@ void MainWindow::MousePressEvent(QMouseEvent *event)
 
 void MainWindow::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR color)
 {
+	const unsigned int kOffset = 20;
+	const unsigned int kEllipseGap = 60;
+	const unsigned int kEllipseDiameter = 50;
+	QRect renderPos(kOffset + pos.first * kEllipseGap, kOffset + pos.second * kEllipseGap, kEllipseDiameter, kEllipseDiameter);
 
+	QPen pen;
+	QBrush brush;
+	switch (color)
+	{
+	case STONE_COLOR::BLACK:
+		pen = QPen(Qt::black);
+		brush = QBrush(Qt::black, Qt::SolidPattern);
+		break;
+
+	case STONE_COLOR::WHITE:
+		pen = QPen(Qt::white);
+		brush = QBrush(Qt::white, Qt::SolidPattern);
+		break;
+
+	default:
+		// black
+		pen = QPen(Qt::black);
+		brush = QBrush(Qt::black, Qt::SolidPattern);
+		break;
+	}
+
+	scene_->addEllipse(renderPos, pen, brush);
 }
 
 void MainWindow::paintEvent(QPaintEvent *event)
 {
-	scene_->addEllipse(QRect(20, 20, 80, 80), QPen(Qt::black), QBrush(Qt::black, Qt::SolidPattern));
-	scene_->addEllipse(QRect(20, 120, 80, 80), QPen(Qt::white), QBrush(Qt::white, Qt::SolidPattern));
+	PaintStone(pair<unsigned int, unsigned int>(1, 1), STONE_COLOR::BLACK);
+	PaintStone(pair<unsigned int, unsigned int>(2, 1), STONE_COLOR::WHITE);
 }

@@ -16,16 +16,20 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+	// should change depending on board size
+	const unsigned int kSceneWidth = kCellSize * 8;
+	const unsigned int kSceneHeight = kCellSize * 8;
+
 	this->resize(kWindowWidth, kWindowHeight);
     ui->setupUi(this);
 
-	scene_ = new QGraphicsScene(QRect(0, 0, 640, 640));
-	scene_->addRect(0, 0, 640, 640, QPen(Qt::black), QBrush(Qt::darkGreen));   //  [2]
+	scene_ = new QGraphicsScene(QRect(0, 0, kSceneWidth, kSceneHeight));
+	scene_->addRect(0, 0, kSceneWidth, kSceneHeight, QPen(Qt::black), QBrush(Qt::darkGreen));   //  [2]
 	view_ = new QGraphicsView(scene_);
 	view_->setBackgroundBrush(QBrush(Qt::gray));
 	setCentralWidget(view_);
 
-	top_left_ = Vec2d((kWindowWidth - 640) / 2, (kWindowHeight - 640) / 2);
+	top_left_ = Vec2d((kWindowWidth - kSceneWidth) / 2, (kWindowHeight - kSceneHeight) / 2);
 }
 
 MainWindow::~MainWindow()
@@ -40,7 +44,11 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 	if (event->button() == Qt::LeftButton) {
 		int x = event->x() - top_left_.first;
 		int y = event->y() - top_left_.second;
-		Vec2d put_pos(x / kCellSize + 1, y / kCellSize + 1);
+		Vec2d put_pos(x / kCellSize, y / kCellSize);
+
+		// modify put position. ex: (0,0)->(1,1)
+		put_pos.first += 1;
+		put_pos.second += 1;
 
 		tmpflag ? reversi_->GetBoardPtr()->PutStone(put_pos, STONE_COLOR::BLACK) : reversi_->GetBoardPtr()->PutStone(put_pos, STONE_COLOR::WHITE);
 		tmpflag = !tmpflag;
@@ -52,9 +60,13 @@ void MainWindow::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR co
 {
 	const unsigned int kEllipseDiameter = 60;
 	const unsigned int kOffset = (kCellSize - kEllipseDiameter) / 2;
-	QRect renderPos(
-		(pos.first - 1) * kCellSize + kOffset,
-		(pos.second - 1) * kCellSize + kOffset,
+
+	// modify render position. ex: (1,1)->(0,0)
+	Vec2d render_pos(pos.first - 1, pos.second - 1);
+
+	QRect render_rect(
+		render_pos.first * kCellSize + kOffset,
+		render_pos.second * kCellSize + kOffset,
 		kEllipseDiameter, kEllipseDiameter);
 
 	QPen pen;
@@ -78,7 +90,7 @@ void MainWindow::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR co
 		break;
 	}
 
-	scene_->addEllipse(renderPos, pen, brush);
+	scene_->addEllipse(render_rect, pen, brush);
 }
 
 void MainWindow::PaintOutline(pair<unsigned int, unsigned int> board_size)

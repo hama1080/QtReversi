@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
 	scene_ = new QGraphicsScene(QRect(0, 0, 800, 800));
-	scene_->addRect(0, 0, 600, 600, QPen(Qt::black), QBrush(Qt::darkGreen));   //  [2]
+	scene_->addRect(0, 0, 640, 640, QPen(Qt::black), QBrush(Qt::darkGreen));   //  [2]
 	view_ = new QGraphicsView(scene_);
 	view_->setBackgroundBrush(QBrush(Qt::gray));
 	setCentralWidget(view_);
@@ -31,10 +31,10 @@ void MainWindow::MousePressEvent(QMouseEvent *event)
 
 void MainWindow::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR color)
 {
-	const unsigned int kOffset = 20;
-	const unsigned int kEllipseGap = 60;
-	const unsigned int kEllipseDiameter = 50;
-	QRect renderPos(kOffset + pos.first * kEllipseGap, kOffset + pos.second * kEllipseGap, kEllipseDiameter, kEllipseDiameter);
+	const unsigned int kCellSize = 80;
+	const unsigned int kEllipseDiameter = 60;
+	const unsigned int kOffset = (kCellSize - kEllipseDiameter) / 2;
+	QRect renderPos(pos.first * kCellSize + kOffset, pos.second * kCellSize + kOffset, kEllipseDiameter, kEllipseDiameter);
 
 	QPen pen;
 	QBrush brush;

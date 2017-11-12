@@ -35,13 +35,16 @@ MainWindow::~MainWindow()
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
+	static bool tmpflag = false;
 
 	if (event->button() == Qt::LeftButton) {
 		int x = event->x() - top_left_.first;
 		int y = event->y() - top_left_.second;
-		Vec2d put_pos(x / kCellSize, y / kCellSize);
+		Vec2d put_pos(x / kCellSize + 1, y / kCellSize + 1);
 
-		qDebug("MousePress x=%d,y=%d", put_pos.first, put_pos.second);
+		tmpflag ? reversi_->GetBoardPtr()->PutStone(put_pos, STONE_COLOR::BLACK) : reversi_->GetBoardPtr()->PutStone(put_pos, STONE_COLOR::WHITE);
+		tmpflag = !tmpflag;
+		this->repaint();
 	}
 }
 

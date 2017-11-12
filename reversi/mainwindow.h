@@ -25,6 +25,8 @@ protected:
 
 private:
 	void PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR color);
+	void PaintOutline(pair<unsigned int, unsigned int> board_size);
+
 	class QGraphicsScene* scene_;
 	class QGraphicsView* view_;
 

@@ -60,8 +60,35 @@ void MainWindow::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR co
 	scene_->addEllipse(renderPos, pen, brush);
 }
 
+void MainWindow::PaintOutline(pair<unsigned int, unsigned int> board_size)
+{
+	const int kCellSize = 80;
+	const int kBoardLength = kCellSize * board_size.first;
+	const int kBoardWidth = kCellSize * board_size.second;
+
+	QPen pen(Qt::black, 2);
+	for (unsigned int x = 0; x <= board_size.first; x++)
+	{
+		QPoint start(x * kCellSize, 0);
+		QPoint end(x * kCellSize, kBoardLength);
+		QLine line(start, end);
+		scene_->addLine(line, pen);
+	}
+
+	for (unsigned int y = 0; y <= board_size.first; y++)
+	{
+		QPoint start(0, y * kCellSize);
+		QPoint end(kBoardWidth, y * kCellSize);
+		QLine line(start, end);
+		scene_->addLine(line, pen);
+	}
+	return;
+}
+
+
 void MainWindow::paintEvent(QPaintEvent *event)
 {
 	PaintStone(pair<unsigned int, unsigned int>(1, 1), STONE_COLOR::BLACK);
 	PaintStone(pair<unsigned int, unsigned int>(2, 1), STONE_COLOR::WHITE);
+	PaintOutline(pair<unsigned int, unsigned int>(8, 8));
 }

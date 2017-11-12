@@ -35,14 +35,18 @@ MainWindow::~MainWindow()
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
+
 	if (event->button() == Qt::LeftButton) {
-		qDebug("MousePress x=%d,y=%d", event->x(), event->y());
+		int x = event->x() - top_left_.first;
+		int y = event->y() - top_left_.second;
+		Vec2d put_pos(x / kCellSize, y / kCellSize);
+
+		qDebug("MousePress x=%d,y=%d", put_pos.first, put_pos.second);
 	}
 }
 
 void MainWindow::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR color)
 {
-	const unsigned int kCellSize = 80;
 	const unsigned int kEllipseDiameter = 60;
 	const unsigned int kOffset = (kCellSize - kEllipseDiameter) / 2;
 	QRect renderPos(

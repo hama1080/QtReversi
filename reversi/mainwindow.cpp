@@ -12,13 +12,13 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-	scene_ = new QGraphicsScene(QRect(0, 0, 800, 800));
+    ui->setupUi(this);
+
+	scene_ = new QGraphicsScene(QRect(0, 0, 640, 640));
 	scene_->addRect(0, 0, 640, 640, QPen(Qt::black), QBrush(Qt::darkGreen));   //  [2]
 	view_ = new QGraphicsView(scene_);
 	view_->setBackgroundBrush(QBrush(Qt::gray));
 	setCentralWidget(view_);
-
-    //ui->setupUi(this);
 }
 
 MainWindow::~MainWindow()

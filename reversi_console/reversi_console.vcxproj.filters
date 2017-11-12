@@ -19,66 +19,10 @@
       <Extensions>moc;h;cpp</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
-    <Filter Include="Reversi">
-      <UniqueIdentifier>{57e7a6cc-d229-4cb6-8a14-fa75539bb0e1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Reversi\Player">
-      <UniqueIdentifier>{b427fcaf-d187-4f07-ad55-3fb8a8aabf01}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Reversi\Header Files">
-      <UniqueIdentifier>{3f6fe09e-a26c-47b0-bd68-3f06397346dc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Reversi\Source Files">
-      <UniqueIdentifier>{89e0b325-82da-412e-b30b-6164a83c4db4}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\reversi\human.cpp">
-      <Filter>Reversi\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="..\reversi\player.cpp">
-      <Filter>Reversi\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="..\reversi\board.cpp">
-      <Filter>Reversi\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\reversi\cell.cpp">
-      <Filter>Reversi\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\reversi\reversi.cpp">
-      <Filter>Reversi\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\reversi\stone.cpp">
-      <Filter>Reversi\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\reversi\vector2d.cpp">
-      <Filter>Reversi\Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\reversi\human.h">
-      <Filter>Reversi\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="..\reversi\player.h">
-      <Filter>Reversi\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="..\reversi\cell.h">
-      <Filter>Reversi\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\reversi\reversi.h">
-      <Filter>Reversi\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\reversi\stone.h">
-      <Filter>Reversi\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\reversi\vector2d.h">
-      <Filter>Reversi\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\reversi\board.h">
-      <Filter>Reversi\Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

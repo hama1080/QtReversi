@@ -30,6 +30,18 @@
     <Filter Include="Qt">
       <UniqueIdentifier>{5c8aba64-000a-4ddf-9513-8dfde0a33797}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Reversi">
+      <UniqueIdentifier>{fa29e26c-7f23-4034-b146-2770601c5e5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reversi\Player">
+      <UniqueIdentifier>{a923a1ac-2c23-42fb-bfe3-d6b5f27c2286}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reversi\Header Files">
+      <UniqueIdentifier>{d56306d5-8fe5-40d3-99e5-c8a47955ee80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reversi\Source Files">
+      <UniqueIdentifier>{14f7bd12-2062-426d-9523-8f3c04f70989}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GeneratedFiles\Debug\moc_mainwindow.cpp">
@@ -44,10 +56,52 @@
     <ClCompile Include="main.cpp">
       <Filter>Qt</Filter>
     </ClCompile>
+    <ClCompile Include="human.cpp">
+      <Filter>Reversi\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>Reversi\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="board.cpp">
+      <Filter>Reversi\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cell.cpp">
+      <Filter>Reversi\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="reversi.cpp">
+      <Filter>Reversi\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stone.cpp">
+      <Filter>Reversi\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vector2d.cpp">
+      <Filter>Reversi\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="human.h">
+      <Filter>Reversi\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>Reversi\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="board.h">
+      <Filter>Reversi\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cell.h">
+      <Filter>Reversi\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="reversi.h">
+      <Filter>Reversi\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stone.h">
+      <Filter>Reversi\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vector2d.h">
+      <Filter>Reversi\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

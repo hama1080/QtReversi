@@ -138,23 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\reversi\board.cpp" />
-    <ClCompile Include="..\reversi\cell.cpp" />
-    <ClCompile Include="..\reversi\human.cpp" />
-    <ClCompile Include="..\reversi\player.cpp" />
-    <ClCompile Include="..\reversi\reversi.cpp" />
-    <ClCompile Include="..\reversi\stone.cpp" />
-    <ClCompile Include="..\reversi\vector2d.cpp" />
     <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\reversi\board.h" />
-    <ClInclude Include="..\reversi\cell.h" />
-    <ClInclude Include="..\reversi\human.h" />
-    <ClInclude Include="..\reversi\player.h" />
-    <ClInclude Include="..\reversi\reversi.h" />
-    <ClInclude Include="..\reversi\stone.h" />
-    <ClInclude Include="..\reversi\vector2d.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

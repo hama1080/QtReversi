@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "stone.h"
+#include "board.h"
 
 using namespace std;
 
@@ -27,8 +28,8 @@ protected:
 	void paintEvent(QPaintEvent *event);
 
 private:
-	void PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR color);
-	void PaintOutline(pair<unsigned int, unsigned int> board_size);
+	void PaintStone(Vec2d pos, STONE_COLOR color);
+	void PaintOutline(Vec2d board_size);
 	void PaintBoard(Board* board);
 
 	class QGraphicsScene* scene_;

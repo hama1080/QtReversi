@@ -4,6 +4,10 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 
+#include "cell.h"
+#include "board.h"
+#include "reversi.h"
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -34,7 +38,10 @@ void MainWindow::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR co
 	const unsigned int kCellSize = 80;
 	const unsigned int kEllipseDiameter = 60;
 	const unsigned int kOffset = (kCellSize - kEllipseDiameter) / 2;
-	QRect renderPos(pos.first * kCellSize + kOffset, pos.second * kCellSize + kOffset, kEllipseDiameter, kEllipseDiameter);
+	QRect renderPos(
+		(pos.first - 1) * kCellSize + kOffset,
+		(pos.second - 1) * kCellSize + kOffset,
+		kEllipseDiameter, kEllipseDiameter);
 
 	QPen pen;
 	QBrush brush;
@@ -85,10 +92,53 @@ void MainWindow::PaintOutline(pair<unsigned int, unsigned int> board_size)
 	return;
 }
 
+void MainWindow::PaintBoard(Board* board)
+{
+	Vec2d size = board->GetBoardSize();
+
+	// render outline
+	PaintOutline(size);
+
+	// render stone
+	for (unsigned int y = 0; y != size.first + 2; y++)
+	{
+		for (unsigned int x = 0; x != size.second + 2; x++)
+		{
+			Vec2d pos(x, y);
+			Cell cell = board->GetCell(pos);
+			CELL_STATE state = cell.GetCellState();
+			switch (state)
+			{
+			case CELL_STATE::EMPTY:
+			case CELL_STATE::AROUND:
+				break;
+
+			case CELL_STATE::STONE:
+				switch (cell.GetStoneColor())
+				{
+				case STONE_COLOR::BLACK:
+					PaintStone(pos, STONE_COLOR::BLACK);
+					break;
+
+				case STONE_COLOR::WHITE:
+					PaintStone(pos, STONE_COLOR::WHITE);
+					break;
+
+				default:
+					break;
+				}
+
+				break;
+			default:
+				break;
+			}
+		}
+	}
+}
+
+
 
 void MainWindow::paintEvent(QPaintEvent *event)
 {
-	PaintStone(pair<unsigned int, unsigned int>(1, 1), STONE_COLOR::BLACK);
-	PaintStone(pair<unsigned int, unsigned int>(2, 1), STONE_COLOR::WHITE);
-	PaintOutline(pair<unsigned int, unsigned int>(8, 8));
+	PaintBoard(reversi_->GetBoardPtr());
 }

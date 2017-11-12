@@ -6,6 +6,8 @@
 
 using namespace std;
 
+class Reversi;
+class Board;
 
 namespace Ui {
 class MainWindow;
@@ -16,7 +18,8 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
+	Reversi* reversi_;
+	explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
 protected:
@@ -26,6 +29,7 @@ protected:
 private:
 	void PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR color);
 	void PaintOutline(pair<unsigned int, unsigned int> board_size);
+	void PaintBoard(Board* board);
 
 	class QGraphicsScene* scene_;
 	class QGraphicsView* view_;

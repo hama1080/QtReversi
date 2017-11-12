@@ -23,7 +23,7 @@ public:
     ~MainWindow();
 
 protected:
-	void MousePressEvent(QMouseEvent *event);
+	void mousePressEvent(QMouseEvent *event);
 	void paintEvent(QPaintEvent *event);
 
 private:

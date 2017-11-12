@@ -19,6 +19,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+	Vec2d top_left_;
 	Reversi* reversi_;
 	explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();

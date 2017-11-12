@@ -8,10 +8,15 @@
 #include "board.h"
 #include "reversi.h"
 
+const unsigned int kWindowWidth = 700;
+const unsigned int kWindowHeight = 700;
+const unsigned int kCellSize = 80;
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+	this->resize(kWindowWidth, kWindowHeight);
     ui->setupUi(this);
 
 	scene_ = new QGraphicsScene(QRect(0, 0, 640, 640));
@@ -19,6 +24,8 @@ MainWindow::MainWindow(QWidget *parent) :
 	view_ = new QGraphicsView(scene_);
 	view_->setBackgroundBrush(QBrush(Qt::gray));
 	setCentralWidget(view_);
+
+	top_left_ = Vec2d((kWindowWidth - 640) / 2, (kWindowHeight - 640) / 2);
 }
 
 MainWindow::~MainWindow()
@@ -69,15 +76,14 @@ void MainWindow::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR co
 
 void MainWindow::PaintOutline(pair<unsigned int, unsigned int> board_size)
 {
-	const int kCellSize = 80;
-	const int kBoardLength = kCellSize * board_size.first;
-	const int kBoardWidth = kCellSize * board_size.second;
+	const int kBoardWidth = kCellSize * board_size.first;
+	const int kBoardHeight = kCellSize * board_size.second;
 
 	QPen pen(Qt::black, 2);
 	for (unsigned int x = 0; x <= board_size.first; x++)
 	{
 		QPoint start(x * kCellSize, 0);
-		QPoint end(x * kCellSize, kBoardLength);
+		QPoint end(x * kCellSize, kBoardWidth);
 		QLine line(start, end);
 		scene_->addLine(line, pen);
 	}
@@ -85,7 +91,7 @@ void MainWindow::PaintOutline(pair<unsigned int, unsigned int> board_size)
 	for (unsigned int y = 0; y <= board_size.first; y++)
 	{
 		QPoint start(0, y * kCellSize);
-		QPoint end(kBoardWidth, y * kCellSize);
+		QPoint end(kBoardHeight, y * kCellSize);
 		QLine line(start, end);
 		scene_->addLine(line, pen);
 	}

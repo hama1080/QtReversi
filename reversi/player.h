@@ -15,6 +15,7 @@ public:
 	
 	void SetPlayerColor(STONE_COLOR color);
 	void SetNextPlayer(Player* next_player);
+	Player* GetNextPlayer();
 
 	STONE_COLOR GetPlayerColor();
 	virtual Vector2d PutStone() = 0;

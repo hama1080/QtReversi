@@ -18,6 +18,11 @@ void Player::SetNextPlayer(Player* next_player)
 	return;
 }
 
+Player* Player::GetNextPlayer()
+{
+	return next_player_;
+}
+
 STONE_COLOR Player::GetPlayerColor()
 {
 	return color_;

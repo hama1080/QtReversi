@@ -25,6 +25,20 @@ void Reversi::Initialize()
 	(*(player_list_.end() - 1))->SetNextPlayer(*player_list_.begin());
 }
 
+//call before player input
+void Reversi::PreProcess()
+{
+	return;
+}
+
+// call after player input
+void Reversi::PostProcess()
+{
+	//reverse
+	now_player_ = now_player_->GetNextPlayer();
+	return;
+}
+
 Board* Reversi::GetBoardPtr()
 {
 	return board_;

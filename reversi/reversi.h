@@ -16,5 +16,8 @@ public:
 	~Reversi();
 
 	void Initialize();
+	void PreProcess();
+	void PostProcess();
+
 	Board* GetBoardPtr();
 };

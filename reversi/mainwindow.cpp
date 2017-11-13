@@ -20,8 +20,9 @@ MainWindow::MainWindow(QWidget *parent) :
 	const unsigned int kSceneWidth = kCellSize * 8;
 	const unsigned int kSceneHeight = kCellSize * 8;
 
-	this->resize(kWindowWidth, kWindowHeight);
     ui->setupUi(this);
+	this->resize(kWindowWidth, kWindowHeight);
+
 
 	scene_ = new QGraphicsScene(QRect(0, 0, kSceneWidth, kSceneHeight));
 	scene_->addRect(0, 0, kSceneWidth, kSceneHeight, QPen(Qt::black), QBrush(Qt::darkGreen));   //  [2]

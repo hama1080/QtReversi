@@ -10,6 +10,7 @@ class Reversi{
 private:
 	Board* board_;
 	vector<Player*> player_list_;
+	Player* now_player_;
 
 public:
 	Reversi();

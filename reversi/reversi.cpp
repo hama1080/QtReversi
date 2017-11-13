@@ -23,6 +23,8 @@ void Reversi::Initialize()
 	for (vector<Player*>::iterator i = player_list_.begin(); i != player_list_.end() - 1; i++)
 		(*i)->SetNextPlayer(*(i + 1));
 	(*(player_list_.end() - 1))->SetNextPlayer(*player_list_.begin());
+
+	now_player_ = *player_list_.begin();
 }
 
 //call before player input

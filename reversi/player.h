@@ -2,8 +2,8 @@
 #define PLAYER_H
 
 #include "stone.h"
+#include "common.h"
 
-class Vector2d;
 class Player
 {
 private:
@@ -18,7 +18,7 @@ public:
 	Player* GetNextPlayer();
 
 	STONE_COLOR GetPlayerColor();
-	virtual Vector2d PutStone() = 0;
+	virtual Vec2d PutStone() = 0;
 };
 
 #endif // PLAYER_H

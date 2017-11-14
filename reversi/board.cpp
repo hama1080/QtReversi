@@ -1,5 +1,4 @@
 ﻿#include "board.h"
-#include "vector2d.h"
 #include "cell.h"
 
 Board::Board(unsigned int size_x, unsigned int size_y)

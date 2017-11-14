@@ -152,6 +152,7 @@
   <ItemGroup>
     <ClInclude Include="board.h" />
     <ClInclude Include="cell.h" />
+    <ClInclude Include="common.h" />
     <ClInclude Include="human.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="reversi.h" />

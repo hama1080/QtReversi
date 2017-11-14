@@ -97,6 +97,7 @@
     <ClInclude Include="stone.h">
       <Filter>Reversi\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="common.h">
       <Filter>Reversi\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

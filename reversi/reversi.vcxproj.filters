@@ -74,9 +74,6 @@
     <ClCompile Include="stone.cpp">
       <Filter>Reversi\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="vector2d.cpp">
-      <Filter>Reversi\Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h">
@@ -100,7 +97,6 @@
     <ClInclude Include="stone.h">
       <Filter>Reversi\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="vector2d.h">
       <Filter>Reversi\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

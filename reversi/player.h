@@ -18,7 +18,7 @@ public:
 	Player* GetNextPlayer();
 
 	STONE_COLOR GetPlayerColor();
-	virtual Vec2d PutStone() = 0;
+	virtual void AskPutStonePosition() = 0;
 };
 
 #endif // PLAYER_H

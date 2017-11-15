@@ -32,6 +32,7 @@ void Reversi::Initialize()
 //call before player input
 void Reversi::PreProcess()
 {
+	now_player_->AskPutStonePosition();	// Ask player about put position
 	return;
 }
 
@@ -46,7 +47,7 @@ void Reversi::PostProcess()
 Board* Reversi::GetBoardPtr()
 {
 	return board_;
-}void Reversi::SetWaitingFlag(bool flag)
+}
 
 void Reversi::SetWaitingFlag(bool flag)
 {

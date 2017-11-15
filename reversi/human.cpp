@@ -1,11 +1,13 @@
 ﻿#include "human.h"
+#include "reversi.h"
 
 Human::Human(STONE_COLOR color) 
 :Player(color)
 {
 }
 
-Vec2d Human::PutStone()
+void Human::AskPutStonePosition()
 {
-	return Vec2d(0, 0);
+	Reversi::SetWaitingFlag(true);
+	return;
 }

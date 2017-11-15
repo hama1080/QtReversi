@@ -7,5 +7,5 @@ class Human : public Player
 private:
 public:
 	Human(STONE_COLOR color);
-	virtual Vec2d PutStone();
+	virtual void AskPutStonePosition();
 };

@@ -1,6 +1,8 @@
 ﻿#pragma once
 
 #include <vector>
+#include "common.h"
+
 using namespace std;
 
 class Board;
@@ -20,7 +22,7 @@ public:
 
 	void Initialize();
 	void PreProcess();
-	void PostProcess();
+	void PostProcess(Vec2d put_pos);
 
 	Board* GetBoardPtr();
 	static void SetWaitingFlag(bool flag);

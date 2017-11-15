@@ -37,9 +37,10 @@ void Reversi::PreProcess()
 }
 
 // call after player input
-void Reversi::PostProcess()
+void Reversi::PostProcess(Vec2d put_pos)
 {
-	//reverse
+	// put & reverse
+	board_->PutStone(put_pos, now_player_->GetPlayerColor());
 	now_player_ = now_player_->GetNextPlayer();
 	return;
 }

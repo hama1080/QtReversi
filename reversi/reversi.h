@@ -8,6 +8,8 @@ class Player;
 
 class Reversi{
 private:
+	static bool waiting_human_input;
+
 	Board* board_;
 	vector<Player*> player_list_;
 	Player* now_player_;
@@ -21,4 +23,5 @@ public:
 	void PostProcess();
 
 	Board* GetBoardPtr();
+	static void SetWaitingFlag(bool flag);
 };

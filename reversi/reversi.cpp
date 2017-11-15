@@ -2,6 +2,8 @@
 #include "board.h"
 #include "human.h"
 
+bool Reversi::waiting_human_input = false;
+
 Reversi::Reversi()
 {
 	Initialize();
@@ -44,4 +46,10 @@ void Reversi::PostProcess()
 Board* Reversi::GetBoardPtr()
 {
 	return board_;
+}void Reversi::SetWaitingFlag(bool flag)
+
+void Reversi::SetWaitingFlag(bool flag)
+{
+	waiting_human_input = flag;
+	return;
 }

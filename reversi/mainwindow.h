@@ -24,6 +24,9 @@ public:
 	explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+signals:
+	void leftClickSignal(Vec2d click_pos);
+
 protected:
 	void mousePressEvent(QMouseEvent *event);
 	void paintEvent(QPaintEvent *event);

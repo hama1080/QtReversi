@@ -51,9 +51,14 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 		put_pos.first += 1;
 		put_pos.second += 1;
 
+		/////  tmp
 		tmpflag ? reversi_->GetBoardPtr()->PutStone(put_pos, STONE_COLOR::BLACK) : reversi_->GetBoardPtr()->PutStone(put_pos, STONE_COLOR::WHITE);
 		tmpflag = !tmpflag;
 		this->repaint();
+		/////
+
+		if(Reversi::GetWaitingFlag())
+			emit leftClickSignal(put_pos);
 	}
 }
 

@@ -26,4 +26,5 @@ public:
 
 	Board* GetBoardPtr();
 	static void SetWaitingFlag(bool flag);
+	static bool GetWaitingFlag();
 };

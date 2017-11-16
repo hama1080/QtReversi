@@ -55,3 +55,8 @@ void Reversi::SetWaitingFlag(bool flag)
 	waiting_human_input = flag;
 	return;
 }
+
+bool Reversi::GetWaitingFlag()
+{
+	return waiting_human_input;
+}

@@ -1,6 +1,9 @@
 ﻿#include "reversi.h"
 #include "board.h"
 #include "human.h"
+#include <iostream>
+
+using namespace std;
 
 bool Reversi::waiting_human_input = false;
 
@@ -27,6 +30,11 @@ void Reversi::Initialize()
 	(*(player_list_.end() - 1))->SetNextPlayer(*player_list_.begin());
 
 	now_player_ = *player_list_.begin();
+}
+
+void Reversi::leftClickSlot(Vec2d click_pos)
+{
+	cout << "left click slot" << endl;
 }
 
 //call before player input

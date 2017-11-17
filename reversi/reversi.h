@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include <vector>
+#include <qobject.h>
 #include "common.h"
 
 using namespace std;
@@ -8,7 +9,9 @@ using namespace std;
 class Board;
 class Player;
 
-class Reversi{
+class Reversi : public QObject{
+	Q_OBJECT
+
 private:
 	static bool waiting_human_input;
 
@@ -27,4 +30,8 @@ public:
 	Board* GetBoardPtr();
 	static void SetWaitingFlag(bool flag);
 	static bool GetWaitingFlag();
+
+public slots:
+	void leftClickSlot(Vec2d click_pos);
+
 };

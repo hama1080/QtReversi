@@ -11,5 +11,8 @@ int main(int argc, char *argv[])
 
 	w.reversi_ = new Reversi();
 
+	QObject::connect(&w, SIGNAL(leftClickSignal(pair<unsigned int, unsigned int>)),
+		w.reversi_, SLOT(leftClickSlot(pair<unsigned int, unsigned int>)));
+
     return a.exec();
 }

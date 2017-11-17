@@ -57,8 +57,8 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 		this->repaint();
 		/////
 
-		if(Reversi::GetWaitingFlag())
-			emit leftClickSignal(put_pos);
+//		if(Reversi::GetWaitingFlag())
+		emit leftClickSignal(put_pos);
 	}
 }
 

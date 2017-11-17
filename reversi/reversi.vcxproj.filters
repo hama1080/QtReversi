@@ -42,6 +42,16 @@
     <Filter Include="Reversi\Source Files">
       <UniqueIdentifier>{14f7bd12-2062-426d-9523-8f3c04f70989}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Generated Files\Debug">
+      <UniqueIdentifier>{e7ddb048-fcb2-4d3a-8282-5455a90ff037}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Release">
+      <UniqueIdentifier>{41d20494-bfa0-4533-a26d-138a5cf819d5}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GeneratedFiles\Debug\moc_mainwindow.cpp">
@@ -74,6 +84,12 @@
     <ClCompile Include="stone.cpp">
       <Filter>Reversi\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_reversi.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_reversi.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h">
@@ -89,9 +105,6 @@
       <Filter>Reversi\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cell.h">
-      <Filter>Reversi\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="reversi.h">
       <Filter>Reversi\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="stone.h">
@@ -110,6 +123,9 @@
     </CustomBuild>
     <CustomBuild Include="mainwindow.h">
       <Filter>Qt</Filter>
+    </CustomBuild>
+    <CustomBuild Include="reversi.h">
+      <Filter>Reversi\Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

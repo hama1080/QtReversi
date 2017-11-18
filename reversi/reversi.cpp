@@ -34,7 +34,8 @@ void Reversi::Initialize()
 
 void Reversi::leftClickSlot(Vec2d click_pos)
 {
-	cout << "left click slot" << endl;
+	PostProcess(click_pos);
+	return;
 }
 
 //call before player input

@@ -40,8 +40,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
-	static bool tmpflag = false;
-
 	if (event->button() == Qt::LeftButton) {
 		int x = event->x() - top_left_.first;
 		int y = event->y() - top_left_.second;
@@ -51,14 +49,9 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 		put_pos.first += 1;
 		put_pos.second += 1;
 
-		/////  tmp
-		tmpflag ? reversi_->GetBoardPtr()->PutStone(put_pos, STONE_COLOR::BLACK) : reversi_->GetBoardPtr()->PutStone(put_pos, STONE_COLOR::WHITE);
-		tmpflag = !tmpflag;
-		this->repaint();
-		/////
-
 //		if(Reversi::GetWaitingFlag())
 		emit leftClickSignal(put_pos);
+		this->repaint();
 	}
 }
 

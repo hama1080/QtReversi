@@ -1,6 +1,7 @@
 ﻿#ifndef BOARD_H
 #define BOARD_H
 
+#include <vector>
 #include <map>
 #include "stone.h"
 #include "common.h"
@@ -14,6 +15,7 @@ private:
 	const Vec2d board_size_;
 	map<Vec2d, Cell> board_;
 	map<STONE_COLOR, unsigned int> stone_cnt_; // Express the number of each stone.
+	map<Vec2d, vector<Vec2d>> SearchPossiblePutPos(STONE_COLOR player_color);
 
 public:
     Board(unsigned int size_x = 8, unsigned int size_y = 8);

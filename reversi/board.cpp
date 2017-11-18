@@ -1,6 +1,11 @@
 ﻿#include "board.h"
 #include "cell.h"
 
+map<Vec2d, vector<Vec2d>> Board::SearchPossiblePutPos(STONE_COLOR player_color)
+{
+	return map<Vec2d, vector<Vec2d>>();
+}
+
 Board::Board(unsigned int size_x, unsigned int size_y)
 :board_size_(size_x, size_y)
 {

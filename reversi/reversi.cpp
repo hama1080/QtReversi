@@ -5,6 +5,7 @@
 
 using namespace std;
 
+const vector<Vec2d> kDirectionList{ UpperLeft, Upper, UpperRight, CenterLeft, CenterRight, LowerLeft, Lower, LowerRight};
 bool Reversi::waiting_human_input = false;
 
 Reversi::Reversi()

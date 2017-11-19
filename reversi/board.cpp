@@ -3,6 +3,16 @@
 
 map<Vec2d, vector<Vec2d>> Board::SearchPossiblePutPos(STONE_COLOR player_color)
 {
+	//search empty cell
+	vector<Vec2d> empty_cell_list;
+	for (unsigned int x = 0; x != board_size_.first + 2; x++){
+		for (unsigned int y = 0; y != board_size_.second + 2; y++){
+			Vec2d pos(x, y);
+			if (board_[pos].GetCellState() == CELL_STATE::EMPTY)
+				empty_cell_list.push_back(pos);
+		}
+	}
+
 	return map<Vec2d, vector<Vec2d>>();
 }
 

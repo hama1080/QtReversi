@@ -30,6 +30,7 @@ void Reversi::Initialize()
 	(*(player_list_.end() - 1))->SetNextPlayer(*player_list_.begin());
 
 	now_player_ = *player_list_.begin();
+	PreProcess();
 }
 
 void Reversi::leftClickSlot(Vec2d click_pos)
@@ -51,6 +52,7 @@ void Reversi::PostProcess(Vec2d put_pos)
 	// put & reverse
 	board_->PutStone(put_pos, now_player_->GetPlayerColor());
 	now_player_ = now_player_->GetNextPlayer();
+	PreProcess();
 	return;
 }
 

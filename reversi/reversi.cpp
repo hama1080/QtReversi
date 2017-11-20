@@ -32,6 +32,7 @@ void Reversi::Initialize()
 
 	now_player_ = *player_list_.begin();
 	PreProcess();
+	board_->SearchPossiblePutPos(now_player_->GetPlayerColor());
 }
 
 void Reversi::leftClickSlot(Vec2d click_pos)

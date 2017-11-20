@@ -1,9 +1,11 @@
 ﻿#include "board.h"
 #include "cell.h"
+#include <iostream>
+using namespace std;
 
 map<Vec2d, vector<Vec2d>> Board::SearchPossiblePutPos(STONE_COLOR player_color)
 {
-	//search empty cell
+	// search empty cell
 	vector<Vec2d> empty_cell_list;
 	for (unsigned int x = 0; x != board_size_.first + 2; x++){
 		for (unsigned int y = 0; y != board_size_.second + 2; y++){
@@ -11,6 +13,40 @@ map<Vec2d, vector<Vec2d>> Board::SearchPossiblePutPos(STONE_COLOR player_color)
 			if (board_[pos].GetCellState() == CELL_STATE::EMPTY)
 				empty_cell_list.push_back(pos);
 		}
+	}
+
+	// check player_stone can put on empty cell
+	for (auto empty_cell : empty_cell_list)
+	{
+		//cout << "empty cell: " << empty_cell.first << ", " << empty_cell.second << endl;
+		for (auto dir : kDirectionList)
+		{
+			Vec2d dir_pos(empty_cell.first + dir.first, empty_cell.second + dir.second);
+			if (board_[dir_pos].GetCellState() == CELL_STATE::EMPTY ||
+				board_[dir_pos].GetCellState() == CELL_STATE::AROUND)
+				continue;
+
+			//cout << "pos: " << pos.first << ", " << pos.second << endl;
+			if (board_[dir_pos].GetStoneColor() != player_color)
+			{
+				for (unsigned int tmp = 2; tmp != 10; tmp++)
+				{
+					Vec2d check_pos(empty_cell.first + dir.first * tmp, empty_cell.second + dir.second * tmp);
+					//cout << "check_pos: " << check_pos.first << ", " << check_pos.second << endl;
+					if (board_[check_pos].GetCellState() == CELL_STATE::EMPTY ||
+						board_[check_pos].GetCellState() == CELL_STATE::AROUND)
+						break;
+
+					if (board_[check_pos].GetStoneColor() == player_color)
+					{
+						cout << "posiible_pos: " << empty_cell.first << ", " << empty_cell.second << endl;
+						break;
+					}
+				}
+			}
+
+		}
+
 	}
 
 	return map<Vec2d, vector<Vec2d>>();

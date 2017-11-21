@@ -111,3 +111,18 @@ void Board::PutStone(Vec2d pos, STONE_COLOR color)
 	board_[pos].SetStone(color);
 	return;
 }
+
+void Board::PreProcess(STONE_COLOR player_color)
+{
+	possible_pos_map_ = SearchPossiblePutPos(player_color);
+}
+
+void Board::PostProcess(STONE_COLOR player_color, Vec2d put_pos)
+{
+	PutStone(put_pos, player_color);
+	vector<Vec2d> reverse_pos_list = possible_pos_map_[put_pos];
+	for(auto pos: reverse_pos_list)
+		PutStone(pos, player_color);
+}
+
+

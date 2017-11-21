@@ -32,7 +32,6 @@ void Reversi::Initialize()
 
 	now_player_ = *player_list_.begin();
 	PreProcess();
-	board_->SearchPossiblePutPos(now_player_->GetPlayerColor());
 }
 
 void Reversi::leftClickSlot(Vec2d click_pos)
@@ -44,6 +43,7 @@ void Reversi::leftClickSlot(Vec2d click_pos)
 //call before player input
 void Reversi::PreProcess()
 {
+	board_->PreProcess(now_player_->GetPlayerColor());
 	now_player_->AskPutStonePosition();	// Ask player about put position
 	return;
 }
@@ -52,7 +52,8 @@ void Reversi::PreProcess()
 void Reversi::PostProcess(Vec2d put_pos)
 {
 	// put & reverse
-	board_->PutStone(put_pos, now_player_->GetPlayerColor());
+	board_->PostProcess(now_player_->GetPlayerColor(), put_pos);
+
 	now_player_ = now_player_->GetNextPlayer();
 	PreProcess();
 	return;

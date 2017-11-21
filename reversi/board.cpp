@@ -29,9 +29,9 @@ map<Vec2d, vector<Vec2d>> Board::SearchPossiblePutPos(STONE_COLOR player_color)
 			//cout << "pos: " << pos.first << ", " << pos.second << endl;
 			if (board_[dir_pos].GetStoneColor() != player_color)
 			{
-				for (unsigned int tmp = 2; tmp != 10; tmp++)
+				for (unsigned int distance = 2; ; distance++)
 				{
-					Vec2d check_pos(empty_cell.first + dir.first * tmp, empty_cell.second + dir.second * tmp);
+					Vec2d check_pos(empty_cell.first + dir.first * distance, empty_cell.second + dir.second * distance);
 					//cout << "check_pos: " << check_pos.first << ", " << check_pos.second << endl;
 					if (board_[check_pos].GetCellState() == CELL_STATE::EMPTY ||
 						board_[check_pos].GetCellState() == CELL_STATE::AROUND)

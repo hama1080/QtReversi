@@ -21,7 +21,6 @@ map<Vec2d, vector<Vec2d>> Board::SearchPossiblePutPos(STONE_COLOR player_color)
 	// check player_stone can put on empty cell
 	for (auto empty_cell : empty_cell_list)
 	{
-		//cout << "empty cell: " << empty_cell.first << ", " << empty_cell.second << endl;
 		vector<Vec2d> all_reverse_pos_list;
 
 		for (auto dir : kDirectionList)
@@ -31,30 +30,33 @@ map<Vec2d, vector<Vec2d>> Board::SearchPossiblePutPos(STONE_COLOR player_color)
 				board_[dir_pos].GetCellState() == CELL_STATE::AROUND)
 				continue;
 
-			//cout << "pos: " << pos.first << ", " << pos.second << endl;
 			if (board_[dir_pos].GetStoneColor() != player_color)
 			{
 				vector<Vec2d> reverse_pos_list;
 				reverse_pos_list.push_back(dir_pos);
 				for (unsigned int distance = 2; ; distance++)
 				{
-					Vec2d check_pos(empty_cell.first + dir.first * distance, empty_cell.second + dir.second * distance);
-					//cout << "check_pos: " << check_pos.first << ", " << check_pos.second << endl;
+					Vec2d check_pos(
+						empty_cell.first + dir.first * distance,
+						empty_cell.second + dir.second * distance);
+
 					if (board_[check_pos].GetCellState() == CELL_STATE::EMPTY ||
 						board_[check_pos].GetCellState() == CELL_STATE::AROUND)
 						break;
 
 					if (board_[check_pos].GetStoneColor() == player_color)
-					{
-						//cout << "posiible_pos: " << empty_cell.first << ", " << empty_cell.second << endl;
-						std::copy(reverse_pos_list.begin(), reverse_pos_list.end(), std::back_inserter(all_reverse_pos_list));
+					{						
+						// Possible. Add reverse pos of this direction to all_reverse_pos_list
+						std::copy(reverse_pos_list.begin(), reverse_pos_list.end(),
+							std::back_inserter(all_reverse_pos_list));
 						break;
 					}
-					reverse_pos_list.push_back(check_pos);
+					reverse_pos_list.push_back(check_pos);	// there is enemy stone on check_pos.
 				}
 			}
 		}
 
+		// if the player can put stone on the position of empty_cell, memorize it position and reverse stone position.
 		if (all_reverse_pos_list.size() != 0) {
 			put_reverse_map[empty_cell] = all_reverse_pos_list;
 

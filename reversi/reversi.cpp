@@ -19,7 +19,7 @@ Reversi::~Reversi()
 
 }
 
-bool Reversi::JudgeGameEnd()
+bool Reversi::JudgeGameFinished()
 {
 	map<STONE_COLOR, unsigned int> stone_cnt = board_->GetStoneCnt();
 
@@ -70,7 +70,7 @@ void Reversi::PostProcess(Vec2d put_pos)
 	// put & reverse
 	bool success = board_->PostProcess(now_player_->GetPlayerColor(), put_pos);
 	if(success){
-		JudgeGameEnd();
+		JudgeGameFinished();
 		now_player_ = now_player_->GetNextPlayer();
 		PreProcess();
 	}

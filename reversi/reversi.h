@@ -19,7 +19,7 @@ private:
 	vector<Player*> player_list_;
 	Player* now_player_;
 
-	bool JudgeGameEnd();
+	bool JudgeGameFinished();
 
 public:
 	Reversi();

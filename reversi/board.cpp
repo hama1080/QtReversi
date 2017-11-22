@@ -57,14 +57,8 @@ map<Vec2d, vector<Vec2d>> Board::SearchPossiblePutPos(STONE_COLOR player_color)
 		}
 
 		// if the player can put stone on the position of empty_cell, memorize it position and reverse stone position.
-		if (all_reverse_pos_list.size() != 0) {
+		if (all_reverse_pos_list.size() != 0) 
 			put_reverse_map[empty_cell] = all_reverse_pos_list;
-
-			//test
-			cout << "posiible_pos: " << empty_cell.first << ", " << empty_cell.second << endl;
-			for (auto cell : all_reverse_pos_list)
-				cout << "reverse pos: " << cell.first << ", " << cell.second << endl;
-		}
 	}
 	return put_reverse_map;
 }

@@ -52,10 +52,14 @@ void Reversi::PreProcess()
 void Reversi::PostProcess(Vec2d put_pos)
 {
 	// put & reverse
-	board_->PostProcess(now_player_->GetPlayerColor(), put_pos);
-
-	now_player_ = now_player_->GetNextPlayer();
-	PreProcess();
+	bool success = board_->PostProcess(now_player_->GetPlayerColor(), put_pos);
+	if(success){
+		now_player_ = now_player_->GetNextPlayer();
+		PreProcess();
+	}
+	else {
+		PreProcess();
+	}
 	return;
 }
 

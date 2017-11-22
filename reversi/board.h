@@ -29,7 +29,7 @@ public:
 	void PutStone(Vec2d pos, STONE_COLOR color);
 
 	void PreProcess(STONE_COLOR player_color);
-	void PostProcess(STONE_COLOR player_color, Vec2d put_pos);
+	bool PostProcess(STONE_COLOR player_color, Vec2d put_pos);
 };
 
 #endif // BOARD_H

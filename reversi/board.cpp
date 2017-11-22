@@ -117,12 +117,19 @@ void Board::PreProcess(STONE_COLOR player_color)
 	possible_pos_map_ = SearchPossiblePutPos(player_color);
 }
 
-void Board::PostProcess(STONE_COLOR player_color, Vec2d put_pos)
+// PostProcess success -> return true
+bool Board::PostProcess(STONE_COLOR player_color, Vec2d put_pos)
 {
-	PutStone(put_pos, player_color);
-	vector<Vec2d> reverse_pos_list = possible_pos_map_[put_pos];
-	for(auto pos: reverse_pos_list)
-		PutStone(pos, player_color);
+	if(possible_pos_map_.count(put_pos) != 0)
+	{
+		PutStone(put_pos, player_color);
+		vector<Vec2d> reverse_pos_list = possible_pos_map_[put_pos];
+		for(auto pos: reverse_pos_list)
+			PutStone(pos, player_color);
+		return true;
+	}
+
+	return false;
 }
 
 

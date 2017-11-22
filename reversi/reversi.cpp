@@ -19,6 +19,10 @@ Reversi::~Reversi()
 
 }
 
+void Reversi::JudgeGameEnd()
+{
+}
+
 void Reversi::Initialize()
 {
 	board_ = new Board();
@@ -54,6 +58,7 @@ void Reversi::PostProcess(Vec2d put_pos)
 	// put & reverse
 	bool success = board_->PostProcess(now_player_->GetPlayerColor(), put_pos);
 	if(success){
+		JudgeGameEnd();
 		now_player_ = now_player_->GetNextPlayer();
 		PreProcess();
 	}

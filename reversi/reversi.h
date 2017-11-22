@@ -19,6 +19,8 @@ private:
 	vector<Player*> player_list_;
 	Player* now_player_;
 
+	void JudgeGameEnd();
+
 public:
 	Reversi();
 	~Reversi();

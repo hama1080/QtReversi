@@ -102,8 +102,29 @@ Cell Board::GetCell(Vec2d pos)
 
 void Board::PutStone(Vec2d pos, STONE_COLOR color)
 {
+	switch (board_[pos].GetCellState())
+	{
+	case CELL_STATE::AROUND:
+		//error
+		return;
+
+	case CELL_STATE::EMPTY:
+		stone_cnt_[color]++;
+		break;
+
+	case CELL_STATE::STONE:
+		stone_cnt_[board_[pos].GetStoneColor()]--;
+		stone_cnt_[color]++;
+		break;
+	}
+	
 	board_[pos].SetStone(color);
 	return;
+}
+
+map<STONE_COLOR, unsigned int> Board::GetStoneCnt()
+{
+	return stone_cnt_;
 }
 
 void Board::PreProcess(STONE_COLOR player_color)

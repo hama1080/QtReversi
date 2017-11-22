@@ -27,6 +27,7 @@ public:
 	Cell GetCell(Vec2d pos);
 
 	void PutStone(Vec2d pos, STONE_COLOR color);
+	map<STONE_COLOR, unsigned int> GetStoneCnt();
 
 	void PreProcess(STONE_COLOR player_color);
 	bool PostProcess(STONE_COLOR player_color, Vec2d put_pos);

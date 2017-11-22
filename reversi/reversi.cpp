@@ -21,6 +21,8 @@ Reversi::~Reversi()
 
 void Reversi::JudgeGameEnd()
 {
+	map<STONE_COLOR, unsigned int> stone_cnt = board_->GetStoneCnt();
+	cout << "black: " << stone_cnt[STONE_COLOR::BLACK] << ", white: " << stone_cnt[STONE_COLOR::WHITE] << endl;
 }
 
 void Reversi::Initialize()

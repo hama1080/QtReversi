@@ -83,10 +83,10 @@ Board::Board(unsigned int size_x, unsigned int size_y)
 	unsigned int x1 = size_x / 2 + 1;
 	unsigned int y0 = size_y / 2;
 	unsigned int y1 = size_y / 2 + 1;
-	board_[Vec2d(x0, y0)].SetStone(STONE_COLOR::WHITE);
-	board_[Vec2d(x0, y1)].SetStone(STONE_COLOR::BLACK);
-	board_[Vec2d(x1, y0)].SetStone(STONE_COLOR::BLACK);
-	board_[Vec2d(x1, y1)].SetStone(STONE_COLOR::WHITE);
+	PutStone(Vec2d(x0, y0), STONE_COLOR::WHITE);
+	PutStone(Vec2d(x0, y1), STONE_COLOR::BLACK);
+	PutStone(Vec2d(x1, y0), STONE_COLOR::BLACK);
+	PutStone(Vec2d(x1, y1), STONE_COLOR::WHITE);
 
 }
 

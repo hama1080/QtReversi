@@ -19,10 +19,20 @@ Reversi::~Reversi()
 
 }
 
-void Reversi::JudgeGameEnd()
+bool Reversi::JudgeGameEnd()
 {
 	map<STONE_COLOR, unsigned int> stone_cnt = board_->GetStoneCnt();
+
 	cout << "black: " << stone_cnt[STONE_COLOR::BLACK] << ", white: " << stone_cnt[STONE_COLOR::WHITE] << endl;
+	unsigned int total_stone = stone_cnt[STONE_COLOR::BLACK] + stone_cnt[STONE_COLOR::WHITE];
+	Vec2d board_size = board_->GetBoardSize();
+	if (total_stone == board_size.first * board_size.second)
+	{
+		cout << "game finished" << endl;
+		return true;
+	}
+
+	return false;
 }
 
 void Reversi::Initialize()

@@ -64,8 +64,12 @@ void Reversi::leftClickSlot(Vec2d click_pos)
 void Reversi::PreProcess()
 {
 	board_->PreProcess(now_player_->GetPlayerColor());
-	now_player_->AskPutStonePosition();	// Ask player about put position
-	return;
+	bool wait_input = now_player_->AskPutStonePosition();	// Ask player about put position
+
+	if (wait_input)
+		return;
+	//else
+		//PostProcess(put_pos);
 }
 
 // call after player input

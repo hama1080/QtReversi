@@ -5,7 +5,7 @@ Computer::Computer(STONE_COLOR color)
 {
 }
 
-void Computer::AskPutStonePosition()
+bool Computer::AskPutStonePosition()
 {
-	return;
+	return false;
 }

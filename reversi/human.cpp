@@ -6,8 +6,8 @@ Human::Human(STONE_COLOR color)
 {
 }
 
-void Human::AskPutStonePosition()
+bool Human::AskPutStonePosition()
 {
 	Reversi::SetWaitingFlag(true);
-	return;
+	return true;
 }

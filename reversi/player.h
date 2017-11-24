@@ -18,7 +18,7 @@ public:
 	Player* GetNextPlayer();
 
 	STONE_COLOR GetPlayerColor();
-	virtual void AskPutStonePosition() = 0;
+	virtual bool AskPutStonePosition() = 0;
 };
 
 #endif // PLAYER_H

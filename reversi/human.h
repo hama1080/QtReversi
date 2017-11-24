@@ -7,5 +7,5 @@ class Human : public Player
 private:
 public:
 	Human(STONE_COLOR color);
-	virtual void AskPutStonePosition();
+	virtual bool AskPutStonePosition();
 };

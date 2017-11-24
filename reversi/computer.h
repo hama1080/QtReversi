@@ -6,5 +6,5 @@ class Computer : public Player
 private:
 public:
 	Computer(STONE_COLOR color);
-	virtual bool AskPutStonePosition();
+	virtual bool AskPutStonePosition(Vec2d& put_pos);
 };

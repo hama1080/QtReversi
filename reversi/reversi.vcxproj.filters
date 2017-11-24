@@ -90,6 +90,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_reversi.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="computer.cpp">
+      <Filter>Reversi\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h">
@@ -112,6 +115,9 @@
     </ClInclude>
     <ClInclude Include="common.h">
       <Filter>Reversi\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="computer.h">
+      <Filter>Reversi\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

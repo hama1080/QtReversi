@@ -19,11 +19,9 @@ Reversi::~Reversi()
 
 }
 
-bool Reversi::JudgeGameFinished()
+JudgeResult Reversi::JudgeGameFinished()
 {
 	map<STONE_COLOR, unsigned int> stone_cnt = board_->GetStoneCnt();
-
-	cout << "black: " << stone_cnt[STONE_COLOR::BLACK] << ", white: " << stone_cnt[STONE_COLOR::WHITE] << endl;
 	unsigned int black_cnt = stone_cnt[STONE_COLOR::BLACK];
 	unsigned int white_cnt = stone_cnt[STONE_COLOR::WHITE];
 	unsigned int total_stone = black_cnt + white_cnt;
@@ -31,16 +29,14 @@ bool Reversi::JudgeGameFinished()
 	if (total_stone == board_size.first * board_size.second)
 	{
 		if (black_cnt > white_cnt)
-			cout << "black win" << endl;
+			return JudgeResult::BlackWin;
 		else if (black_cnt < white_cnt)
-			cout << "white win" << endl;
+			return JudgeResult::WhiteWin;
 		else
-			cout << "black = white" << endl;
-		cout << "game finished" << endl;
-		return true;
+			return JudgeResult::Draw;
 	}
 
-	return false;
+	return JudgeResult::NotFinished;
 }
 
 void Reversi::Initialize()

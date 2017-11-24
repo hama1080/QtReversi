@@ -6,6 +6,14 @@
 
 using namespace std;
 
+enum class JudgeResult
+{
+	NotFinished,
+	BlackWin,
+	WhiteWin,
+	Draw,
+};
+
 class Board;
 class Player;
 
@@ -19,7 +27,7 @@ private:
 	vector<Player*> player_list_;
 	Player* now_player_;
 
-	bool JudgeGameFinished();
+	JudgeResult JudgeGameFinished();
 
 public:
 	Reversi();

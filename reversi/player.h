@@ -4,6 +4,7 @@
 #include "stone.h"
 #include "common.h"
 
+class Board;
 class Player
 {
 private:
@@ -18,7 +19,7 @@ public:
 	Player* GetNextPlayer();
 
 	STONE_COLOR GetPlayerColor();
-	virtual bool AskPutStonePosition(Vec2d& put_pos) = 0;
+	virtual bool AskPutStonePosition(Vec2d& put_pos, Board* board) = 0;
 };
 
 #endif // PLAYER_H

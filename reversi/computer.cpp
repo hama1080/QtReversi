@@ -5,7 +5,7 @@ Computer::Computer(STONE_COLOR color)
 {
 }
 
-bool Computer::AskPutStonePosition(Vec2d& put_pos)
+bool Computer::AskPutStonePosition(Vec2d& put_pos, Board* board)
 {
 	// set put_pos
 	put_pos.first = 4;

@@ -6,7 +6,7 @@ Human::Human(STONE_COLOR color)
 {
 }
 
-bool Human::AskPutStonePosition(Vec2d& put_pos)
+bool Human::AskPutStonePosition(Vec2d& put_pos, Board* board)
 {
 	// not use put_pos
 	Reversi::SetWaitingFlag(true);

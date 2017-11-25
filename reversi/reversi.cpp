@@ -66,7 +66,7 @@ void Reversi::PreProcess()
 {
 	board_->PreProcess(now_player_->GetPlayerColor());
 	Vec2d put_pos;
-	bool wait_input = now_player_->AskPutStonePosition(put_pos);	// Ask player about put position
+	bool wait_input = now_player_->AskPutStonePosition(put_pos, board_);	// Ask player about put position
 
 	if (wait_input)
 		return;

@@ -127,6 +127,11 @@ map<STONE_COLOR, unsigned int> Board::GetStoneCnt()
 	return stone_cnt_;
 }
 
+map<Vec2d, vector<Vec2d>> Board::GetPossiblePutPos()
+{
+	return possible_pos_map_;
+}
+
 void Board::PreProcess(STONE_COLOR player_color)
 {
 	possible_pos_map_ = SearchPossiblePutPos(player_color);
@@ -135,7 +140,7 @@ void Board::PreProcess(STONE_COLOR player_color)
 // PostProcess success -> return true
 bool Board::PostProcess(STONE_COLOR player_color, Vec2d put_pos)
 {
-	if(possible_pos_map_.count(put_pos) != 0)
+	if(possible_pos_map_.count(put_pos) != 0)	//is put_pos available position?
 	{
 		PutStone(put_pos, player_color);
 		vector<Vec2d> reverse_pos_list = possible_pos_map_[put_pos];

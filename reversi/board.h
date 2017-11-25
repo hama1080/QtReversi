@@ -28,6 +28,7 @@ public:
 
 	void PutStone(Vec2d pos, STONE_COLOR color);
 	map<STONE_COLOR, unsigned int> GetStoneCnt();
+	map<Vec2d, vector<Vec2d>> GetPossiblePutPos();
 
 	void PreProcess(STONE_COLOR player_color);
 	bool PostProcess(STONE_COLOR player_color, Vec2d put_pos);

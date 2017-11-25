@@ -1,6 +1,7 @@
 ﻿#include "reversi.h"
 #include "board.h"
 #include "human.h"
+#include "computer.h"
 #include <iostream>
 
 using namespace std;
@@ -42,7 +43,7 @@ JudgeResult Reversi::JudgeGameFinished()
 void Reversi::Initialize()
 {
 	board_ = new Board();
-	player_list_.push_back(new Human(STONE_COLOR::BLACK));
+	player_list_.push_back(new Computer(STONE_COLOR::BLACK));
 	player_list_.push_back(new Human(STONE_COLOR::WHITE));
 
 	// create player loop: black->white->black->white->...

@@ -132,9 +132,13 @@ map<Vec2d, vector<Vec2d>> Board::GetPossiblePutPos()
 	return possible_pos_map_;
 }
 
-void Board::PreProcess(STONE_COLOR player_color)
+PreProcessState Board::PreProcess(STONE_COLOR player_color)
 {
 	possible_pos_map_ = SearchPossiblePutPos(player_color);
+	if (possible_pos_map_.size() == 0)
+		return PreProcessState::Pass;
+
+	return PreProcessState::CanPut;
 }
 
 // PostProcess success -> return true

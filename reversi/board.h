@@ -7,6 +7,12 @@
 #include "common.h"
 using namespace std;
 
+enum class PreProcessState
+{
+	CanPut,
+	Pass,
+};
+
 class Cell;
 
 class Board
@@ -30,7 +36,7 @@ public:
 	map<STONE_COLOR, unsigned int> GetStoneCnt();
 	map<Vec2d, vector<Vec2d>> GetPossiblePutPos();
 
-	void PreProcess(STONE_COLOR player_color);
+	PreProcessState PreProcess(STONE_COLOR player_color);
 	bool PostProcess(STONE_COLOR player_color, Vec2d put_pos);
 };
 

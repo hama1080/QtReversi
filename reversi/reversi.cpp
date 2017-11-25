@@ -64,7 +64,14 @@ void Reversi::leftClickSlot(Vec2d click_pos)
 //call before player input
 void Reversi::PreProcess()
 {
-	board_->PreProcess(now_player_->GetPlayerColor());
+	PreProcessState state = board_->PreProcess(now_player_->GetPlayerColor());
+
+	if(state == PreProcessState::Pass)
+	{
+		cout << "pass" << endl;
+		// process pass
+	}
+
 	Vec2d put_pos;
 	bool wait_input = now_player_->AskPutStonePosition(put_pos, board_);	// Ask player about put position
 

@@ -52,7 +52,6 @@ void Reversi::Initialize()
 	(*(player_list_.end() - 1))->SetNextPlayer(*player_list_.begin());
 
 	now_player_ = *player_list_.begin();
-	PreProcess();
 }
 
 void Reversi::leftClickSlot(Vec2d click_pos)
@@ -89,11 +88,8 @@ void Reversi::PostProcess(Vec2d put_pos)
 	if(success){
 		JudgeGameFinished();
 		now_player_ = now_player_->GetNextPlayer();
-		PreProcess();
 	}
-	else {
-		PreProcess();
-	}
+	emit finishedPostProcessSignal();	// call PreProcess after this signal is emitted
 	return;
 }
 
@@ -111,4 +107,9 @@ void Reversi::SetWaitingFlag(bool flag)
 bool Reversi::GetWaitingFlag()
 {
 	return waiting_human_input;
+}
+
+void Reversi::finishedPostProcessSlot()
+{
+	PreProcess();
 }

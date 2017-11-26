@@ -13,6 +13,10 @@ int main(int argc, char *argv[])
 
 	QObject::connect(&w, SIGNAL(leftClickSignal(pair<unsigned int, unsigned int>)),
 		w.reversi_, SLOT(leftClickSlot(pair<unsigned int, unsigned int>)));
+	QObject::connect(w.reversi_, SIGNAL(finishedPostProcessSignal()),
+		w.reversi_, SLOT(finishedPostProcessSlot()));
+
+	w.reversi_->PreProcess();
 
     return a.exec();
 }

@@ -41,7 +41,9 @@ public:
 	static void SetWaitingFlag(bool flag);
 	static bool GetWaitingFlag();
 
+signals:
+	void finishedPostProcessSignal();
 public slots:
 	void leftClickSlot(Vec2d click_pos);
-
+	void finishedPostProcessSlot();
 };

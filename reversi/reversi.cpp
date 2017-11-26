@@ -86,8 +86,14 @@ void Reversi::PostProcess(Vec2d put_pos)
 	// put & reverse
 	bool success = board_->PostProcess(now_player_->GetPlayerColor(), put_pos);
 	if(success){
-		JudgeGameFinished();
-		now_player_ = now_player_->GetNextPlayer();
+		JudgeResult result = JudgeGameFinished();
+		if(result == JudgeResult::NotFinished){
+			now_player_ = now_player_->GetNextPlayer();
+		}
+		else {
+			cout << "game end" << endl;
+			return;
+		}
 	}
 	emit finishedPostProcessSignal();	// call PreProcess after this signal is emitted
 	return;

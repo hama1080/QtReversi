@@ -27,3 +27,13 @@ STONE_COLOR Player::GetPlayerColor()
 {
 	return color_;
 }
+
+void Player::SetPassFlag(bool is_pass)
+{
+	is_pass_ = is_pass;
+}
+
+bool Player::IsPass()
+{
+	return is_pass_;
+}

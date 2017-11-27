@@ -68,8 +68,23 @@ void Reversi::PreProcess()
 	if(state == PreProcessState::Pass)
 	{
 		cout << "pass" << endl;
-		// process pass
+		
+		// skip the post process and change the player
+		now_player_->SetPassFlag(true);
+		now_player_ = now_player_->GetNextPlayer();
+
+		// pass loop->all player pass->game end
+		if (now_player_->IsPass())
+		{
+			cout << "game end" << endl;
+			return;
+		}
+
+		emit finishedPostProcessSignal();
+		return;
 	}
+
+	now_player_->SetPassFlag(false);
 
 	Vec2d put_pos;
 	bool wait_input = now_player_->AskPutStonePosition(put_pos, board_);	// Ask player about put position

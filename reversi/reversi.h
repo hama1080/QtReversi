@@ -27,8 +27,7 @@ private:
 	vector<Player*> player_list_;
 	Player* now_player_;
 
-	JudgeResult JudgeGame(unsigned int black_cnt, unsigned int white_cnt);
-	JudgeResult JudgeGameFinished();
+	JudgeResult JudgeGame();
 
 public:
 	Reversi();

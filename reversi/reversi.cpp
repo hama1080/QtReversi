@@ -3,6 +3,7 @@
 #include "human.h"
 #include "computer.h"
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -20,28 +21,32 @@ Reversi::~Reversi()
 
 }
 
-JudgeResult JudgeGame(unsigned int black_cnt, unsigned int white_cnt)
-{
-	if (black_cnt > white_cnt)
-		return JudgeResult::BlackWin;
-	else if (black_cnt < white_cnt)
-		return JudgeResult::WhiteWin;
-	else
-		return JudgeResult::Draw;
-}
-
-JudgeResult Reversi::JudgeGameFinished()
+JudgeResult Reversi::JudgeGame()
 {
 	map<STONE_COLOR, unsigned int> stone_cnt = board_->GetStoneCnt();
-	unsigned int black_cnt = stone_cnt[STONE_COLOR::BLACK];
-	unsigned int white_cnt = stone_cnt[STONE_COLOR::WHITE];
-	unsigned int total_stone = black_cnt + white_cnt;
-	Vec2d board_size = board_->GetBoardSize();
 
-	if (total_stone == board_size.first * board_size.second)
-		return JudgeGame(black_cnt, white_cnt);
+	STONE_COLOR max_color = STONE_COLOR::BLACK;
+	unsigned int max_cnt = 0;
+	unsigned int change_cnt = 0;
+	for (auto i : stone_cnt) {
+		if (i.second >= max_cnt)
+		{
+			max_color = i.first;
+			max_cnt = i.second;
+			change_cnt++;
+		}
+	}
 
-	return JudgeResult::NotFinished;
+	if (change_cnt == stone_cnt.size())
+		return JudgeResult::Draw;
+
+	switch (max_color)
+	{
+	case STONE_COLOR::BLACK:
+		return JudgeResult::BlackWin;
+	case STONE_COLOR::WHITE:
+		return JudgeResult::WhiteWin;
+	}
 }
 
 void Reversi::Initialize()
@@ -80,12 +85,9 @@ void Reversi::PreProcess()
 		// pass loop->all player pass->game end
 		if (now_player_->IsPass())
 		{
-			map<STONE_COLOR, unsigned int> stone_cnt = board_->GetStoneCnt();
-			unsigned int black_cnt = stone_cnt[STONE_COLOR::BLACK];
-			unsigned int white_cnt = stone_cnt[STONE_COLOR::WHITE];
-			JudgeResult result = JudgeGame(black_cnt, white_cnt);
+			JudgeResult result = JudgeGame();
 
-			cout << "game end" << endl;
+			cout << "game end1" << endl;
 			return;
 		}
 
@@ -110,13 +112,20 @@ void Reversi::PostProcess(Vec2d put_pos)
 	// put & reverse
 	bool success = board_->PostProcess(now_player_->GetPlayerColor(), put_pos);
 	if(success){
-		JudgeResult result = JudgeGameFinished();
-		if(result == JudgeResult::NotFinished){
-			now_player_ = now_player_->GetNextPlayer();
+		Vec2d board_size = board_->GetBoardSize();
+		map<STONE_COLOR, unsigned int> stone_cnt_map = board_->GetStoneCnt();
+		
+		unsigned int total_stone = 0;
+		for (auto stone_cnt : stone_cnt_map)
+			total_stone += stone_cnt.second;
+
+		if (total_stone == board_size.first * board_size.second){
+			JudgeResult result = JudgeGame();
+			cout << "game end2" << endl;
+			return;
 		}
 		else {
-			cout << "game end" << endl;
-			return;
+			now_player_ = now_player_->GetNextPlayer();
 		}
 	}
 	emit finishedPostProcessSignal();	// call PreProcess after this signal is emitted

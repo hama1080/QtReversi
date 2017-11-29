@@ -8,7 +8,6 @@ using namespace std;
 
 enum class JudgeResult
 {
-	NotFinished,
 	BlackWin,
 	WhiteWin,
 	Draw,

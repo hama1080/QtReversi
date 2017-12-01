@@ -35,6 +35,7 @@ public:
 	void Initialize();
 	void PreProcess();
 	void PostProcess(Vec2d put_pos);
+	void ShowJudgeResult(JudgeResult result);
 
 	Board* GetBoardPtr();
 	static void SetWaitingFlag(bool flag);

@@ -86,8 +86,7 @@ void Reversi::PreProcess()
 		if (now_player_->IsPass())
 		{
 			JudgeResult result = JudgeGame();
-
-			cout << "game end1" << endl;
+			ShowJudgeResult(result);
 			return;
 		}
 
@@ -121,7 +120,7 @@ void Reversi::PostProcess(Vec2d put_pos)
 
 		if (total_stone == board_size.first * board_size.second){
 			JudgeResult result = JudgeGame();
-			cout << "game end2" << endl;
+			ShowJudgeResult(result);
 			return;
 		}
 		else {
@@ -130,6 +129,22 @@ void Reversi::PostProcess(Vec2d put_pos)
 	}
 	emit finishedPostProcessSignal();	// call PreProcess after this signal is emitted
 	return;
+}
+
+void Reversi::ShowJudgeResult(JudgeResult result)
+{
+	switch (result)
+	{
+	case JudgeResult::BlackWin:
+		cout << "BlackWin" << endl;
+		break;
+	case JudgeResult::WhiteWin:
+		cout << "WhiteWin" << endl;
+		break;
+	case JudgeResult::Draw:
+		cout << "Draw" << endl;
+		break;
+	}
 }
 
 Board* Reversi::GetBoardPtr()

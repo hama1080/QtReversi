@@ -3,6 +3,7 @@
 #include <qevent.h>
 #include <QGraphicsScene>
 #include <QGraphicsView>
+#include <QTimer>
 
 #include "cell.h"
 #include "board.h"
@@ -36,6 +37,17 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::finishedTimerSlot()
+{
+	emit nextPreProcessSignal();
+}
+
+void MainWindow::finishedPostProcessSlot()
+{
+	this->repaint();
+	QTimer::singleShot(1, this, SLOT(finishedTimerSlot()));
 }
 
 void MainWindow::mousePressEvent(QMouseEvent *event)

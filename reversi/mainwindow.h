@@ -24,8 +24,13 @@ public:
 	explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+public slots:
+	void finishedPostProcessSlot();
+	void finishedTimerSlot();
+
 signals:
 	void leftClickSignal(Vec2d click_pos);
+	void nextPreProcessSignal();
 
 protected:
 	void mousePressEvent(QMouseEvent *event);

@@ -44,6 +44,11 @@ void MainWindow::finishedTimerSlot()
 	emit nextPreProcessSignal();
 }
 
+void MainWindow::repaintSlot()
+{
+	this->repaint();
+}
+
 void MainWindow::finishedPostProcessSlot()
 {
 	this->repaint();

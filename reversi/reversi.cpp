@@ -87,6 +87,7 @@ void Reversi::PreProcess()
 		{
 			JudgeResult result = JudgeGame();
 			ShowJudgeResult(result);
+			emit repaintSignal();
 			return;
 		}
 
@@ -121,6 +122,7 @@ void Reversi::PostProcess(Vec2d put_pos)
 		if (total_stone == board_size.first * board_size.second){
 			JudgeResult result = JudgeGame();
 			ShowJudgeResult(result);
+			emit repaintSignal();
 			return;
 		}
 		else {

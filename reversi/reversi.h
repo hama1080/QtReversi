@@ -43,6 +43,8 @@ public:
 
 signals:
 	void finishedPostProcessSignal();
+	void repaintSignal();
+
 public slots:
 	void leftClickSlot(Vec2d click_pos);
 	void nextPreProcessSlot();

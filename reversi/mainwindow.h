@@ -27,6 +27,7 @@ public:
 public slots:
 	void finishedPostProcessSlot();
 	void finishedTimerSlot();
+	void repaintSlot();
 
 signals:
 	void leftClickSignal(Vec2d click_pos);

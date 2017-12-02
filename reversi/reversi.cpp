@@ -163,7 +163,7 @@ bool Reversi::GetWaitingFlag()
 	return waiting_human_input;
 }
 
-void Reversi::finishedPostProcessSlot()
+void Reversi::nextPreProcessSlot()
 {
 	PreProcess();
 }

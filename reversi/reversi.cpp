@@ -27,16 +27,19 @@ JudgeResult Reversi::JudgeGame()
 
 	STONE_COLOR max_color = STONE_COLOR::BLACK;
 	unsigned int max_cnt = 0;
-	unsigned int change_cnt = 0;
 	for (auto i : stone_cnt) {
 		if (i.second >= max_cnt)
 		{
 			max_color = i.first;
 			max_cnt = i.second;
-			change_cnt++;
 		}
 	}
 
+	unsigned int change_cnt = 0;
+	for (auto i : stone_cnt) {
+		if (i.second == max_cnt)
+			change_cnt++;
+	}
 	if (change_cnt == stone_cnt.size())
 		return JudgeResult::Draw;
 

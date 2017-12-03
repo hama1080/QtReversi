@@ -17,21 +17,13 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-	// should change depending on board size
-	const unsigned int kSceneWidth = kCellSize * 8;
-	const unsigned int kSceneHeight = kCellSize * 8;
-
     ui->setupUi(this);
 	this->resize(kWindowWidth, kWindowHeight);
 
-
-	scene_ = new QGraphicsScene(QRect(0, 0, kSceneWidth, kSceneHeight));
-	scene_->addRect(0, 0, kSceneWidth, kSceneHeight, QPen(Qt::black), QBrush(Qt::darkGreen));   //  [2]
+	scene_ = new QGraphicsScene(QRect(0, 0, kWindowWidth, kWindowHeight));
 	view_ = new QGraphicsView(scene_);
 	view_->setBackgroundBrush(QBrush(Qt::gray));
 	setCentralWidget(view_);
-
-	top_left_ = Vec2d((kWindowWidth - kSceneWidth) / 2, (kWindowHeight - kSceneHeight) / 2);
 }
 
 MainWindow::~MainWindow()
@@ -57,19 +49,22 @@ void MainWindow::finishedPostProcessSlot()
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
-	if (event->button() == Qt::LeftButton) {
-		int x = event->x() - top_left_.first;
-		int y = event->y() - top_left_.second;
-		Vec2d put_pos(x / kCellSize, y / kCellSize);
+//	top_left_ = Vec2d((kWindowWidth - kSceneWidth) / 2, (kWindowHeight - kSceneHeight) / 2);
 
-		// modify put position. ex: (0,0)->(1,1)
-		put_pos.first += 1;
-		put_pos.second += 1;
 
-		if(Reversi::GetWaitingFlag())
-			emit leftClickSignal(put_pos);
-		this->repaint();
-	}
+	//if (event->button() == Qt::LeftButton) {
+	//	int x = event->x() - top_left_.first;
+	//	int y = event->y() - top_left_.second;
+	//	Vec2d put_pos(x / kCellSize, y / kCellSize);
+
+	//	// modify put position. ex: (0,0)->(1,1)
+	//	put_pos.first += 1;
+	//	put_pos.second += 1;
+
+	//	if(Reversi::GetWaitingFlag())
+	//		emit leftClickSignal(put_pos);
+	//	this->repaint();
+	//}
 }
 
 void MainWindow::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR color)
@@ -136,6 +131,11 @@ void MainWindow::PaintOutline(pair<unsigned int, unsigned int> board_size)
 void MainWindow::PaintBoard(Board* board)
 {
 	Vec2d size = board->GetBoardSize();
+
+	// render board
+	const unsigned int kBoardWidth = kCellSize * 8;
+	const unsigned int kBoardHeight = kCellSize * 8;
+	scene_->addRect(0, 0, kBoardWidth, kBoardHeight, QPen(Qt::black), QBrush(Qt::darkGreen));
 
 	// render outline
 	PaintOutline(size);

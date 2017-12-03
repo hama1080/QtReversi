@@ -11,7 +11,7 @@
 
 const unsigned int kWindowWidth = 700;
 const unsigned int kWindowHeight = 700;
-const unsigned int kCellSize = 80;
+const unsigned int kCellSize = 40;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -74,7 +74,7 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 
 void MainWindow::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR color)
 {
-	const unsigned int kEllipseDiameter = 60;
+	const unsigned int kEllipseDiameter = kCellSize * 0.75f;
 	const unsigned int kOffset = (kCellSize - kEllipseDiameter) / 2;
 
 	// modify render position. ex: (1,1)->(0,0)

@@ -38,9 +38,9 @@ protected:
 	void paintEvent(QPaintEvent *event);
 
 private:
-	void PaintStone(Vec2d pos, STONE_COLOR color);
-	void PaintOutline(Vec2d board_size);
-	void PaintBoard(Board* board);
+	void PaintStone(Vec2d pos, STONE_COLOR color, Vec2d render_offset);
+	void PaintOutline(Vec2d board_size, Vec2d render_offset);
+	void PaintBoard(Board* board, Vec2d render_offset = Vec2d());
 
 	class QGraphicsScene* scene_;
 	class QGraphicsView* view_;

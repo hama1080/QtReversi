@@ -67,7 +67,7 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 	//}
 }
 
-void MainWindow::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR color)
+void MainWindow::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR color, Vec2d render_offset)
 {
 	const unsigned int kEllipseDiameter = kCellSize * 0.75f;
 	const unsigned int kOffset = (kCellSize - kEllipseDiameter) / 2;
@@ -76,8 +76,8 @@ void MainWindow::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR co
 	Vec2d render_pos(pos.first - 1, pos.second - 1);
 
 	QRect render_rect(
-		render_pos.first * kCellSize + kOffset,
-		render_pos.second * kCellSize + kOffset,
+		render_pos.first * kCellSize + kOffset + render_offset.first,
+		render_pos.second * kCellSize + kOffset + render_offset.second,
 		kEllipseDiameter, kEllipseDiameter);
 
 	QPen pen;
@@ -104,7 +104,7 @@ void MainWindow::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR co
 	scene_->addEllipse(render_rect, pen, brush);
 }
 
-void MainWindow::PaintOutline(pair<unsigned int, unsigned int> board_size)
+void MainWindow::PaintOutline(pair<unsigned int, unsigned int> board_size, Vec2d render_offset)
 {
 	const int kBoardWidth = kCellSize * board_size.first;
 	const int kBoardHeight = kCellSize * board_size.second;
@@ -112,33 +112,33 @@ void MainWindow::PaintOutline(pair<unsigned int, unsigned int> board_size)
 	QPen pen(Qt::black, 2);
 	for (unsigned int x = 0; x <= board_size.first; x++)
 	{
-		QPoint start(x * kCellSize, 0);
-		QPoint end(x * kCellSize, kBoardWidth);
+		QPoint start(x * kCellSize + render_offset.first, render_offset.second);
+		QPoint end(x * kCellSize + render_offset.first, kBoardWidth + render_offset.second);
 		QLine line(start, end);
 		scene_->addLine(line, pen);
 	}
 
 	for (unsigned int y = 0; y <= board_size.first; y++)
 	{
-		QPoint start(0, y * kCellSize);
-		QPoint end(kBoardHeight, y * kCellSize);
+		QPoint start(0+ render_offset.first, y * kCellSize + render_offset.second);
+		QPoint end(kBoardHeight + render_offset.first, y * kCellSize + render_offset.second);
 		QLine line(start, end);
 		scene_->addLine(line, pen);
 	}
 	return;
 }
 
-void MainWindow::PaintBoard(Board* board)
+void MainWindow::PaintBoard(Board* board, Vec2d render_offset)
 {
 	Vec2d size = board->GetBoardSize();
 
 	// render board
 	const unsigned int kBoardWidth = kCellSize * 8;
 	const unsigned int kBoardHeight = kCellSize * 8;
-	scene_->addRect(0, 0, kBoardWidth, kBoardHeight, QPen(Qt::black), QBrush(Qt::darkGreen));
+	scene_->addRect(render_offset.first, render_offset.second, kBoardWidth, kBoardHeight, QPen(Qt::black), QBrush(Qt::darkGreen));
 
 	// render outline
-	PaintOutline(size);
+	PaintOutline(size, render_offset);
 
 	// render stone
 	for (unsigned int y = 0; y != size.first + 2; y++)
@@ -158,11 +158,11 @@ void MainWindow::PaintBoard(Board* board)
 				switch (cell.GetStoneColor())
 				{
 				case STONE_COLOR::BLACK:
-					PaintStone(pos, STONE_COLOR::BLACK);
+					PaintStone(pos, STONE_COLOR::BLACK, render_offset);
 					break;
 
 				case STONE_COLOR::WHITE:
-					PaintStone(pos, STONE_COLOR::WHITE);
+					PaintStone(pos, STONE_COLOR::WHITE, render_offset);
 					break;
 
 				default:
@@ -181,5 +181,6 @@ void MainWindow::PaintBoard(Board* board)
 
 void MainWindow::paintEvent(QPaintEvent *event)
 {
-	PaintBoard(reversi_->GetBoardPtr());
+	PaintBoard(reversi_->GetBoardPtr(), Vec2d(0,100));
+	PaintBoard(reversi_->GetBoardPtr(), Vec2d(400, 350));
 }

@@ -9,18 +9,19 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-	w.reversi_ = new Reversi();
+	Reversi* reversi = new Reversi();
+	w.AddReversi(reversi);
 
 	QObject::connect(&w, SIGNAL(leftClickSignal(pair<unsigned int, unsigned int>)),
-		w.reversi_, SLOT(leftClickSlot(pair<unsigned int, unsigned int>)));
-	QObject::connect(w.reversi_, SIGNAL(finishedPostProcessSignal()),
+		reversi, SLOT(leftClickSlot(pair<unsigned int, unsigned int>)));
+	QObject::connect(reversi, SIGNAL(finishedPostProcessSignal()),
 		&w, SLOT(finishedPostProcessSlot()));
 	QObject::connect(&w, SIGNAL(nextPreProcessSignal()),
-		w.reversi_, SLOT(nextPreProcessSlot()));
-	QObject::connect(w.reversi_, SIGNAL(repaintSignal()),
+		reversi, SLOT(nextPreProcessSlot()));
+	QObject::connect(reversi, SIGNAL(repaintSignal()),
 		&w, SLOT(repaintSlot()));
 
-	w.reversi_->PreProcess();
+	reversi->PreProcess();
 
     return a.exec();
 }

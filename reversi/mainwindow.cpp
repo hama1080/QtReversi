@@ -31,6 +31,15 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::AddReversi(Reversi * reversi, Vec2d render_pos)
+{
+	RenderReversi render_reversi;
+	render_reversi.reversi = reversi;
+	render_reversi.render_pos = render_pos;
+	render_reversi_list_.push_back(render_reversi);
+	return;
+}
+
 void MainWindow::finishedTimerSlot()
 {
 	emit nextPreProcessSignal();
@@ -181,6 +190,7 @@ void MainWindow::PaintBoard(Board* board, Vec2d render_offset)
 
 void MainWindow::paintEvent(QPaintEvent *event)
 {
-	PaintBoard(reversi_->GetBoardPtr(), Vec2d(0,100));
-	PaintBoard(reversi_->GetBoardPtr(), Vec2d(400, 350));
+	for(auto render_reversi: render_reversi_list_)
+		PaintBoard(render_reversi.reversi->GetBoardPtr(), render_reversi.render_pos);
+	return;
 }

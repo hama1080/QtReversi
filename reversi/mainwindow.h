@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <vector>
 #include "stone.h"
 #include "board.h"
 
@@ -14,15 +15,20 @@ namespace Ui {
 class MainWindow;
 }
 
+struct RenderReversi {
+	Reversi* reversi;
+	Vec2d render_pos;
+};
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
 	Vec2d top_left_;
-	Reversi* reversi_;
 	explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+	void AddReversi(Reversi* reversi, Vec2d render_pos = Vec2d(0, 0));
 
 public slots:
 	void finishedPostProcessSlot();
@@ -46,6 +52,7 @@ private:
 	class QGraphicsView* view_;
 
     Ui::MainWindow *ui;
+	vector<RenderReversi> render_reversi_list_;
 };
 
 #endif // MAINWINDOW_H

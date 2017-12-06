@@ -13,6 +13,11 @@ enum class JudgeResult
 	Draw,
 };
 
+struct Status {
+	STONE_COLOR now_player_color;
+	bool is_pass;
+};
+
 class Board;
 class Player;
 

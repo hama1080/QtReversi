@@ -10,6 +10,7 @@ using namespace std;
 
 class Reversi;
 class Board;
+class Player;
 
 namespace Ui {
 class MainWindow;

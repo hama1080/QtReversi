@@ -4,10 +4,13 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QTimer>
+#include <QGraphicsTextItem>
+#include <QString>
 
 #include "cell.h"
 #include "board.h"
 #include "reversi.h"
+#include "player.h"
 
 const unsigned int kWindowWidth = 700;
 const unsigned int kWindowHeight = 700;
@@ -188,8 +191,30 @@ void MainWindow::PaintBoard(Board* board, Vec2d render_offset)
 
 void MainWindow::PaintPlayerInfo(Player * player, Vec2d render_offset)
 {
-}
+	STONE_COLOR color = player->GetPlayerColor();
+	QString print_str;
+	switch (color)
+	{
+	case STONE_COLOR::BLACK:
+		print_str = "Black";
+		break;
+	case STONE_COLOR::WHITE:
+		print_str = "White";
+		break;
+	default:
+		break;
+	}
+	if(player->IsPass())
+		print_str = "Pass";
 
+	const unsigned int kBoardWidth = kCellSize * 8;
+	const unsigned int kBoardHeight = kCellSize * 8;
+	QFont font("Times", 20, QFont::Bold);
+	QGraphicsTextItem* text = scene_->addText(print_str, font);
+	text->setPos(render_offset.first, kBoardHeight + render_offset.second);
+	text->deleteLater();
+
+}
 
 
 void MainWindow::paintEvent(QPaintEvent *event)
@@ -197,7 +222,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
 	for (auto render_reversi : render_reversi_list_)
 	{
 		PaintBoard(render_reversi.reversi->GetBoardPtr(), render_reversi.render_pos);
-		PaintStatus(render_reversi.reversi->GetNowPlayer(), render_reversi.render_pos);
+		PaintPlayerInfo(render_reversi.reversi->GetNowPlayer(), render_reversi.render_pos);
 	}
 	return;
 }

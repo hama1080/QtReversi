@@ -186,11 +186,18 @@ void MainWindow::PaintBoard(Board* board, Vec2d render_offset)
 	}
 }
 
+void MainWindow::PaintPlayerInfo(Player * player, Vec2d render_offset)
+{
+}
+
 
 
 void MainWindow::paintEvent(QPaintEvent *event)
 {
-	for(auto render_reversi: render_reversi_list_)
+	for (auto render_reversi : render_reversi_list_)
+	{
 		PaintBoard(render_reversi.reversi->GetBoardPtr(), render_reversi.render_pos);
+		PaintStatus(render_reversi.reversi->GetNowPlayer(), render_reversi.render_pos);
+	}
 	return;
 }

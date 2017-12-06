@@ -64,6 +64,10 @@ void Reversi::Initialize()
 	(*(player_list_.end() - 1))->SetNextPlayer(*player_list_.begin());
 
 	now_player_ = *player_list_.begin();
+
+	now_status_ = Status();
+	now_status_.now_player_color = STONE_COLOR::BLACK;
+	now_status_.is_pass = false;
 }
 
 void Reversi::leftClickSlot(Vec2d click_pos)
@@ -166,6 +170,11 @@ void Reversi::SetWaitingFlag(bool flag)
 bool Reversi::GetWaitingFlag()
 {
 	return waiting_human_input;
+}
+
+Status Reversi::GetNowStatus()
+{
+	return now_status_;
 }
 
 void Reversi::nextPreProcessSlot()

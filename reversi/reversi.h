@@ -30,6 +30,7 @@ private:
 	Board* board_;
 	vector<Player*> player_list_;
 	Player* now_player_;
+	Status now_status_;
 
 	JudgeResult JudgeGame();
 
@@ -45,6 +46,7 @@ public:
 	Board* GetBoardPtr();
 	static void SetWaitingFlag(bool flag);
 	static bool GetWaitingFlag();
+	Status GetNowStatus();
 
 signals:
 	void finishedPostProcessSignal();

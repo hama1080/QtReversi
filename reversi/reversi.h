@@ -13,11 +13,6 @@ enum class JudgeResult
 	Draw,
 };
 
-struct Status {
-	STONE_COLOR now_player_color;
-	bool is_pass;
-};
-
 class Board;
 class Player;
 
@@ -30,7 +25,6 @@ private:
 	Board* board_;
 	vector<Player*> player_list_;
 	Player* now_player_;
-	Status now_status_;
 
 	JudgeResult JudgeGame();
 
@@ -46,7 +40,7 @@ public:
 	Board* GetBoardPtr();
 	static void SetWaitingFlag(bool flag);
 	static bool GetWaitingFlag();
-	Status GetNowStatus();
+	Player* GetNowPlayer();
 
 signals:
 	void finishedPostProcessSignal();

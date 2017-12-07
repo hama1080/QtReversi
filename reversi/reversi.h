@@ -21,6 +21,7 @@ class Reversi : public QObject{
 
 private:
 	static bool waiting_human_input;
+	bool is_game_end_;
 
 	Board* board_;
 	vector<Player*> player_list_;
@@ -41,6 +42,7 @@ public:
 	static void SetWaitingFlag(bool flag);
 	static bool GetWaitingFlag();
 	Player* GetNowPlayer();
+	bool IsGameEnd();
 
 signals:
 	void finishedPostProcessSignal();

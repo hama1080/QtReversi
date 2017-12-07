@@ -64,6 +64,7 @@ void Reversi::Initialize()
 	(*(player_list_.end() - 1))->SetNextPlayer(*player_list_.begin());
 
 	now_player_ = *player_list_.begin();
+	is_game_end_ = false;
 }
 
 void Reversi::leftClickSlot(Vec2d click_pos)
@@ -171,6 +172,11 @@ bool Reversi::GetWaitingFlag()
 Player* Reversi::GetNowPlayer()
 {
 	return now_player_;
+}
+
+bool Reversi::IsGameEnd()
+{
+	return is_game_end_;
 }
 
 void Reversi::nextPreProcessSlot()

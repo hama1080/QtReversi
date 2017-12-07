@@ -41,18 +41,13 @@ JudgeResult Reversi::JudgeGame()
 			change_cnt++;
 	}
 	if (change_cnt == stone_cnt.size())
-	{
-		is_game_end_ = true;
 		return JudgeResult::Draw;
-	}
 	switch (max_color)
 	{
 	case STONE_COLOR::BLACK:
-		is_game_end_ = true;
 		return JudgeResult::BlackWin;
 
 	case STONE_COLOR::WHITE:
-		is_game_end_ = true;
 		return JudgeResult::WhiteWin;
 	}
 }
@@ -96,6 +91,7 @@ void Reversi::PreProcess()
 		{
 			JudgeResult result = JudgeGame();
 			ShowJudgeResult(result);
+			is_game_end_ = true;
 			emit repaintSignal();
 			return;
 		}
@@ -131,6 +127,7 @@ void Reversi::PostProcess(Vec2d put_pos)
 		if (total_stone == board_size.first * board_size.second){
 			JudgeResult result = JudgeGame();
 			ShowJudgeResult(result);
+			is_game_end_ = true;
 			emit repaintSignal();
 			return;
 		}

@@ -41,13 +41,18 @@ JudgeResult Reversi::JudgeGame()
 			change_cnt++;
 	}
 	if (change_cnt == stone_cnt.size())
+	{
+		is_game_end_ = true;
 		return JudgeResult::Draw;
-
+	}
 	switch (max_color)
 	{
 	case STONE_COLOR::BLACK:
+		is_game_end_ = true;
 		return JudgeResult::BlackWin;
+
 	case STONE_COLOR::WHITE:
+		is_game_end_ = true;
 		return JudgeResult::WhiteWin;
 	}
 }

@@ -22,6 +22,7 @@ class Reversi : public QObject{
 private:
 	static bool waiting_human_input;
 	bool is_game_end_;
+	JudgeResult game_result_;
 
 	Board* board_;
 	vector<Player*> player_list_;

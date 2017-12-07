@@ -89,9 +89,9 @@ void Reversi::PreProcess()
 		// pass loop->all player pass->game end
 		if (now_player_->IsPass())
 		{
-			JudgeResult result = JudgeGame();
-			ShowJudgeResult(result);
 			is_game_end_ = true;
+			game_result_ = JudgeGame();
+			ShowJudgeResult(game_result_);
 			emit repaintSignal();
 			return;
 		}
@@ -125,9 +125,9 @@ void Reversi::PostProcess(Vec2d put_pos)
 			total_stone += stone_cnt.second;
 
 		if (total_stone == board_size.first * board_size.second){
-			JudgeResult result = JudgeGame();
-			ShowJudgeResult(result);
 			is_game_end_ = true;
+			game_result_ = JudgeGame();
+			ShowJudgeResult(game_result_);
 			emit repaintSignal();
 			return;
 		}
@@ -179,6 +179,11 @@ Player* Reversi::GetNowPlayer()
 bool Reversi::IsGameEnd()
 {
 	return is_game_end_;
+}
+
+JudgeResult Reversi::GetGameResult()
+{
+	return game_result_;
 }
 
 void Reversi::nextPreProcessSlot()

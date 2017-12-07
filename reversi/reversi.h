@@ -44,6 +44,7 @@ public:
 	static bool GetWaitingFlag();
 	Player* GetNowPlayer();
 	bool IsGameEnd();
+	JudgeResult GetGameResult();
 
 signals:
 	void finishedPostProcessSignal();

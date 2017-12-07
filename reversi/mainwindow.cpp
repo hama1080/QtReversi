@@ -216,6 +216,31 @@ void MainWindow::PaintPlayerInfo(Player * player, Vec2d render_offset)
 
 }
 
+void MainWindow::PaintGameResult(JudgeResult result, Vec2d render_offset)
+{
+	QString print_str;
+	switch (result)
+	{
+	case JudgeResult::BlackWin:
+		print_str = "Black Win!";
+		break;
+	case JudgeResult::WhiteWin:
+		print_str = "White Win!";
+		break;
+	case JudgeResult::Draw:
+		print_str = "Draw";
+		break;
+	default:
+		break;
+	}
+
+	const unsigned int kBoardWidth = kCellSize * 8;
+	const unsigned int kBoardHeight = kCellSize * 8;
+	QFont font("Times", 20, QFont::Bold);
+	QGraphicsTextItem* text = scene_->addText(print_str, font);
+	text->setPos(kBoardWidth + render_offset.first - 200, kBoardHeight + render_offset.second);
+}
+
 
 void MainWindow::paintEvent(QPaintEvent *event)
 {
@@ -223,6 +248,8 @@ void MainWindow::paintEvent(QPaintEvent *event)
 	{
 		PaintBoard(render_reversi.reversi->GetBoardPtr(), render_reversi.render_pos);
 		PaintPlayerInfo(render_reversi.reversi->GetNowPlayer(), render_reversi.render_pos);
+		if (render_reversi.reversi->IsGameEnd())
+			PaintGameResult(render_reversi.reversi->GetGameResult(), render_reversi.render_pos);
 	}
 	return;
 }

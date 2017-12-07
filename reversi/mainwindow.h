@@ -5,6 +5,7 @@
 #include <vector>
 #include "stone.h"
 #include "board.h"
+#include "reversi.h"
 
 using namespace std;
 
@@ -49,6 +50,7 @@ private:
 	void PaintOutline(Vec2d board_size, Vec2d render_offset);
 	void PaintBoard(Board* board, Vec2d render_offset = Vec2d());
 	void PaintPlayerInfo(Player* player, Vec2d render_offset = Vec2d());
+	void PaintGameResult(JudgeResult result, Vec2d render_offset = Vec2d());
 
 	class QGraphicsScene* scene_;
 	class QGraphicsView* view_;

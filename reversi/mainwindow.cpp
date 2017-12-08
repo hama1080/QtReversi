@@ -35,6 +35,9 @@ void MainWindow::AddReversi(Reversi * reversi, Vec2d render_pos)
 	RenderReversi render_reversi;
 	render_reversi.reversi = reversi;
 	render_reversi.render_pos = render_pos;
+	pair<unsigned int, unsigned int>  size = reversi->GetBoardPtr()->GetBoardSize();
+	render_reversi.render_board_size.first = kCellSize * size.first;
+	render_reversi.render_board_size.second = kCellSize * size.second;
 	render_reversi_list_.push_back(render_reversi);
 	return;
 }

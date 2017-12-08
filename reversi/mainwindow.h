@@ -20,6 +20,7 @@ class MainWindow;
 struct RenderReversi {
 	Reversi* reversi;
 	Vec2d render_pos;
+	Vec2d render_board_size;
 };
 
 class MainWindow : public QMainWindow

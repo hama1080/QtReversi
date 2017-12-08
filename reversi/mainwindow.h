@@ -5,7 +5,7 @@
 #include <vector>
 #include "stone.h"
 #include "board.h"
-#include "reversi.h"
+#include "renderReversi.h"
 
 using namespace std;
 
@@ -17,11 +17,6 @@ namespace Ui {
 class MainWindow;
 }
 
-struct RenderReversi {
-	Reversi* reversi;
-	Vec2d render_pos;
-	Vec2d render_board_size;
-};
 
 class MainWindow : public QMainWindow
 {

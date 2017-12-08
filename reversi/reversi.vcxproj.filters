@@ -93,6 +93,9 @@
     <ClCompile Include="computer.cpp">
       <Filter>Reversi\Player</Filter>
     </ClCompile>
+    <ClCompile Include="renderReversi.cpp">
+      <Filter>Qt</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h">
@@ -118,6 +121,9 @@
     </ClInclude>
     <ClInclude Include="computer.h">
       <Filter>Reversi\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="renderReversi.h">
+      <Filter>Qt</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -64,7 +64,7 @@ void Reversi::Initialize()
 	(*(player_list_.end() - 1))->SetNextPlayer(*player_list_.begin());
 
 	now_player_ = *player_list_.begin();
-	is_game_end_ = false;
+	game_result_ = JudgeResult::NotFinished;
 }
 
 void Reversi::leftClickSlot(Vec2d click_pos)
@@ -80,8 +80,6 @@ void Reversi::PreProcess()
 
 	if(state == PreProcessState::Pass)
 	{
-		cout << "pass" << endl;
-		
 		// skip the post process and change the player
 		now_player_->SetPassFlag(true);
 		now_player_ = now_player_->GetNextPlayer();
@@ -89,9 +87,7 @@ void Reversi::PreProcess()
 		// pass loop->all player pass->game end
 		if (now_player_->IsPass())
 		{
-			is_game_end_ = true;
 			game_result_ = JudgeGame();
-			ShowJudgeResult(game_result_);
 			emit repaintSignal();
 			return;
 		}
@@ -125,9 +121,7 @@ void Reversi::PostProcess(Vec2d put_pos)
 			total_stone += stone_cnt.second;
 
 		if (total_stone == board_size.first * board_size.second){
-			is_game_end_ = true;
 			game_result_ = JudgeGame();
-			ShowJudgeResult(game_result_);
 			emit repaintSignal();
 			return;
 		}
@@ -137,22 +131,6 @@ void Reversi::PostProcess(Vec2d put_pos)
 	}
 	emit finishedPostProcessSignal();	// call PreProcess after this signal is emitted
 	return;
-}
-
-void Reversi::ShowJudgeResult(JudgeResult result)
-{
-	switch (result)
-	{
-	case JudgeResult::BlackWin:
-		cout << "BlackWin" << endl;
-		break;
-	case JudgeResult::WhiteWin:
-		cout << "WhiteWin" << endl;
-		break;
-	case JudgeResult::Draw:
-		cout << "Draw" << endl;
-		break;
-	}
 }
 
 Board* Reversi::GetBoardPtr()
@@ -174,11 +152,6 @@ bool Reversi::GetWaitingFlag()
 Player* Reversi::GetNowPlayer()
 {
 	return now_player_;
-}
-
-bool Reversi::IsGameEnd()
-{
-	return is_game_end_;
 }
 
 JudgeResult Reversi::GetGameResult()

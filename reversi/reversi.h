@@ -8,6 +8,7 @@ using namespace std;
 
 enum class JudgeResult
 {
+	NotFinished,
 	BlackWin,
 	WhiteWin,
 	Draw,
@@ -21,7 +22,6 @@ class Reversi : public QObject{
 
 private:
 	static bool waiting_human_input;
-	bool is_game_end_;
 	JudgeResult game_result_;
 
 	Board* board_;
@@ -37,13 +37,11 @@ public:
 	void Initialize();
 	void PreProcess();
 	void PostProcess(Vec2d put_pos);
-	void ShowJudgeResult(JudgeResult result);
 
 	Board* GetBoardPtr();
 	static void SetWaitingFlag(bool flag);
 	static bool GetWaitingFlag();
 	Player* GetNowPlayer();
-	bool IsGameEnd();
 	JudgeResult GetGameResult();
 
 signals:

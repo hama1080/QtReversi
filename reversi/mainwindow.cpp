@@ -248,8 +248,9 @@ void MainWindow::paintEvent(QPaintEvent *event)
 	{
 		PaintBoard(render_reversi.reversi->GetBoardPtr(), render_reversi.render_pos);
 		PaintPlayerInfo(render_reversi.reversi->GetNowPlayer(), render_reversi.render_pos);
-		if (render_reversi.reversi->IsGameEnd())
-			PaintGameResult(render_reversi.reversi->GetGameResult(), render_reversi.render_pos);
+		JudgeResult result = render_reversi.reversi->GetGameResult();
+		if (result != JudgeResult::NotFinished)
+			PaintGameResult(result, render_reversi.render_pos);
 	}
 	return;
 }

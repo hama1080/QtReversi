@@ -26,6 +26,23 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+private:
+	const unsigned int kWindowWidth;
+	const unsigned int kWindowHeight;
+	const unsigned int kCellSize;
+
+	class QGraphicsScene* scene_;
+	class QGraphicsView* view_;
+
+	Ui::MainWindow *ui;
+	vector<RenderReversi> render_reversi_list_;
+
+	void PaintStone(Vec2d pos, STONE_COLOR color, Vec2d render_offset);
+	void PaintOutline(Vec2d board_size, Vec2d render_offset);
+	void PaintBoard(Board* board, Vec2d render_offset = Vec2d());
+	void PaintPlayerInfo(Player* player, Vec2d render_offset = Vec2d());
+	void PaintGameResult(JudgeResult result, Vec2d render_offset = Vec2d());
+
 public:
 	Vec2d top_left_;
 	explicit MainWindow(QWidget *parent = 0);
@@ -45,18 +62,6 @@ protected:
 	void mousePressEvent(QMouseEvent *event);
 	void paintEvent(QPaintEvent *event);
 
-private:
-	void PaintStone(Vec2d pos, STONE_COLOR color, Vec2d render_offset);
-	void PaintOutline(Vec2d board_size, Vec2d render_offset);
-	void PaintBoard(Board* board, Vec2d render_offset = Vec2d());
-	void PaintPlayerInfo(Player* player, Vec2d render_offset = Vec2d());
-	void PaintGameResult(JudgeResult result, Vec2d render_offset = Vec2d());
-
-	class QGraphicsScene* scene_;
-	class QGraphicsView* view_;
-
-    Ui::MainWindow *ui;
-	vector<RenderReversi> render_reversi_list_;
 };
 
 #endif // MAINWINDOW_H

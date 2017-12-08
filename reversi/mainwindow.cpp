@@ -12,13 +12,9 @@
 #include "reversi.h"
 #include "player.h"
 
-const unsigned int kWindowWidth = 700;
-const unsigned int kWindowHeight = 700;
-const unsigned int kCellSize = 40;
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent)
+	:kWindowWidth(700), kWindowHeight(700), kCellSize(40), QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 	this->resize(kWindowWidth, kWindowHeight);

@@ -26,7 +26,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::AddReversi(Reversi * reversi, Vec2d render_pos)
 {
-	RenderReversi render_reversi(reversi, render_pos);
+	RenderReversi render_reversi(scene_, reversi, render_pos);
 	render_reversi_list_.push_back(render_reversi);
 	return;
 }
@@ -72,7 +72,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
 {
 	for (auto render_reversi : render_reversi_list_)
 	{
-		render_reversi.Rendering(scene_);
+		render_reversi.Rendering();
 	}
 	return;
 }

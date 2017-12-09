@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 #include <vector>
-#include "board.h"
 #include "renderReversi.h"
 
 using namespace std;
@@ -30,11 +29,6 @@ private:
 
 	Ui::MainWindow *ui;
 	vector<RenderReversi> render_reversi_list_;
-
-	void PaintOutline(Vec2d board_size, Vec2d render_offset);
-	void PaintBoard(Board* board, Vec2d render_offset = Vec2d());
-	void PaintPlayerInfo(Player* player, Vec2d render_offset = Vec2d());
-	void PaintGameResult(JudgeResult result, Vec2d render_offset = Vec2d());
 
 public:
 	Vec2d top_left_;

@@ -14,7 +14,7 @@
 
 
 MainWindow::MainWindow(QWidget *parent)
-	:kWindowWidth(700), kWindowHeight(700), kCellSize(40), QMainWindow(parent), ui(new Ui::MainWindow)
+	:kWindowWidth(700), kWindowHeight(700), QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 	this->resize(kWindowWidth, kWindowHeight);
@@ -75,43 +75,6 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 	//		emit leftClickSignal(put_pos);
 	//	this->repaint();
 	//}
-}
-
-void MainWindow::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR color, Vec2d render_offset)
-{
-	const unsigned int kEllipseDiameter = kCellSize * 0.75f;
-	const unsigned int kOffset = (kCellSize - kEllipseDiameter) / 2;
-
-	// modify render position. ex: (1,1)->(0,0)
-	Vec2d render_pos(pos.first - 1, pos.second - 1);
-
-	QRect render_rect(
-		render_pos.first * kCellSize + kOffset + render_offset.first,
-		render_pos.second * kCellSize + kOffset + render_offset.second,
-		kEllipseDiameter, kEllipseDiameter);
-
-	QPen pen;
-	QBrush brush;
-	switch (color)
-	{
-	case STONE_COLOR::BLACK:
-		pen = QPen(Qt::black);
-		brush = QBrush(Qt::black, Qt::SolidPattern);
-		break;
-
-	case STONE_COLOR::WHITE:
-		pen = QPen(Qt::white);
-		brush = QBrush(Qt::white, Qt::SolidPattern);
-		break;
-
-	default:
-		// black
-		pen = QPen(Qt::black);
-		brush = QBrush(Qt::black, Qt::SolidPattern);
-		break;
-	}
-
-	scene_->addEllipse(render_rect, pen, brush);
 }
 
 void MainWindow::PaintOutline(pair<unsigned int, unsigned int> board_size, Vec2d render_offset)

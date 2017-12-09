@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 #include <vector>
-#include "stone.h"
 #include "board.h"
 #include "renderReversi.h"
 
@@ -25,7 +24,6 @@ class MainWindow : public QMainWindow
 private:
 	const unsigned int kWindowWidth;
 	const unsigned int kWindowHeight;
-	const unsigned int kCellSize;
 
 	class QGraphicsScene* scene_;
 	class QGraphicsView* view_;
@@ -33,7 +31,6 @@ private:
 	Ui::MainWindow *ui;
 	vector<RenderReversi> render_reversi_list_;
 
-	void PaintStone(Vec2d pos, STONE_COLOR color, Vec2d render_offset);
 	void PaintOutline(Vec2d board_size, Vec2d render_offset);
 	void PaintBoard(Board* board, Vec2d render_offset = Vec2d());
 	void PaintPlayerInfo(Player* player, Vec2d render_offset = Vec2d());

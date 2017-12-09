@@ -4,9 +4,11 @@
 class RenderReversi
 {
 private:
+	Reversi* reversi_;
+	Vec2d render_pos_;
+	Vec2d render_board_size_;
+
 public:
-	Reversi* reversi;
-	Vec2d render_pos;
-	Vec2d render_board_size;
+	RenderReversi(Reversi* reversi, Vec2d render_pos, Vec2d render_board_size);
 
 };

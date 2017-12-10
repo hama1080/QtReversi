@@ -25,7 +25,7 @@ private:
 	void PaintBoard(Board* board, Vec2d render_offset);
 	void PaintPlayerInfo(Player * player, Vec2d render_offset);
 	void PaintGameResult(JudgeResult result, Vec2d render_offset);
-	void PaintStoneCount(map<STONE_COLOR, unsigned int> stone_cnt, Vec2d render_offset);
+	void PaintStoneCount(map<STONE_COLOR, unsigned int> stone_cnt_map, Vec2d render_offset);
 
 public:
 	RenderReversi(QGraphicsScene* scene, Reversi* reversi, Vec2d render_pos);

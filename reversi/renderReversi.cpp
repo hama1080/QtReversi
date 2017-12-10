@@ -181,23 +181,23 @@ void RenderReversi::PaintGameResult(JudgeResult result, Vec2d render_offset)
 	PaintText(print_str, render_offset.first, render_board_size_.second + render_offset.second);
 }
 
-void RenderReversi::PaintStoneCount(map<STONE_COLOR, unsigned int> stone_cnt, Vec2d render_offset)
+void RenderReversi::PaintStoneCount(map<STONE_COLOR, unsigned int> stone_cnt_map, Vec2d render_offset)
 {
 	string print_str = "";
-	for (auto stone : stone_cnt)
+	for (auto stone_cnt : stone_cnt_map)
 	{
-		switch (stone.first)
+		switch (stone_cnt.first)
 		{
 		case STONE_COLOR::BLACK:
-			print_str += "Black: " + to_string(stone.second);
+			print_str += "Black: " + to_string(stone_cnt.second);
 			break;
 
 		case STONE_COLOR::WHITE:
-			print_str += "White: " + to_string(stone.second);
+			print_str += "White: " + to_string(stone_cnt.second);
 			break;
 
 		default:
-			print_str += "Other: " + to_string(stone.second);
+			print_str += "Other: " + to_string(stone_cnt.second);
 			break;
 		}
 	}

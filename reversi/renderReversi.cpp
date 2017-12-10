@@ -22,6 +22,14 @@ void RenderReversi::Rendering()
 		PaintGameResult(result, render_pos_);
 }
 
+QGraphicsTextItem*  RenderReversi::PaintText(string str, unsigned int pos_x, unsigned int pos_y)
+{
+	QFont font("Times", 20, QFont::Bold);
+	QGraphicsTextItem* text = scene_->addText(QString::fromStdString(str), font);
+	text->setPos(pos_x, pos_y);
+	return text;
+}
+
 void RenderReversi::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR color, Vec2d render_offset)
 {
 	const unsigned int kEllipseDiameter = kCellSize * 0.75f;
@@ -135,7 +143,7 @@ void RenderReversi::PaintBoard(Board * board, Vec2d render_offset)
 void RenderReversi::PaintPlayerInfo(Player * player, Vec2d render_offset)
 {
 	STONE_COLOR color = player->GetPlayerColor();
-	QString print_str;
+	string print_str;
 	switch (color)
 	{
 	case STONE_COLOR::BLACK:
@@ -152,15 +160,13 @@ void RenderReversi::PaintPlayerInfo(Player * player, Vec2d render_offset)
 
 	const unsigned int kBoardWidth = kCellSize * 8;
 	const unsigned int kBoardHeight = kCellSize * 8;
-	QFont font("Times", 20, QFont::Bold);
-	QGraphicsTextItem* text = scene_->addText(print_str, font);
-	text->setPos(render_offset.first, kBoardHeight + render_offset.second);
+	QGraphicsTextItem* text = PaintText(print_str, render_offset.first, kBoardHeight + render_offset.second);
 	text->deleteLater();
 }
 
 void RenderReversi::PaintGameResult(JudgeResult result, Vec2d render_offset)
 {
-	QString print_str;
+	string print_str;
 	switch (result)
 	{
 	case JudgeResult::BlackWin:
@@ -178,8 +184,5 @@ void RenderReversi::PaintGameResult(JudgeResult result, Vec2d render_offset)
 
 	const unsigned int kBoardWidth = kCellSize * 8;
 	const unsigned int kBoardHeight = kCellSize * 8;
-	QFont font("Times", 20, QFont::Bold);
-	QGraphicsTextItem* text = scene_->addText(print_str, font);
-	text->setPos(kBoardWidth + render_offset.first - 200, kBoardHeight + render_offset.second);
-
+	PaintText(print_str, kBoardWidth + render_offset.first - 200, kBoardHeight + render_offset.second);
 }

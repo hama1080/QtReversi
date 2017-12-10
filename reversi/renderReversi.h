@@ -1,8 +1,11 @@
 ﻿#pragma once
+#include <string>
 #include "reversi.h"
 #include "stone.h"
 
+using namespace std;
 class QGraphicsScene;
+class QGraphicsTextItem;
 
 class RenderReversi
 {
@@ -13,6 +16,8 @@ private:
 	Reversi* reversi_;
 	Vec2d render_pos_;
 	Vec2d render_board_size_;
+
+	QGraphicsTextItem* PaintText(string str, unsigned int pos_x, unsigned int pos_y);
 
 	void PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR color, Vec2d render_offset);
 	void PaintOutline(pair<unsigned int, unsigned int> board_size, Vec2d render_offset);

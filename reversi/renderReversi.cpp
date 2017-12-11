@@ -189,15 +189,15 @@ void RenderReversi::PaintStoneCount(map<STONE_COLOR, unsigned int> stone_cnt_map
 		switch (stone_cnt.first)
 		{
 		case STONE_COLOR::BLACK:
-			print_str += "Black: " + to_string(stone_cnt.second);
+			print_str += "Black: " + to_string(stone_cnt.second) + "\t";
 			break;
 
 		case STONE_COLOR::WHITE:
-			print_str += "White: " + to_string(stone_cnt.second);
+			print_str += "White: " + to_string(stone_cnt.second) + "\t";
 			break;
 
 		default:
-			print_str += "Other: " + to_string(stone_cnt.second);
+			print_str += "Other: " + to_string(stone_cnt.second) + "\t";
 			break;
 		}
 	}

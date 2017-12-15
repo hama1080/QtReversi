@@ -9,19 +9,35 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-	Reversi* reversi = new Reversi();
-	w.AddReversi(reversi);
+	vector<Reversi*> reversi_list;
+	for(unsigned int i = 0; i != 2; i++)
+	{
+		Reversi* reversi = new Reversi();
+		Vec2d render_pos(i * 350, 0);
+		w.AddReversi(reversi, render_pos);
+		reversi_list.push_back(reversi);
+	}
 
-	QObject::connect(&w, SIGNAL(leftClickSignal(pair<unsigned int, unsigned int>)),
-		reversi, SLOT(leftClickSlot(pair<unsigned int, unsigned int>)));
-	QObject::connect(reversi, SIGNAL(finishedPostProcessSignal()),
-		&w, SLOT(finishedPostProcessSlot()));
-	QObject::connect(&w, SIGNAL(nextPreProcessSignal()),
-		reversi, SLOT(nextPreProcessSlot()));
-	QObject::connect(reversi, SIGNAL(repaintSignal()),
-		&w, SLOT(repaintSlot()));
+	for (unsigned int i = 0; i != reversi_list.size(); i++)
+	{
+		QObject::connect(reversi_list[i], SIGNAL(finishedPostProcessSignal()),
+			&w, SLOT(finishedPostProcessSlot()));
 
-	reversi->PreProcess();
+		if(i == reversi_list.size() - 1){
+			QObject::connect(&w, SIGNAL(nextPreProcessSignal()),
+				reversi_list[0], SLOT(nextPreProcessSlot()));
+		}
+		else{
+			QObject::connect(&w, SIGNAL(nextPreProcessSignal()),
+			reversi_list[i+1], SLOT(nextPreProcessSlot()));
+		}
+		QObject::connect(reversi_list[i], SIGNAL(repaintSignal()),
+			&w, SLOT(repaintSlot()));
+	}
+//	QObject::connect(&w, SIGNAL(leftClickSignal(pair<unsigned int, unsigned int>)),
+//		reversi, SLOT(leftClickSlot(pair<unsigned int, unsigned int>)));
+
+	reversi_list[0]->PreProcess();
 
     return a.exec();
 }

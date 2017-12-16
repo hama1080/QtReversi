@@ -38,13 +38,17 @@ void MainWindow::finishedTimerSlot()
 
 void MainWindow::repaintSlot()
 {
+	render_reversi_list_[0].UpdateScene();
+
 	this->repaint();
 }
 
 void MainWindow::finishedPostProcessSlot()
 {
+	render_reversi_list_[0].UpdateScene();
+
 	this->repaint();
-	QTimer::singleShot(1, this, SLOT(finishedTimerSlot()));
+	QTimer::singleShot(100, this, SLOT(finishedTimerSlot()));
 }
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
@@ -65,15 +69,4 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 	//		emit leftClickSignal(put_pos);
 	//	this->repaint();
 	//}
-}
-
-
-void MainWindow::paintEvent(QPaintEvent *event)
-{
-	render_reversi_list_[0].UpdateScene();
-	//for (auto render_reversi : render_reversi_list_)
-	//{
-	//	render_reversi.UpdateScene();
-	//}
-	return;
 }

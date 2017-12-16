@@ -47,7 +47,6 @@ signals:
 
 protected:
 	void mousePressEvent(QMouseEvent *event);
-	void paintEvent(QPaintEvent *event);
 
 };
 

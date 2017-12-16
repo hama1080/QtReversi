@@ -23,9 +23,11 @@ void RenderReversi::UpdateScene()
 {
 	PaintBoard(reversi_->GetBoardPtr());
 	UpdatePlayerInfo(reversi_->GetNowPlayer());
+
 	JudgeResult result = reversi_->GetGameResult();
 	if (result != JudgeResult::NotFinished)
 	{
+		player_info_->deleteLater();
 		AddGameResult(result);
 		AddStoneCount(reversi_->GetBoardPtr()->GetStoneCnt());
 	}

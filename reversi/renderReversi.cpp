@@ -1,5 +1,6 @@
 ﻿#include <QGraphicsScene>
 #include <QGraphicsTextItem>
+#include <QGraphicsEllipseItem>
 #include "renderReversi.h"
 #include "board.h"
 #include "cell.h"
@@ -21,7 +22,7 @@ RenderReversi::RenderReversi(QGraphicsScene* scene, Reversi * reversi, Vec2d ren
 
 void RenderReversi::UpdateScene()
 {
-	PaintBoard(reversi_->GetBoardPtr());
+	UpdateBoard(reversi_->GetBoardPtr());
 	UpdatePlayerInfo(reversi_->GetNowPlayer());
 
 	JudgeResult result = reversi_->GetGameResult();
@@ -41,7 +42,7 @@ QGraphicsTextItem*  RenderReversi::AddText(string str, unsigned int pos_x, unsig
 	return text;
 }
 
-void RenderReversi::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR color)
+QGraphicsEllipseItem* RenderReversi::AddStone(pair<unsigned int, unsigned int> pos, STONE_COLOR color)
 {
 	const unsigned int kEllipseDiameter = kCellSize * 0.75f;
 	const unsigned int kOffset = (kCellSize - kEllipseDiameter) / 2;
@@ -75,7 +76,7 @@ void RenderReversi::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR
 		break;
 	}
 
-	scene_->addEllipse(render_rect, pen, brush);
+	return scene_->addEllipse(render_rect, pen, brush);
 }
 
 void RenderReversi::AddOutline(pair<unsigned int, unsigned int> board_size)
@@ -99,7 +100,7 @@ void RenderReversi::AddOutline(pair<unsigned int, unsigned int> board_size)
 	return;
 }
 
-void RenderReversi::PaintBoard(Board * board)
+void RenderReversi::UpdateBoard(Board * board)
 {
 	Vec2d size = board->GetBoardSize();
 
@@ -121,11 +122,11 @@ void RenderReversi::PaintBoard(Board * board)
 				switch (cell.GetStoneColor())
 				{
 				case STONE_COLOR::BLACK:
-					PaintStone(pos, STONE_COLOR::BLACK);
+					AddStone(pos, STONE_COLOR::BLACK);
 					break;
 
 				case STONE_COLOR::WHITE:
-					PaintStone(pos, STONE_COLOR::WHITE);
+					AddStone(pos, STONE_COLOR::WHITE);
 					break;
 
 				default:

@@ -7,6 +7,7 @@
 using namespace std;
 class QGraphicsScene;
 class QGraphicsTextItem;
+class QGraphicsEllipseItem;
 
 class RenderReversi
 {
@@ -22,9 +23,9 @@ private:
 
 	QGraphicsTextItem* AddText(string str, unsigned int pos_x, unsigned int pos_y);
 
-	void PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR color);
+	QGraphicsEllipseItem* AddStone(pair<unsigned int, unsigned int> pos, STONE_COLOR color);
 	void AddOutline(pair<unsigned int, unsigned int> board_size);
-	void PaintBoard(Board* board);
+	void UpdateBoard(Board* board);
 	void UpdatePlayerInfo(Player * player);
 	void AddGameResult(JudgeResult result);
 	void AddStoneCount(map<STONE_COLOR, unsigned int> stone_cnt_map);

@@ -70,9 +70,10 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 
 void MainWindow::paintEvent(QPaintEvent *event)
 {
-	for (auto render_reversi : render_reversi_list_)
-	{
-		render_reversi.UpdateScene();
-	}
+	render_reversi_list_[0].UpdateScene();
+	//for (auto render_reversi : render_reversi_list_)
+	//{
+	//	render_reversi.UpdateScene();
+	//}
 	return;
 }

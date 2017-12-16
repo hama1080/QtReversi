@@ -16,8 +16,7 @@ RenderReversi::RenderReversi(QGraphicsScene* scene, Reversi * reversi, Vec2d ren
 	// Render board
 	scene_->addRect(render_pos_.first, render_pos_.second, render_board_size_.first, render_board_size_.second, QPen(Qt::black), QBrush(Qt::darkGreen));
 	AddOutline(size);
-
-	player_info_ = AddText("", render_pos_.first, render_board_size_.second + render_pos_.second);
+	player_info_ = nullptr;
 }
 
 void RenderReversi::UpdateScene()
@@ -29,6 +28,7 @@ void RenderReversi::UpdateScene()
 	if (result != JudgeResult::NotFinished)
 	{
 		player_info_->deleteLater();
+		player_info_ = nullptr;
 		AddGameResult(result);
 		AddStoneCount(reversi_->GetBoardPtr()->GetStoneCnt());
 	}
@@ -169,7 +169,10 @@ void RenderReversi::UpdatePlayerInfo(Player * player)
 	if (player->IsPass())
 		print_str = "Pass";
 
-	player_info_->setPlainText(QString::fromStdString(print_str));
+	if (player_info_ == nullptr)
+		player_info_ = AddText(print_str, render_pos_.first, render_board_size_.second + render_pos_.second);
+	else
+		player_info_->setPlainText(QString::fromStdString(print_str));
 }
 
 void RenderReversi::AddGameResult(JudgeResult result)

@@ -11,11 +11,15 @@ RenderReversi::RenderReversi(QGraphicsScene* scene, Reversi * reversi, Vec2d ren
 	pair<unsigned int, unsigned int>  size = reversi->GetBoardPtr()->GetBoardSize();
 	render_board_size_.first = kCellSize * size.first;		// board_width
 	render_board_size_.second =  kCellSize * size.second;	//board_height
+
+	// Render board
+	scene_->addRect(render_pos_.first, render_pos_.second, render_board_size_.first, render_board_size_.second, QPen(Qt::black), QBrush(Qt::darkGreen));
+	AddOutline(size, render_pos_);
 }
 
 void RenderReversi::Rendering()
 {
-	PaintBoard(reversi_->GetBoardPtr(), render_pos_);
+	PaintBoard(reversi_->GetBoardPtr());
 	PaintPlayerInfo(reversi_->GetNowPlayer(), render_pos_);
 	JudgeResult result = reversi_->GetGameResult();
 	if (result != JudgeResult::NotFinished)
@@ -70,7 +74,7 @@ void RenderReversi::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR
 	scene_->addEllipse(render_rect, pen, brush);
 }
 
-void RenderReversi::PaintOutline(pair<unsigned int, unsigned int> board_size, Vec2d render_offset)
+void RenderReversi::AddOutline(pair<unsigned int, unsigned int> board_size, Vec2d render_offset)
 {
 	QPen pen(Qt::black, 2);
 	for (unsigned int x = 0; x <= board_size.first; x++)
@@ -91,15 +95,9 @@ void RenderReversi::PaintOutline(pair<unsigned int, unsigned int> board_size, Ve
 	return;
 }
 
-void RenderReversi::PaintBoard(Board * board, Vec2d render_offset)
+void RenderReversi::PaintBoard(Board * board)
 {
 	Vec2d size = board->GetBoardSize();
-
-	// render board
-	scene_->addRect(render_offset.first, render_offset.second, render_board_size_.first, render_board_size_.second, QPen(Qt::black), QBrush(Qt::darkGreen));
-
-	// render outline
-	PaintOutline(size, render_offset);
 
 	// render stone
 	for (unsigned int y = 0; y != size.first + 2; y++)
@@ -119,11 +117,11 @@ void RenderReversi::PaintBoard(Board * board, Vec2d render_offset)
 				switch (cell.GetStoneColor())
 				{
 				case STONE_COLOR::BLACK:
-					PaintStone(pos, STONE_COLOR::BLACK, render_offset);
+					PaintStone(pos, STONE_COLOR::BLACK, render_pos_);
 					break;
 
 				case STONE_COLOR::WHITE:
-					PaintStone(pos, STONE_COLOR::WHITE, render_offset);
+					PaintStone(pos, STONE_COLOR::WHITE, render_pos_);
 					break;
 
 				default:

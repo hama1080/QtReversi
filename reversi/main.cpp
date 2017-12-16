@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     w.show();
 
 	vector<Reversi*> reversi_list;
-	for(unsigned int i = 0; i != 2; i++)
+	for(unsigned int i = 0; i != 1; i++)
 	{
 		Reversi* reversi = new Reversi();
 		Vec2d render_pos(i * 350, 0);

@@ -21,8 +21,8 @@ private:
 	QGraphicsTextItem* PaintText(string str, unsigned int pos_x, unsigned int pos_y);
 
 	void PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR color, Vec2d render_offset);
-	void PaintOutline(pair<unsigned int, unsigned int> board_size, Vec2d render_offset);
-	void PaintBoard(Board* board, Vec2d render_offset);
+	void AddOutline(pair<unsigned int, unsigned int> board_size, Vec2d render_offset);
+	void PaintBoard(Board* board);
 	void PaintPlayerInfo(Player * player, Vec2d render_offset);
 	void PaintGameResult(JudgeResult result, Vec2d render_offset);
 	void PaintStoneCount(map<STONE_COLOR, unsigned int> stone_cnt_map, Vec2d render_offset);

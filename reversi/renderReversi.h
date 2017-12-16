@@ -20,6 +20,7 @@ private:
 	Vec2d render_board_size_;
 
 	QGraphicsTextItem* player_info_;
+	map<Vec2d, QGraphicsEllipseItem*> stone_map_;
 
 	QGraphicsTextItem* AddText(string str, unsigned int pos_x, unsigned int pos_y);
 

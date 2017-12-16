@@ -122,11 +122,21 @@ void RenderReversi::UpdateBoard(Board * board)
 				switch (cell.GetStoneColor())
 				{
 				case STONE_COLOR::BLACK:
-					AddStone(pos, STONE_COLOR::BLACK);
+					if (stone_map_.count(pos) == 0){
+						stone_map_[pos] = AddStone(pos, STONE_COLOR::BLACK);
+					}else{
+						stone_map_[pos]->setPen(QPen(Qt::black));
+						stone_map_[pos]->setBrush(QBrush(Qt::black, Qt::SolidPattern));
+					}
 					break;
 
 				case STONE_COLOR::WHITE:
-					AddStone(pos, STONE_COLOR::WHITE);
+					if (stone_map_.count(pos) == 0){
+						stone_map_[pos] = AddStone(pos, STONE_COLOR::WHITE);
+					}else{
+						stone_map_[pos]->setPen(QPen(Qt::white));
+						stone_map_[pos]->setBrush(QBrush(Qt::white, Qt::SolidPattern));
+					}
 					break;
 
 				default:

@@ -14,18 +14,18 @@ RenderReversi::RenderReversi(QGraphicsScene* scene, Reversi * reversi, Vec2d ren
 
 	// Render board
 	scene_->addRect(render_pos_.first, render_pos_.second, render_board_size_.first, render_board_size_.second, QPen(Qt::black), QBrush(Qt::darkGreen));
-	AddOutline(size, render_pos_);
+	AddOutline(size);
 }
 
 void RenderReversi::Rendering()
 {
 	PaintBoard(reversi_->GetBoardPtr());
-	PaintPlayerInfo(reversi_->GetNowPlayer(), render_pos_);
+	PaintPlayerInfo(reversi_->GetNowPlayer());
 	JudgeResult result = reversi_->GetGameResult();
 	if (result != JudgeResult::NotFinished)
 	{
-		PaintGameResult(result, render_pos_);
-		PaintStoneCount(reversi_->GetBoardPtr()->GetStoneCnt(), render_pos_);
+		PaintGameResult(result);
+		PaintStoneCount(reversi_->GetBoardPtr()->GetStoneCnt());
 	}
 }
 
@@ -37,7 +37,7 @@ QGraphicsTextItem*  RenderReversi::PaintText(string str, unsigned int pos_x, uns
 	return text;
 }
 
-void RenderReversi::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR color, Vec2d render_offset)
+void RenderReversi::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR color)
 {
 	const unsigned int kEllipseDiameter = kCellSize * 0.75f;
 	const unsigned int kOffset = (kCellSize - kEllipseDiameter) / 2;
@@ -46,8 +46,8 @@ void RenderReversi::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR
 	Vec2d render_pos(pos.first - 1, pos.second - 1);
 
 	QRect render_rect(
-		render_pos.first * kCellSize + kOffset + render_offset.first,
-		render_pos.second * kCellSize + kOffset + render_offset.second,
+		render_pos.first * kCellSize + kOffset + render_pos_.first,
+		render_pos.second * kCellSize + kOffset + render_pos_.second,
 		kEllipseDiameter, kEllipseDiameter);
 
 	QPen pen;
@@ -74,21 +74,21 @@ void RenderReversi::PaintStone(pair<unsigned int, unsigned int> pos, STONE_COLOR
 	scene_->addEllipse(render_rect, pen, brush);
 }
 
-void RenderReversi::AddOutline(pair<unsigned int, unsigned int> board_size, Vec2d render_offset)
+void RenderReversi::AddOutline(pair<unsigned int, unsigned int> board_size)
 {
 	QPen pen(Qt::black, 2);
 	for (unsigned int x = 0; x <= board_size.first; x++)
 	{
-		QPoint start(x * kCellSize + render_offset.first, render_offset.second);
-		QPoint end(x * kCellSize + render_offset.first, render_board_size_.first + render_offset.second);
+		QPoint start(x * kCellSize + render_pos_.first, render_pos_.second);
+		QPoint end(x * kCellSize + render_pos_.first, render_board_size_.first + render_pos_.second);
 		QLine line(start, end);
 		scene_->addLine(line, pen);
 	}
 
 	for (unsigned int y = 0; y <= board_size.first; y++)
 	{
-		QPoint start(0 + render_offset.first, y * kCellSize + render_offset.second);
-		QPoint end(render_board_size_.second + render_offset.first, y * kCellSize + render_offset.second);
+		QPoint start(0 + render_pos_.first, y * kCellSize + render_pos_.second);
+		QPoint end(render_board_size_.second + render_pos_.first, y * kCellSize + render_pos_.second);
 		QLine line(start, end);
 		scene_->addLine(line, pen);
 	}
@@ -117,11 +117,11 @@ void RenderReversi::PaintBoard(Board * board)
 				switch (cell.GetStoneColor())
 				{
 				case STONE_COLOR::BLACK:
-					PaintStone(pos, STONE_COLOR::BLACK, render_pos_);
+					PaintStone(pos, STONE_COLOR::BLACK);
 					break;
 
 				case STONE_COLOR::WHITE:
-					PaintStone(pos, STONE_COLOR::WHITE, render_pos_);
+					PaintStone(pos, STONE_COLOR::WHITE);
 					break;
 
 				default:
@@ -136,7 +136,7 @@ void RenderReversi::PaintBoard(Board * board)
 	}
 }
 
-void RenderReversi::PaintPlayerInfo(Player * player, Vec2d render_offset)
+void RenderReversi::PaintPlayerInfo(Player * player)
 {
 	STONE_COLOR color = player->GetPlayerColor();
 	string print_str;
@@ -154,11 +154,11 @@ void RenderReversi::PaintPlayerInfo(Player * player, Vec2d render_offset)
 	if (player->IsPass())
 		print_str = "Pass";
 
-	QGraphicsTextItem* text = PaintText(print_str, render_offset.first, render_board_size_.second + render_offset.second);
+	QGraphicsTextItem* text = PaintText(print_str, render_pos_.first, render_board_size_.second + render_pos_.second);
 	text->deleteLater();
 }
 
-void RenderReversi::PaintGameResult(JudgeResult result, Vec2d render_offset)
+void RenderReversi::PaintGameResult(JudgeResult result)
 {
 	string print_str;
 	switch (result)
@@ -176,10 +176,10 @@ void RenderReversi::PaintGameResult(JudgeResult result, Vec2d render_offset)
 		break;
 	}
 
-	PaintText(print_str, render_offset.first, render_board_size_.second + render_offset.second);
+	PaintText(print_str, render_pos_.first, render_board_size_.second + render_pos_.second);
 }
 
-void RenderReversi::PaintStoneCount(map<STONE_COLOR, unsigned int> stone_cnt_map, Vec2d render_offset)
+void RenderReversi::PaintStoneCount(map<STONE_COLOR, unsigned int> stone_cnt_map)
 {
 	string print_str = "";
 	for (auto stone_cnt : stone_cnt_map)
@@ -199,7 +199,7 @@ void RenderReversi::PaintStoneCount(map<STONE_COLOR, unsigned int> stone_cnt_map
 			break;
 		}
 	}
-	PaintText(print_str, render_offset.first, render_board_size_.second + render_offset.second + 25);
+	PaintText(print_str, render_pos_.first, render_board_size_.second + render_pos_.second + 25);
 
 	return;
 }

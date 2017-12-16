@@ -72,7 +72,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
 {
 	for (auto render_reversi : render_reversi_list_)
 	{
-		render_reversi.Rendering();
+		render_reversi.UpdateScene();
 	}
 	return;
 }

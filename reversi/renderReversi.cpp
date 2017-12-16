@@ -15,21 +15,23 @@ RenderReversi::RenderReversi(QGraphicsScene* scene, Reversi * reversi, Vec2d ren
 	// Render board
 	scene_->addRect(render_pos_.first, render_pos_.second, render_board_size_.first, render_board_size_.second, QPen(Qt::black), QBrush(Qt::darkGreen));
 	AddOutline(size);
+
+	player_info_ = AddText("", render_pos_.first, render_board_size_.second + render_pos_.second);
 }
 
-void RenderReversi::Rendering()
+void RenderReversi::UpdateScene()
 {
 	PaintBoard(reversi_->GetBoardPtr());
-	PaintPlayerInfo(reversi_->GetNowPlayer());
+	UpdatePlayerInfo(reversi_->GetNowPlayer());
 	JudgeResult result = reversi_->GetGameResult();
 	if (result != JudgeResult::NotFinished)
 	{
-		PaintGameResult(result);
-		PaintStoneCount(reversi_->GetBoardPtr()->GetStoneCnt());
+		AddGameResult(result);
+		AddStoneCount(reversi_->GetBoardPtr()->GetStoneCnt());
 	}
 }
 
-QGraphicsTextItem*  RenderReversi::PaintText(string str, unsigned int pos_x, unsigned int pos_y)
+QGraphicsTextItem*  RenderReversi::AddText(string str, unsigned int pos_x, unsigned int pos_y)
 {
 	QFont font("Times", 20, QFont::Bold);
 	QGraphicsTextItem* text = scene_->addText(QString::fromStdString(str), font);
@@ -136,7 +138,7 @@ void RenderReversi::PaintBoard(Board * board)
 	}
 }
 
-void RenderReversi::PaintPlayerInfo(Player * player)
+void RenderReversi::UpdatePlayerInfo(Player * player)
 {
 	STONE_COLOR color = player->GetPlayerColor();
 	string print_str;
@@ -154,11 +156,10 @@ void RenderReversi::PaintPlayerInfo(Player * player)
 	if (player->IsPass())
 		print_str = "Pass";
 
-	QGraphicsTextItem* text = PaintText(print_str, render_pos_.first, render_board_size_.second + render_pos_.second);
-	text->deleteLater();
+	player_info_->setPlainText(QString::fromStdString(print_str));
 }
 
-void RenderReversi::PaintGameResult(JudgeResult result)
+void RenderReversi::AddGameResult(JudgeResult result)
 {
 	string print_str;
 	switch (result)
@@ -176,10 +177,10 @@ void RenderReversi::PaintGameResult(JudgeResult result)
 		break;
 	}
 
-	PaintText(print_str, render_pos_.first, render_board_size_.second + render_pos_.second);
+	AddText(print_str, render_pos_.first, render_board_size_.second + render_pos_.second);
 }
 
-void RenderReversi::PaintStoneCount(map<STONE_COLOR, unsigned int> stone_cnt_map)
+void RenderReversi::AddStoneCount(map<STONE_COLOR, unsigned int> stone_cnt_map)
 {
 	string print_str = "";
 	for (auto stone_cnt : stone_cnt_map)
@@ -199,7 +200,7 @@ void RenderReversi::PaintStoneCount(map<STONE_COLOR, unsigned int> stone_cnt_map
 			break;
 		}
 	}
-	PaintText(print_str, render_pos_.first, render_board_size_.second + render_pos_.second + 25);
+	AddText(print_str, render_pos_.first, render_board_size_.second + render_pos_.second + 25);
 
 	return;
 }

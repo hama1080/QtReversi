@@ -91,11 +91,11 @@ void Reversi::PreProcess()
 		if (now_player_->IsPass())
 		{
 			game_result_ = JudgeGame();
-			emit repaintSignal();
+			emit repaintSignal(reversi_num_);
 			return;
 		}
 
-		emit finishedPostProcessSignal();
+		emit finishedPostProcessSignal(reversi_num_);
 		return;
 	}
 
@@ -125,14 +125,14 @@ void Reversi::PostProcess(Vec2d put_pos)
 
 		if (total_stone == board_size.first * board_size.second){
 			game_result_ = JudgeGame();
-			emit repaintSignal();
+			emit repaintSignal(reversi_num_);
 			return;
 		}
 		else {
 			now_player_ = now_player_->GetNextPlayer();
 		}
 	}
-	emit finishedPostProcessSignal();	// call PreProcess after this signal is emitted
+	emit finishedPostProcessSignal(reversi_num_);	// call PreProcess after this signal is emitted
 	return;
 }
 

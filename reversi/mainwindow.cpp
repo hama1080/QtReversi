@@ -36,19 +36,19 @@ void MainWindow::finishedTimerSlot()
 	emit nextPreProcessSignal();
 }
 
-void MainWindow::repaintSlot()
+void MainWindow::repaintSlot(unsigned int reversi_num)
 {
-	render_reversi_list_[0].UpdateScene();
+	render_reversi_list_[reversi_num].UpdateScene();
 
 	this->repaint();
 }
 
-void MainWindow::finishedPostProcessSlot()
+void MainWindow::finishedPostProcessSlot(unsigned int reversi_num)
 {
-	render_reversi_list_[0].UpdateScene();
+	render_reversi_list_[reversi_num].UpdateScene();
 
 	this->repaint();
-	QTimer::singleShot(100, this, SLOT(finishedTimerSlot()));
+	QTimer::singleShot(1000, this, SLOT(finishedTimerSlot()));
 }
 
 void MainWindow::mousePressEvent(QMouseEvent *event)

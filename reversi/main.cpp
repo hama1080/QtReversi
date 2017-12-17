@@ -20,8 +20,8 @@ int main(int argc, char *argv[])
 
 	for (unsigned int i = 0; i != reversi_list.size(); i++)
 	{
-		QObject::connect(reversi_list[i], SIGNAL(finishedPostProcessSignal()),
-			&w, SLOT(finishedPostProcessSlot()));
+		QObject::connect(reversi_list[i], SIGNAL(finishedPostProcessSignal(unsigned int)),
+			&w, SLOT(finishedPostProcessSlot(unsigned int)));
 
 		if(i == reversi_list.size() - 1){
 			QObject::connect(&w, SIGNAL(nextPreProcessSignal()),
@@ -31,8 +31,8 @@ int main(int argc, char *argv[])
 			QObject::connect(&w, SIGNAL(nextPreProcessSignal()),
 			reversi_list[i+1], SLOT(nextPreProcessSlot()));
 		}
-		QObject::connect(reversi_list[i], SIGNAL(repaintSignal()),
-			&w, SLOT(repaintSlot()));
+		QObject::connect(reversi_list[i], SIGNAL(repaintSignal(unsigned int)),
+			&w, SLOT(repaintSlot(unsigned int)));
 	}
 //	QObject::connect(&w, SIGNAL(leftClickSignal(pair<unsigned int, unsigned int>)),
 //		reversi, SLOT(leftClickSlot(pair<unsigned int, unsigned int>)));

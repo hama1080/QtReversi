@@ -37,9 +37,9 @@ public:
 	void AddReversi(Reversi* reversi, Vec2d render_pos = Vec2d(0, 0));
 
 public slots:
-	void finishedPostProcessSlot();
+	void finishedPostProcessSlot(unsigned int reversi_num);
 	void finishedTimerSlot();
-	void repaintSlot();
+	void repaintSlot(unsigned int reversi_num);
 
 signals:
 	void leftClickSignal(Vec2d click_pos);

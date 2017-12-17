@@ -48,8 +48,8 @@ public:
 	JudgeResult GetGameResult();
 
 signals:
-	void finishedPostProcessSignal();
-	void repaintSignal();
+	void finishedPostProcessSignal(unsigned int);
+	void repaintSignal(unsigned int);
 
 public slots:
 	void leftClickSlot(Vec2d click_pos);

@@ -22,6 +22,9 @@ class Reversi : public QObject{
 
 private:
 	static bool waiting_human_input;
+	static unsigned int reversi_count;
+
+	unsigned int reversi_num_;
 	JudgeResult game_result_;
 
 	Board* board_;

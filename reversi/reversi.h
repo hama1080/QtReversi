@@ -53,5 +53,4 @@ signals:
 
 public slots:
 	void leftClickSlot(Vec2d click_pos);
-	void nextPreProcessSlot();
 };

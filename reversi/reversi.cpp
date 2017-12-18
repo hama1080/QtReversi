@@ -164,7 +164,3 @@ JudgeResult Reversi::GetGameResult()
 	return game_result_;
 }
 
-void Reversi::nextPreProcessSlot()
-{
-	PreProcess();
-}

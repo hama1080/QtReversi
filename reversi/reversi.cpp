@@ -79,6 +79,8 @@ void Reversi::leftClickSlot(Vec2d click_pos)
 //call before player input
 void Reversi::PreProcess()
 {
+	if (game_result_ != JudgeResult::NotFinished)
+		return;
 	PreProcessState state = board_->PreProcess(now_player_->GetPlayerColor());
 
 	if(state == PreProcessState::Pass)

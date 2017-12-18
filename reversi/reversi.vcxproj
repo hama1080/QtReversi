@@ -163,6 +163,7 @@
     <ClInclude Include="common.h" />
     <ClInclude Include="computer.h" />
     <ClInclude Include="human.h" />
+    <ClInclude Include="manager.h" />
     <ClInclude Include="player.h" />
     <CustomBuild Include="reversi.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>

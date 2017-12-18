@@ -125,6 +125,9 @@
     <ClInclude Include="renderReversi.h">
       <Filter>Qt</Filter>
     </ClInclude>
+    <ClInclude Include="manager.h">
+      <Filter>Qt</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="debug\moc_predefs.h.cbt">

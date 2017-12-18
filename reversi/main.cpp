@@ -2,6 +2,7 @@
 #include <QApplication>
 
 #include "reversi.h"
+#include "manager.h"
 
 int main(int argc, char *argv[])
 {
@@ -9,35 +10,35 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-	vector<Reversi*> reversi_list;
-	for(unsigned int i = 0; i != 1; i++)
+	Manager manager;
+	for(unsigned int i = 0; i != 2; i++)
 	{
 		Reversi* reversi = new Reversi();
 		Vec2d render_pos(i * 350, 0);
 		w.AddReversi(reversi, render_pos);
-		reversi_list.push_back(reversi);
+		manager.reversi_list_.push_back(reversi);
 	}
 
-	for (unsigned int i = 0; i != reversi_list.size(); i++)
+	for (unsigned int i = 0; i != manager.reversi_list_.size(); i++)
 	{
-		QObject::connect(reversi_list[i], SIGNAL(finishedPostProcessSignal(unsigned int)),
+		QObject::connect(manager.reversi_list_[i], SIGNAL(finishedPostProcessSignal(unsigned int)),
 			&w, SLOT(finishedPostProcessSlot(unsigned int)));
 
-		if(i == reversi_list.size() - 1){
+		if(i == manager.reversi_list_.size() - 1){
 			QObject::connect(&w, SIGNAL(nextPreProcessSignal()),
-				reversi_list[0], SLOT(nextPreProcessSlot()));
+				manager.reversi_list_[0], SLOT(nextPreProcessSlot()));
 		}
 		else{
 			QObject::connect(&w, SIGNAL(nextPreProcessSignal()),
-			reversi_list[i+1], SLOT(nextPreProcessSlot()));
+				manager.reversi_list_[i+1], SLOT(nextPreProcessSlot()));
 		}
-		QObject::connect(reversi_list[i], SIGNAL(repaintSignal(unsigned int)),
+		QObject::connect(manager.reversi_list_[i], SIGNAL(repaintSignal(unsigned int)),
 			&w, SLOT(repaintSlot(unsigned int)));
 	}
 //	QObject::connect(&w, SIGNAL(leftClickSignal(pair<unsigned int, unsigned int>)),
 //		reversi, SLOT(leftClickSlot(pair<unsigned int, unsigned int>)));
 
-	reversi_list[0]->PreProcess();
+	manager.reversi_list_[0]->PreProcess();
 
     return a.exec();
 }

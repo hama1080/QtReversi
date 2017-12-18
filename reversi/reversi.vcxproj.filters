@@ -96,6 +96,12 @@
     <ClCompile Include="renderReversi.cpp">
       <Filter>Qt</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_manager.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_manager.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h">
@@ -125,9 +131,6 @@
     <ClInclude Include="renderReversi.h">
       <Filter>Qt</Filter>
     </ClInclude>
-    <ClInclude Include="manager.h">
-      <Filter>Qt</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="debug\moc_predefs.h.cbt">
@@ -141,6 +144,9 @@
     </CustomBuild>
     <CustomBuild Include="reversi.h">
       <Filter>Reversi\Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="manager.h">
+      <Filter>Qt</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

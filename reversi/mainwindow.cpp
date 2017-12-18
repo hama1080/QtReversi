@@ -31,9 +31,10 @@ void MainWindow::AddReversi(Reversi * reversi, Vec2d render_pos)
 	return;
 }
 
-void MainWindow::finishedTimerSlot()
+void MainWindow::finishedTimerSlot(unsigned int next_index)
 {
-	emit nextPreProcessSignal();
+	cout << "finished Timer Slot: next: " << next_index << endl;
+	emit nextPreProcessSignal(next_index);
 }
 
 void MainWindow::repaintSlot(unsigned int reversi_num)
@@ -48,7 +49,11 @@ void MainWindow::finishedPostProcessSlot(unsigned int reversi_num)
 	render_reversi_list_[reversi_num].UpdateScene();
 
 	this->repaint();
-	QTimer::singleShot(1000, this, SLOT(finishedTimerSlot()));
+
+	unsigned int next_index = reversi_num + 1;
+	if (next_index == render_reversi_list_.size())
+		next_index = 0;
+		QTimer::singleShot(1000, this, [=]() {finishedTimerSlot(next_index); });
 }
 
 void MainWindow::mousePressEvent(QMouseEvent *event)

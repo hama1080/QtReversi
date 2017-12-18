@@ -38,12 +38,12 @@ public:
 
 public slots:
 	void finishedPostProcessSlot(unsigned int reversi_num);
-	void finishedTimerSlot();
+	void finishedTimerSlot(unsigned int next_index);
 	void repaintSlot(unsigned int reversi_num);
 
 signals:
 	void leftClickSignal(Vec2d click_pos);
-	void nextPreProcessSignal();
+	void nextPreProcessSignal(unsigned int next_index);
 
 protected:
 	void mousePressEvent(QMouseEvent *event);

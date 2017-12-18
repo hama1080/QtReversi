@@ -24,14 +24,9 @@ int main(int argc, char *argv[])
 		QObject::connect(manager.reversi_list_[i], SIGNAL(finishedPostProcessSignal(unsigned int)),
 			&w, SLOT(finishedPostProcessSlot(unsigned int)));
 
-		if(i == manager.reversi_list_.size() - 1){
-			QObject::connect(&w, SIGNAL(nextPreProcessSignal()),
-				manager.reversi_list_[0], SLOT(nextPreProcessSlot()));
-		}
-		else{
-			QObject::connect(&w, SIGNAL(nextPreProcessSignal()),
-				manager.reversi_list_[i+1], SLOT(nextPreProcessSlot()));
-		}
+		QObject::connect(&w, SIGNAL(nextPreProcessSignal(unsigned int)),
+			&manager, SLOT(nextPreprocessSlot(unsigned int)));
+
 		QObject::connect(manager.reversi_list_[i], SIGNAL(repaintSignal(unsigned int)),
 			&w, SLOT(repaintSlot(unsigned int)));
 	}

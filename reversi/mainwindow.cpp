@@ -8,7 +8,7 @@
 #include <QString>
 
 MainWindow::MainWindow(QWidget *parent)
-	:kWindowWidth(700), kWindowHeight(700), QMainWindow(parent), ui(new Ui::MainWindow)
+	:kWindowWidth(700), kWindowHeight(700), QMainWindow(parent), ui(new Ui::MainWindow), next_index_(0)
 {
     ui->setupUi(this);
 	this->resize(kWindowWidth, kWindowHeight);
@@ -17,6 +17,10 @@ MainWindow::MainWindow(QWidget *parent)
 	view_ = new QGraphicsView(scene_);
 	view_->setBackgroundBrush(QBrush(Qt::gray));
 	setCentralWidget(view_);
+
+	QTimer* timer = new QTimer(this);
+	connect(timer, SIGNAL(timeout()), this, SLOT(finishedTimerSlot()));
+	timer->start(10);
 }
 
 MainWindow::~MainWindow()
@@ -31,10 +35,9 @@ void MainWindow::AddReversi(Reversi * reversi, Vec2d render_pos)
 	return;
 }
 
-void MainWindow::finishedTimerSlot(unsigned int next_index)
+void MainWindow::finishedTimerSlot()
 {
-	cout << "finished Timer Slot: next: " << next_index << endl;
-	emit nextPreProcessSignal(next_index);
+	emit nextPreProcessSignal(next_index_);
 }
 
 void MainWindow::repaintSlot(unsigned int reversi_num)
@@ -50,10 +53,9 @@ void MainWindow::finishedPostProcessSlot(unsigned int reversi_num)
 
 	this->repaint();
 
-	unsigned int next_index = reversi_num + 1;
-	if (next_index == render_reversi_list_.size())
-		next_index = 0;
-		QTimer::singleShot(1000, this, [=]() {finishedTimerSlot(next_index); });
+	next_index_ = reversi_num + 1;
+	if (next_index_ == render_reversi_list_.size())
+		next_index_ = 0;
 }
 
 void MainWindow::mousePressEvent(QMouseEvent *event)

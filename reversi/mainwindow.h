@@ -23,6 +23,7 @@ class MainWindow : public QMainWindow
 private:
 	const unsigned int kWindowWidth;
 	const unsigned int kWindowHeight;
+	unsigned int next_index_;
 
 	class QGraphicsScene* scene_;
 	class QGraphicsView* view_;
@@ -38,7 +39,7 @@ public:
 
 public slots:
 	void finishedPostProcessSlot(unsigned int reversi_num);
-	void finishedTimerSlot(unsigned int next_index);
+	void finishedTimerSlot();
 	void repaintSlot(unsigned int reversi_num);
 
 signals:

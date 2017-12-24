@@ -11,12 +11,15 @@ int main(int argc, char *argv[])
     w.show();
 
 	Manager manager;
-	for(unsigned int i = 0; i != 2; i++)
+	for(unsigned int i = 0; i != 1; i++)
 	{
-		Reversi* reversi = new Reversi();
-		Vec2d render_pos(i * 350, 0);
-		w.AddReversi(reversi, render_pos);
-		manager.reversi_list_.push_back(reversi);
+		for(unsigned int j =0; j != 1; j++)
+		{
+			Reversi* reversi = new Reversi();
+			Vec2d render_pos(i * 300, j * 310);
+			w.AddReversi(reversi, render_pos);
+			manager.reversi_list_.push_back(reversi);
+		}
 	}
 
 	for (unsigned int i = 0; i != manager.reversi_list_.size(); i++)

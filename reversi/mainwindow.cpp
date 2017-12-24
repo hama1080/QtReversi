@@ -8,19 +8,19 @@
 #include <QString>
 
 MainWindow::MainWindow(QWidget *parent)
-	:kWindowWidth(700), kWindowHeight(700), QMainWindow(parent), ui(new Ui::MainWindow), next_index_(0)
+	:kWindowWidth(900), kWindowHeight(950), QMainWindow(parent), ui(new Ui::MainWindow), next_index_(0)
 {
     ui->setupUi(this);
 	this->resize(kWindowWidth, kWindowHeight);
 
-	scene_ = new QGraphicsScene(QRect(0, 0, kWindowWidth, kWindowHeight));
+	scene_ = new QGraphicsScene(QRect(0, 0, kWindowWidth-50, kWindowHeight-50));
 	view_ = new QGraphicsView(scene_);
 	view_->setBackgroundBrush(QBrush(Qt::gray));
 	setCentralWidget(view_);
 
 	QTimer* timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), this, SLOT(finishedTimerSlot()));
-	timer->start(10);
+	timer->start(50);
 }
 
 MainWindow::~MainWindow()

@@ -7,7 +7,7 @@
 #include "player.h"
 
 RenderReversi::RenderReversi(QGraphicsScene* scene, Reversi * reversi, Vec2d render_pos)
-	:scene_(scene), reversi_(reversi), render_pos_(render_pos), kCellSize(40)
+	:scene_(scene), reversi_(reversi), render_pos_(render_pos), kCellSize(30)
 {
 	pair<unsigned int, unsigned int>  size = reversi->GetBoardPtr()->GetBoardSize();
 	render_board_size_.first = kCellSize * size.first;		// board_width
@@ -36,7 +36,7 @@ void RenderReversi::UpdateScene()
 
 QGraphicsTextItem*  RenderReversi::AddText(string str, unsigned int pos_x, unsigned int pos_y)
 {
-	QFont font("Times", 20, QFont::Bold);
+	QFont font("Times", 16, QFont::Bold);
 	QGraphicsTextItem* text = scene_->addText(QString::fromStdString(str), font);
 	text->setPos(pos_x, pos_y);
 	return text;
@@ -204,15 +204,15 @@ void RenderReversi::AddStoneCount(map<STONE_COLOR, unsigned int> stone_cnt_map)
 		switch (stone_cnt.first)
 		{
 		case STONE_COLOR::BLACK:
-			print_str += "Black: " + to_string(stone_cnt.second) + "\t";
+			print_str += "Black: " + to_string(stone_cnt.second) + "  ";
 			break;
 
 		case STONE_COLOR::WHITE:
-			print_str += "White: " + to_string(stone_cnt.second) + "\t";
+			print_str += "White: " + to_string(stone_cnt.second) + "  ";
 			break;
 
 		default:
-			print_str += "Other: " + to_string(stone_cnt.second) + "\t";
+			print_str += "Other: " + to_string(stone_cnt.second) + "  ";
 			break;
 		}
 	}

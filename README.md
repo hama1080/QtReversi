@@ -6,4 +6,5 @@ Reversi is a strategy board game for two players, played on an 8×8 uncheckered 
 This project imprement reversi and show it on Qt.
 
 ## Appearance
+![large_scale_gif]()  
 ## Usage

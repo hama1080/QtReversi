@@ -79,8 +79,11 @@ void Reversi::leftClickSlot(Vec2d click_pos)
 //call before player input
 void Reversi::PreProcess()
 {
-	if (game_result_ != JudgeResult::NotFinished)
+	if (game_result_ != JudgeResult::NotFinished) {	// game is already finished.
+		emit finishedPostProcessSignal(reversi_num_);
 		return;
+	}
+
 	PreProcessState state = board_->PreProcess(now_player_->GetPlayerColor());
 
 	if(state == PreProcessState::Pass)
@@ -127,6 +130,7 @@ void Reversi::PostProcess(Vec2d put_pos)
 
 		if (total_stone == board_size.first * board_size.second){
 			game_result_ = JudgeGame();
+			emit finishedPostProcessSignal(reversi_num_);
 			emit repaintSignal(reversi_num_);
 			return;
 		}

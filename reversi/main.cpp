@@ -11,9 +11,9 @@ int main(int argc, char *argv[])
     w.show();
 
 	Manager manager;
-	for(unsigned int i = 0; i != 1; i++)
+	for(unsigned int i = 0; i != 2; i++)
 	{
-		for(unsigned int j =0; j != 1; j++)
+		for(unsigned int j =0; j != 2; j++)
 		{
 			Reversi* reversi = new Reversi();
 			Vec2d render_pos(i * 300, j * 310);

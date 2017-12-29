@@ -27,8 +27,6 @@ void RenderReversi::UpdateScene()
 	JudgeResult result = reversi_->GetGameResult();
 	if (result != JudgeResult::NotFinished)
 	{
-		player_info_->deleteLater();
-		player_info_ = nullptr;
 		AddGameResult(result);
 		AddStoneCount(reversi_->GetBoardPtr()->GetStoneCnt());
 	}
@@ -153,6 +151,10 @@ void RenderReversi::UpdateBoard(Board * board)
 
 void RenderReversi::UpdatePlayerInfo(Player * player)
 {
+	if (player == nullptr) {
+		player_info_->setPlainText("");
+		return;
+	}
 	STONE_COLOR color = player->GetPlayerColor();
 	string print_str;
 	switch (color)

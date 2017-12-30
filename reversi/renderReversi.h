@@ -12,7 +12,7 @@ class QGraphicsEllipseItem;
 class RenderReversi
 {
 private:
-	const unsigned int kCellSize;
+	unsigned int kCellSize;
 
 	QGraphicsScene* scene_;
 	Reversi* reversi_;

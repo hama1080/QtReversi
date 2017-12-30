@@ -5,10 +5,26 @@
 #include "board.h"
 #include "cell.h"
 #include "player.h"
+#include "common.h"
 
 RenderReversi::RenderReversi(QGraphicsScene* scene, Reversi * reversi, Vec2d render_pos)
-	:scene_(scene), reversi_(reversi), render_pos_(render_pos), kCellSize(20)
+	:scene_(scene), reversi_(reversi), render_pos_(render_pos)
 {
+	switch (mode)
+	{
+	case Mode::Default:
+	case Mode::LargeScale:
+		kCellSize = 30;
+		break;
+
+	case Mode::Multi:
+		kCellSize = 20;
+		break;
+
+	default:
+		// unexpected mode
+		break;
+	}
 	pair<unsigned int, unsigned int>  size = reversi->GetBoardPtr()->GetBoardSize();
 	render_board_size_.first = kCellSize * size.first;		// board_width
 	render_board_size_.second =  kCellSize * size.second;	//board_height
@@ -17,6 +33,7 @@ RenderReversi::RenderReversi(QGraphicsScene* scene, Reversi * reversi, Vec2d ren
 	scene_->addRect(render_pos_.first, render_pos_.second, render_board_size_.first, render_board_size_.second, QPen(Qt::black), QBrush(Qt::darkGreen));
 	AddOutline(size);
 	player_info_ = nullptr;
+
 }
 
 void RenderReversi::UpdateScene()

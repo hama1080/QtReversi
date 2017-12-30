@@ -4,6 +4,8 @@
 #include "reversi.h"
 #include "manager.h"
 
+const Mode mode(Mode::Default);
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -11,9 +13,16 @@ int main(int argc, char *argv[])
     w.show();
 
 	Manager manager;
-	for(unsigned int i = 0; i != 4; i++)
+	unsigned int i_num = 1;
+	unsigned int j_num = 1;
+	if (mode == Mode::Multi) {
+		i_num = 4;
+		j_num = 4;
+	}
+	
+	for(unsigned int i = 0; i != i_num; i++)
 	{
-		for(unsigned int j =0; j != 4; j++)
+		for(unsigned int j =0; j != j_num; j++)
 		{
 			Reversi* reversi = new Reversi();
 			Vec2d render_pos(i * 200, j * 200);

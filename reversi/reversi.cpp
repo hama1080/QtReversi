@@ -2,6 +2,7 @@
 #include "board.h"
 #include "human.h"
 #include "computer.h"
+#include "common.h"
 #include <iostream>
 #include <algorithm>
 
@@ -57,7 +58,10 @@ JudgeResult Reversi::JudgeGame()
 
 void Reversi::Initialize()
 {
-	board_ = new Board();
+	if (mode == Mode::LargeScale)
+		board_ = new Board(25, 25);
+	else
+		board_ = new Board();	// default, multi
 	player_list_.push_back(new Computer(STONE_COLOR::BLACK));
 	player_list_.push_back(new Computer(STONE_COLOR::WHITE));
 

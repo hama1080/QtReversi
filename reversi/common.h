@@ -15,3 +15,10 @@ using namespace std;
 #define LowerRight	Vec2d( 1, -1)
 
 extern const vector<Vec2d> kDirectionList;
+
+enum class Mode {
+	Default = 0,
+	Multi,
+	LargeScale,
+};
+extern const Mode mode;

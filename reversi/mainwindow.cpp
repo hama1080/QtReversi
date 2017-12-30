@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 	QTimer* timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), this, SLOT(finishedTimerSlot()));
-	timer->start(50);
+	timer->start(0);
 }
 
 MainWindow::~MainWindow()

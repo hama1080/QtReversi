@@ -2,7 +2,7 @@
 Required disk space:
 ====================
 Qt: 5GB
-Build directory: MB
+Build directory: 13MB
 
 ==========================================
 Getting the source and contribute changes:
@@ -60,10 +60,10 @@ Build a stand-alone executable:
 Start Qt creator, open project,  browse to QtReversi\reversi\reversi.pro and then choose open
 At the left, choose Project-> choose Release from the "Edit build configuration" pull down menu.
 Then choose build->run Now the program is compiled in release mode
-Next select build-reversi-Desktop_Qt_5_10_0_MinGW_32bit-Release\release\reversi.exe and drop it on C:\Qt\5.10.0\mingw53_32\bin\windeployqt.exe Now almost all needed files are copied into the folder with reversi.exe.
-manually copy the following files from C:\Qt\5.10.0\mingw53_32\bin to build-reversi-Desktop_Qt_5_10_0_MinGW_32bit-Release\release\ :
+Next select QtReversi\build-reversi-Desktop_Qt_5_10_0_MinGW_32bit-Release\release\reversi.exe and drop it on C:\Qt\5.10.0\mingw53_32\bin\windeployqt.exe Now almost all needed files are copied into the folder with reversi.exe.
+manually copy the following files from C:\Qt\5.10.0\mingw53_32\bin to QtReversi\build-reversi-Desktop_Qt_5_10_0_MinGW_32bit-Release\release\ :
 libgcc_s_dw2-1.dll
 libwinpthread-1.dll
 libstdc++-6.dll
 
-Optional: remove the .cpp .h and .o files from build-reversi-Desktop_Qt_5_10_0_MinGW_32bit-Release\release\
+Optional: remove the .cpp .h and .o files from QtReversi\build-reversi-Desktop_Qt_5_10_0_MinGW_32bit-Release\release\

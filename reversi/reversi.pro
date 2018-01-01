@@ -24,21 +24,31 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-        main.cpp \
-        mainwindow.cpp \
-    cell.cpp \
     board.cpp \
+    cell.cpp \
+    computer.cpp \
+    human.cpp \
+    main.cpp \
+    mainwindow.cpp \
     player.cpp \
-    stone.cpp \
-    vector2d.cpp
+    renderReversi.cpp \
+    reversi.cpp \
+    stone.cpp
+
 
 HEADERS += \
-        mainwindow.h \
-    cell.h \
     board.h \
+    cell.h \
+    common.h \
+    computer.h \
+    human.h \
+    mainwindow.h \
+    manager.h \
     player.h \
-    stone.h \
-    vector2d.h
+    renderReversi.h \
+    reversi.h \
+    stone.h
+
 
 FORMS += \
         mainwindow.ui

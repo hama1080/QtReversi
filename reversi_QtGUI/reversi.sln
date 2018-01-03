@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "reversi", "reversi.vcxproj", "{50137EC2-659F-3645-A55E-8C5D3F617BE9}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest1", "UnitTest1\UnitTest1.vcxproj", "{F730973B-7ADE-49C2-8F7D-4A8D510D164C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,16 +25,6 @@ Global
 		{50137EC2-659F-3645-A55E-8C5D3F617BE9}.Release|Win32.ActiveCfg = Release|x64
 		{50137EC2-659F-3645-A55E-8C5D3F617BE9}.Release|x64.ActiveCfg = Release|x64
 		{50137EC2-659F-3645-A55E-8C5D3F617BE9}.Release|x64.Build.0 = Release|x64
-		{F730973B-7ADE-49C2-8F7D-4A8D510D164C}.Debug|Mixed Platforms.ActiveCfg = Debug|x64
-		{F730973B-7ADE-49C2-8F7D-4A8D510D164C}.Debug|Mixed Platforms.Build.0 = Debug|x64
-		{F730973B-7ADE-49C2-8F7D-4A8D510D164C}.Debug|Win32.ActiveCfg = Debug|Win32
-		{F730973B-7ADE-49C2-8F7D-4A8D510D164C}.Debug|Win32.Build.0 = Debug|Win32
-		{F730973B-7ADE-49C2-8F7D-4A8D510D164C}.Debug|x64.ActiveCfg = Debug|Win32
-		{F730973B-7ADE-49C2-8F7D-4A8D510D164C}.Release|Mixed Platforms.ActiveCfg = Release|Win32
-		{F730973B-7ADE-49C2-8F7D-4A8D510D164C}.Release|Mixed Platforms.Build.0 = Release|Win32
-		{F730973B-7ADE-49C2-8F7D-4A8D510D164C}.Release|Win32.ActiveCfg = Release|Win32
-		{F730973B-7ADE-49C2-8F7D-4A8D510D164C}.Release|Win32.Build.0 = Release|Win32
-		{F730973B-7ADE-49C2-8F7D-4A8D510D164C}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

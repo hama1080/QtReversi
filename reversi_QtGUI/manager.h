@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <vector>
 #include <QObject>
-#include "reversi.h"
+#include <reversi.h>
 
 class Manager : public QObject {
 	Q_OBJECT

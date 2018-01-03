@@ -66,33 +66,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Qt</Filter>
     </ClCompile>
-    <ClCompile Include="human.cpp">
-      <Filter>Reversi\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="player.cpp">
-      <Filter>Reversi\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="board.cpp">
-      <Filter>Reversi\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="cell.cpp">
-      <Filter>Reversi\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="reversi.cpp">
-      <Filter>Reversi\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="stone.cpp">
-      <Filter>Reversi\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_reversi.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_reversi.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="computer.cpp">
-      <Filter>Reversi\Player</Filter>
-    </ClCompile>
     <ClCompile Include="renderReversi.cpp">
       <Filter>Qt</Filter>
     </ClCompile>
@@ -102,34 +75,61 @@
     <ClCompile Include="GeneratedFiles\Release\moc_manager.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="..\reversi\computer.cpp">
+      <Filter>Reversi\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\reversi\human.cpp">
+      <Filter>Reversi\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\reversi\player.cpp">
+      <Filter>Reversi\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\reversi\board.cpp">
+      <Filter>Reversi\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\reversi\cell.cpp">
+      <Filter>Reversi\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\reversi\reversi.cpp">
+      <Filter>Reversi\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\reversi\stone.cpp">
+      <Filter>Reversi\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_reversi.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_reversi.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="human.h">
-      <Filter>Reversi\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="player.h">
-      <Filter>Reversi\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="board.h">
-      <Filter>Reversi\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cell.h">
-      <Filter>Reversi\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="stone.h">
-      <Filter>Reversi\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="common.h">
-      <Filter>Reversi\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="computer.h">
-      <Filter>Reversi\Player</Filter>
-    </ClInclude>
     <ClInclude Include="renderReversi.h">
       <Filter>Qt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\reversi\board.h">
+      <Filter>Reversi\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\reversi\cell.h">
+      <Filter>Reversi\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\reversi\common.h">
+      <Filter>Reversi\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\reversi\stone.h">
+      <Filter>Reversi\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\reversi\computer.h">
+      <Filter>Reversi\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\reversi\human.h">
+      <Filter>Reversi\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\reversi\player.h">
+      <Filter>Reversi\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -142,11 +142,11 @@
     <CustomBuild Include="mainwindow.h">
       <Filter>Qt</Filter>
     </CustomBuild>
-    <CustomBuild Include="reversi.h">
-      <Filter>Reversi\Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="manager.h">
       <Filter>Qt</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\reversi\reversi.h">
+      <Filter>Reversi\Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

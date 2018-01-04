@@ -7,10 +7,14 @@ This project imprement reversi and show it on Qt.
 
 ## Appearance
 - Normal  
+Default Reversi.  
+
 - Multi-reversi  
+Create multipule reversi easily.  
 ![multi_gif](https://github.com/hmhm903/QtReversi/blob/master/img/multi.gif)
 
 - Large-scale  
+Enlarge the scale of reversi easily.  
 ![large_scale_gif](https://github.com/hmhm903/QtReversi/blob/master/img/large-scale.gif)  
 
 ## Usage

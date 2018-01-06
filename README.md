@@ -18,3 +18,5 @@ Enlarge the scale of reversi easily.
 ![large_scale_gif](https://github.com/hmhm903/QtReversi/blob/master/img/large-scale.gif)  
 
 ## Usage
+- Windows
+Please refer DEVEL-WINDOWS.txt(Thank you @cdwijs)

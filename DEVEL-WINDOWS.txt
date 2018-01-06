@@ -50,14 +50,14 @@ installation finished -> next -> launch
 ===============
 Debug QtReversi
 ===============
-Start Qt creator, open project,  browse to QtReversi\reversi\reversi.pro and then choose open
+Start Qt creator, open project,  browse to QtReversi\reversi_QtGUI\reversi.pro and then choose open
 configure project
 debug->start debugging->start debugging (F5)
 
 ===============================
 Build a stand-alone executable:
 ===============================
-Start Qt creator, open project,  browse to QtReversi\reversi\reversi.pro and then choose open
+Start Qt creator, open project,  browse to QtReversi\reversi_QtGUI\reversi.pro and then choose open
 At the left, choose Project-> choose Release from the "Edit build configuration" pull down menu.
 Then choose build->run Now the program is compiled in release mode
 Next select QtReversi\build-reversi-Desktop_Qt_5_10_0_MinGW_32bit-Release\release\reversi.exe and drop it on C:\Qt\5.10.0\mingw53_32\bin\windeployqt.exe Now almost all needed files are copied into the folder with reversi.exe.

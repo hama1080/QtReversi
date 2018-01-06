@@ -24,31 +24,33 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-    board.cpp \
-    cell.cpp \
-    computer.cpp \
-    human.cpp \
     main.cpp \
     mainwindow.cpp \
-    player.cpp \
     renderReversi.cpp \
-    reversi.cpp \
-    stone.cpp
+    ../reversi/board.cpp \
+    ../reversi/cell.cpp \
+    ../reversi/computer.cpp \
+    ../reversi/human.cpp \
+    ../reversi/player.cpp \
+    ../reversi/reversi.cpp \
+    ../reversi/stone.cpp
 
 
 HEADERS += \
-    board.h \
-    cell.h \
-    common.h \
-    computer.h \
-    human.h \
     mainwindow.h \
     manager.h \
-    player.h \
     renderReversi.h \
-    reversi.h \
-    stone.h
+    ../reversi/board.h \
+    ../reversi/cell.h \
+    ../reversi/common.h \
+    ../reversi/computer.h \
+    ../reversi/human.h \
+    ../reversi/player.h \
+    ../reversi/reversi.h \
+    ../reversi/stone.h
 
 
 FORMS += \
         mainwindow.ui
+
+INCLUDEPATH += ../reversi

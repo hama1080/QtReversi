@@ -14,6 +14,12 @@ enum class JudgeResult
 	Draw,
 };
 
+enum class PlayerType
+{
+	Human,
+	Computer
+};
+
 class Board;
 class Player;
 
@@ -37,7 +43,7 @@ public:
 	Reversi();
 	~Reversi();
 
-	void Initialize();
+	void Initialize(PlayerType player0 = PlayerType::Computer, PlayerType player1 = PlayerType::Computer);
 	void PreProcess();
 	void PostProcess(Vec2d put_pos);
 

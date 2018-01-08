@@ -60,20 +60,13 @@ void MainWindow::finishedPostProcessSlot(unsigned int reversi_num)
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
-//	top_left_ = Vec2d((kWindowWidth - kSceneWidth) / 2, (kWindowHeight - kSceneHeight) / 2);
+	if (event->button() == Qt::LeftButton) {
+		int x = event->x();
+		int y = event->y();
+		Vec2d put_pos = render_reversi_list_[0].GetClickPos(x, y);
 
-
-	//if (event->button() == Qt::LeftButton) {
-	//	int x = event->x() - top_left_.first;
-	//	int y = event->y() - top_left_.second;
-	//	Vec2d put_pos(x / kCellSize, y / kCellSize);
-
-	//	// modify put position. ex: (0,0)->(1,1)
-	//	put_pos.first += 1;
-	//	put_pos.second += 1;
-
-	//	if(Reversi::GetWaitingFlag())
-	//		emit leftClickSignal(put_pos);
-	//	this->repaint();
-	//}
+		if(Reversi::GetWaitingFlag())
+			emit leftClickSignal(put_pos);
+		this->repaint();
+	}
 }

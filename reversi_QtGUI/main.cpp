@@ -42,9 +42,11 @@ int main(int argc, char *argv[])
 		QObject::connect(manager.reversi_list_[i], SIGNAL(repaintSignal(unsigned int)),
 			&w, SLOT(repaintSlot(unsigned int)));
 	}
-//	QObject::connect(&w, SIGNAL(leftClickSignal(pair<unsigned int, unsigned int>)),
-//		reversi, SLOT(leftClickSlot(pair<unsigned int, unsigned int>)));
-
+	if (manager.reversi_list_.size() == 1)
+	{
+		QObject::connect(&w, SIGNAL(leftClickSignal(pair<unsigned int, unsigned int>)),
+			manager.reversi_list_[0], SLOT(leftClickSlot(pair<unsigned int, unsigned int>)));
+	}
 	manager.reversi_list_[0]->PreProcess();
 
     return a.exec();

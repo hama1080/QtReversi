@@ -43,7 +43,7 @@ public slots:
 	void repaintSlot(unsigned int reversi_num);
 
 signals:
-	void leftClickSignal(Vec2d click_pos);
+	void leftClickSignal(pair<unsigned int, unsigned int> click_pos);
 	void nextPreProcessSignal(unsigned int next_index);
 
 protected:

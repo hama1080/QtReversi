@@ -8,6 +8,7 @@ This project imprement reversi and show it on Qt.
 ## Appearance
 - Normal  
 Default Reversi.  
+![default_gif](https://github.com/hmhm903/QtReversi/blob/master/img/default.gif)
 
 - Multi-reversi  
 Create multipule reversi easily.  

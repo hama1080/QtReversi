@@ -49,6 +49,13 @@ void RenderReversi::UpdateScene()
 	}
 }
 
+Vec2d RenderReversi::GetClickPos(int x, int y)
+{
+	unsigned int put_pos_x = (x - render_pos_.first) / kCellSize;
+	unsigned int put_pos_y = (y - render_pos_.second) / kCellSize;
+	return Vec2d(put_pos_x, put_pos_y);
+}
+
 QGraphicsTextItem*  RenderReversi::AddText(string str, unsigned int pos_x, unsigned int pos_y)
 {
 	QFont font("Times", kCellSize / 2, QFont::Bold);

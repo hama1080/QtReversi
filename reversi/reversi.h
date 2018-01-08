@@ -40,10 +40,10 @@ private:
 	JudgeResult JudgeGame();
 
 public:
-	Reversi();
+	Reversi(PlayerType player0 = PlayerType::Computer, PlayerType player1 = PlayerType::Computer);
 	~Reversi();
 
-	void Initialize(PlayerType player0 = PlayerType::Computer, PlayerType player1 = PlayerType::Computer);
+	void Initialize(PlayerType player0, PlayerType player1);
 	void PreProcess();
 	void PostProcess(Vec2d put_pos);
 

@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 	{
 		for(unsigned int j =0; j != j_num; j++)
 		{
-			Reversi* reversi = new Reversi();
+			Reversi* reversi = new Reversi(PlayerType::Human, PlayerType::Computer);
 			Vec2d render_pos(i * 200, j * 200);
 			w.AddReversi(reversi, render_pos);
 			manager.reversi_list_.push_back(reversi);

@@ -12,9 +12,9 @@ const vector<Vec2d> kDirectionList{ UpperLeft, Upper, UpperRight, CenterLeft, Ce
 bool Reversi::waiting_human_input = false;
 unsigned int Reversi::reversi_count = 0;
 
-Reversi::Reversi()
+Reversi::Reversi(PlayerType player0, PlayerType player1)
 {
-	Initialize();
+	Initialize(player0, player1);
 	reversi_num_ = reversi_count;
 	reversi_count++;
 	return;

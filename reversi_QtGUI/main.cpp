@@ -47,6 +47,8 @@ int main(int argc, char *argv[])
 		QObject::connect(&w, SIGNAL(leftClickSignal(pair<unsigned int, unsigned int>)),
 			manager.reversi_list_[0], SLOT(leftClickSlot(pair<unsigned int, unsigned int>)));
 	}
+    QObject::connect(&w, SIGNAL(restartSignal()), &manager, SLOT(restartSlot()));
+
 	manager.reversi_list_[0]->PreProcess();
 
     return a.exec();

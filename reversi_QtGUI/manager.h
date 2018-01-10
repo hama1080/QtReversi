@@ -2,7 +2,7 @@
 #include <vector>
 #include <QObject>
 #include <reversi.h>
-
+#include <iostream>
 class Manager : public QObject {
 	Q_OBJECT
 
@@ -24,5 +24,10 @@ public slots:
 			reversi_list_[next_index]->PreProcess();
 		}
 	}
+
+    void restartSlot()
+    {
+        cout << "restart slot" << endl;
+    }
 
 };

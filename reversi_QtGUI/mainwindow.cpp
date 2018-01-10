@@ -6,6 +6,7 @@
 #include <QTimer>
 #include <QGraphicsTextItem>
 #include <QString>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
 	:kWindowWidth(900), kWindowHeight(950), QMainWindow(parent), ui(new Ui::MainWindow), next_index_(0)
@@ -21,6 +22,8 @@ MainWindow::MainWindow(QWidget *parent)
 	QTimer* timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), this, SLOT(finishedTimerSlot()));
 	timer->start(0);
+
+    connect(ui->actionRestart, SIGNAL(triggered()), this, SLOT(Restart()));
 }
 
 MainWindow::~MainWindow()
@@ -69,4 +72,9 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 			emit leftClickSignal(put_pos);
 		this->repaint();
 	}
+}
+
+void MainWindow::Restart()
+{
+    emit restartSignal();
 }

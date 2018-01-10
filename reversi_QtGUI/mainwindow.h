@@ -45,10 +45,13 @@ public slots:
 signals:
 	void leftClickSignal(pair<unsigned int, unsigned int> click_pos);
 	void nextPreProcessSignal(unsigned int next_index);
+    void restartSignal();
 
 protected:
 	void mousePressEvent(QMouseEvent *event);
 
+protected slots:
+    void Restart();
 };
 
 #endif // MAINWINDOW_H

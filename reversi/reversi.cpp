@@ -63,6 +63,7 @@ void Reversi::Initialize(PlayerType player0, PlayerType player1)
 	else
 		board_ = new Board();	// default, multi
 
+	player_list_.clear();
 	if (player0 == PlayerType::Human)
 		player_list_.push_back(new Human(STONE_COLOR::BLACK));
 	else

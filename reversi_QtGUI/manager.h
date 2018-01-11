@@ -1,4 +1,6 @@
 ﻿#pragma once
+#include "mainwindow.h"
+
 #include <vector>
 #include <QObject>
 #include <reversi.h>
@@ -9,6 +11,12 @@ class Manager : public QObject {
 private:
 public:
 	vector<Reversi*> reversi_list_;
+	MainWindow* w;
+	Manager()
+	{
+		w = new MainWindow();
+		w->show();
+	}
 
 public slots:
 	void nextPreprocessSlot(unsigned int next_index)
@@ -27,7 +35,8 @@ public slots:
 
     void restartSlot()
     {
-        cout << "restart slot" << endl;
+		for (auto reversi : reversi_list_)
+			reversi->Initialize(PlayerType::Human, PlayerType::Computer);
     }
 
 };

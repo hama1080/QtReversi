@@ -246,3 +246,9 @@ void RenderReversi::AddStoneCount(map<STONE_COLOR, unsigned int> stone_cnt_map)
 
 	return;
 }
+
+void RenderReversi::Initialize()
+{
+
+}
+

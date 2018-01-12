@@ -37,6 +37,8 @@ public slots:
     {
 		for (auto reversi : reversi_list_)
 			reversi->Initialize(PlayerType::Human, PlayerType::Computer);
+		for (auto render_reversi : w->render_reversi_list_)
+			render_reversi.Initialize();
     }
 
 };

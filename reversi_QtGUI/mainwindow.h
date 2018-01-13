@@ -29,9 +29,9 @@ private:
 	class QGraphicsView* view_;
 
 	Ui::MainWindow *ui;
-	vector<RenderReversi> render_reversi_list_;
 
 public:
+	vector<RenderReversi> render_reversi_list_;
 	Vec2d top_left_;
 	explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();

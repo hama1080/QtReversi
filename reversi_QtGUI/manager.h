@@ -33,12 +33,12 @@ public slots:
 		}
 	}
 
-    void restartSlot()
-    {
+	void restartSlot()
+	{
 		for (auto reversi : reversi_list_)
 			reversi->Initialize(PlayerType::Human, PlayerType::Computer);
-		for (auto render_reversi : w->render_reversi_list_)
-			render_reversi.Initialize();
+		for (vector<RenderReversi>::iterator i = w->render_reversi_list_.begin(); i != w->render_reversi_list_.end(); i++)
+			i->Initialize();
     }
 
 };

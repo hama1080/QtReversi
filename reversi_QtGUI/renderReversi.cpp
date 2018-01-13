@@ -249,6 +249,13 @@ void RenderReversi::AddStoneCount(map<STONE_COLOR, unsigned int> stone_cnt_map)
 
 void RenderReversi::Initialize()
 {
+	scene_->clear();
+	stone_map_.clear();
 
+	// Render board
+	pair<unsigned int, unsigned int>  size = reversi_->GetBoardPtr()->GetBoardSize();
+	scene_->addRect(render_pos_.first, render_pos_.second, render_board_size_.first, render_board_size_.second, QPen(Qt::black), QBrush(Qt::darkGreen));
+	AddOutline(size);
+	player_info_ = nullptr;
 }
 

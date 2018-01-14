@@ -28,6 +28,7 @@
      <string>Menu</string>
     </property>
     <addaction name="actionRestart"/>
+    <addaction name="actionSetting"/>
    </widget>
    <addaction name="menuMenu"/>
   </widget>
@@ -43,6 +44,11 @@
   <action name="actionRestart">
    <property name="text">
     <string>Restart</string>
+   </property>
+  </action>
+  <action name="actionSetting">
+   <property name="text">
+    <string>Setting</string>
    </property>
   </action>
  </widget>

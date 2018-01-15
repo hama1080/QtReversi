@@ -13,6 +13,7 @@ class Player;
 
 namespace Ui {
 class MainWindow;
+class Dialog;
 }
 
 
@@ -29,6 +30,7 @@ private:
 	class QGraphicsView* view_;
 
 	Ui::MainWindow *ui;
+	Ui::Dialog *ui_setting;
 
 public:
 	vector<RenderReversi> render_reversi_list_;

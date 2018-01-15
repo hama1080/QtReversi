@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "ui_setting.h"
 #include <qevent.h>
 #include <QGraphicsScene>
 #include <QGraphicsView>
@@ -24,6 +25,11 @@ MainWindow::MainWindow(QWidget *parent)
 	timer->start(0);
 
     connect(ui->actionRestart, SIGNAL(triggered()), this, SLOT(Restart()));
+
+	QDialog* setting_dialog = new QDialog(this);
+	ui_setting = new Ui::Dialog();
+	ui_setting->setupUi(setting_dialog);
+	setting_dialog->show();
 }
 
 MainWindow::~MainWindow()

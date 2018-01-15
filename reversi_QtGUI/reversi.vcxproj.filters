@@ -131,6 +131,9 @@
     <ClInclude Include="..\reversi\player.h">
       <Filter>Reversi\Player</Filter>
     </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_setting.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="debug\moc_predefs.h.cbt">
@@ -147,6 +150,9 @@
     </CustomBuild>
     <CustomBuild Include="..\reversi\reversi.h">
       <Filter>Reversi\Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="setting.ui">
+      <Filter>Form Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

@@ -27,6 +27,7 @@ class Ui_MainWindow
 {
 public:
     QAction *actionRestart;
+    QAction *actionSetting;
     QWidget *centralWidget;
     QMenuBar *menuBar;
     QMenu *menuMenu;
@@ -40,6 +41,8 @@ public:
         MainWindow->resize(400, 300);
         actionRestart = new QAction(MainWindow);
         actionRestart->setObjectName(QStringLiteral("actionRestart"));
+        actionSetting = new QAction(MainWindow);
+        actionSetting->setObjectName(QStringLiteral("actionSetting"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         MainWindow->setCentralWidget(centralWidget);
@@ -58,6 +61,7 @@ public:
 
         menuBar->addAction(menuMenu->menuAction());
         menuMenu->addAction(actionRestart);
+        menuMenu->addAction(actionSetting);
 
         retranslateUi(MainWindow);
 
@@ -68,6 +72,7 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
         actionRestart->setText(QApplication::translate("MainWindow", "Restart", Q_NULLPTR));
+        actionSetting->setText(QApplication::translate("MainWindow", "Setting", Q_NULLPTR));
         menuMenu->setTitle(QApplication::translate("MainWindow", "Menu", Q_NULLPTR));
     } // retranslateUi
 

@@ -27,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->actionRestart, SIGNAL(triggered()), this, SLOT(Restart()));
 
 	QDialog* setting_dialog = new QDialog(this);
+	setting_dialog->setModal(true);
 	ui_setting = new Ui::Dialog();
 	ui_setting->setupUi(setting_dialog);
 	setting_dialog->show();

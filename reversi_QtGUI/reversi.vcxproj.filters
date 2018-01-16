@@ -102,6 +102,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_reversi.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="settingDialog.cpp">
+      <Filter>Qt</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h">
@@ -133,6 +136,9 @@
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_setting.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="settingDialog.h">
+      <Filter>Qt</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -168,6 +168,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
     <ClCompile Include="renderReversi.cpp" />
+    <ClCompile Include="settingDialog.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\reversi\board.h" />
@@ -176,6 +177,7 @@
     <ClInclude Include="..\reversi\computer.h" />
     <ClInclude Include="..\reversi\human.h" />
     <ClInclude Include="..\reversi\player.h" />
+    <ClInclude Include="settingDialog.h" />
     <CustomBuild Include="..\reversi\reversi.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing reversi.h...</Message>

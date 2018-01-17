@@ -20,7 +20,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_Dialog
+class Ui_SettingDialog
 {
 public:
     QDialogButtonBox *buttonBox;
@@ -28,45 +28,45 @@ public:
     QRadioButton *radioButton_2;
     QRadioButton *radioButton_3;
 
-    void setupUi(QDialog *Dialog)
+    void setupUi(QDialog *SettingDialog)
     {
-        if (Dialog->objectName().isEmpty())
-            Dialog->setObjectName(QStringLiteral("Dialog"));
-        Dialog->resize(211, 90);
-        buttonBox = new QDialogButtonBox(Dialog);
+        if (SettingDialog->objectName().isEmpty())
+            SettingDialog->setObjectName(QStringLiteral("SettingDialog"));
+        SettingDialog->resize(211, 90);
+        buttonBox = new QDialogButtonBox(SettingDialog);
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
         buttonBox->setGeometry(QRect(110, 20, 81, 241));
         buttonBox->setOrientation(Qt::Vertical);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
-        radioButton = new QRadioButton(Dialog);
+        radioButton = new QRadioButton(SettingDialog);
         radioButton->setObjectName(QStringLiteral("radioButton"));
         radioButton->setGeometry(QRect(20, 20, 81, 16));
-        radioButton_2 = new QRadioButton(Dialog);
+        radioButton_2 = new QRadioButton(SettingDialog);
         radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
         radioButton_2->setGeometry(QRect(20, 40, 81, 15));
-        radioButton_3 = new QRadioButton(Dialog);
+        radioButton_3 = new QRadioButton(SettingDialog);
         radioButton_3->setObjectName(QStringLiteral("radioButton_3"));
         radioButton_3->setGeometry(QRect(20, 60, 81, 15));
 
-        retranslateUi(Dialog);
-        QObject::connect(buttonBox, SIGNAL(accepted()), Dialog, SLOT(accept()));
-        QObject::connect(buttonBox, SIGNAL(rejected()), Dialog, SLOT(reject()));
+        retranslateUi(SettingDialog);
+        QObject::connect(buttonBox, SIGNAL(accepted()), SettingDialog, SLOT(accept()));
+        QObject::connect(buttonBox, SIGNAL(rejected()), SettingDialog, SLOT(reject()));
 
-        QMetaObject::connectSlotsByName(Dialog);
+        QMetaObject::connectSlotsByName(SettingDialog);
     } // setupUi
 
-    void retranslateUi(QDialog *Dialog)
+    void retranslateUi(QDialog *SettingDialog)
     {
-        Dialog->setWindowTitle(QApplication::translate("Dialog", "Dialog", Q_NULLPTR));
-        radioButton->setText(QApplication::translate("Dialog", "Normal", Q_NULLPTR));
-        radioButton_2->setText(QApplication::translate("Dialog", "LargeScale", Q_NULLPTR));
-        radioButton_3->setText(QApplication::translate("Dialog", "MultiReversi", Q_NULLPTR));
+        SettingDialog->setWindowTitle(QApplication::translate("SettingDialog", "Dialog", Q_NULLPTR));
+        radioButton->setText(QApplication::translate("SettingDialog", "Normal", Q_NULLPTR));
+        radioButton_2->setText(QApplication::translate("SettingDialog", "LargeScale", Q_NULLPTR));
+        radioButton_3->setText(QApplication::translate("SettingDialog", "MultiReversi", Q_NULLPTR));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class Dialog: public Ui_Dialog {};
+    class SettingDialog: public Ui_SettingDialog {};
 } // namespace Ui
 
 QT_END_NAMESPACE

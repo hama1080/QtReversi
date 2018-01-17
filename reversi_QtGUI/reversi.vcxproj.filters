@@ -105,6 +105,12 @@
     <ClCompile Include="settingDialog.cpp">
       <Filter>Qt</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_settingDialog.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_settingDialog.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h">
@@ -137,9 +143,6 @@
     <ClInclude Include="GeneratedFiles\ui_setting.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="settingDialog.h">
-      <Filter>Qt</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="debug\moc_predefs.h.cbt">
@@ -159,6 +162,9 @@
     </CustomBuild>
     <CustomBuild Include="setting.ui">
       <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="settingDialog.h">
+      <Filter>Qt</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

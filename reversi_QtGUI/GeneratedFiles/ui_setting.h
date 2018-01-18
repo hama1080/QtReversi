@@ -24,9 +24,9 @@ class Ui_SettingDialog
 {
 public:
     QDialogButtonBox *buttonBox;
-    QRadioButton *radioButton;
-    QRadioButton *radioButton_2;
-    QRadioButton *radioButton_3;
+    QRadioButton *normal_radio;
+    QRadioButton *largescale_radio;
+    QRadioButton *multi_radio;
 
     void setupUi(QDialog *SettingDialog)
     {
@@ -38,15 +38,16 @@ public:
         buttonBox->setGeometry(QRect(110, 20, 81, 241));
         buttonBox->setOrientation(Qt::Vertical);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
-        radioButton = new QRadioButton(SettingDialog);
-        radioButton->setObjectName(QStringLiteral("radioButton"));
-        radioButton->setGeometry(QRect(20, 20, 81, 16));
-        radioButton_2 = new QRadioButton(SettingDialog);
-        radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
-        radioButton_2->setGeometry(QRect(20, 40, 81, 15));
-        radioButton_3 = new QRadioButton(SettingDialog);
-        radioButton_3->setObjectName(QStringLiteral("radioButton_3"));
-        radioButton_3->setGeometry(QRect(20, 60, 81, 15));
+        normal_radio = new QRadioButton(SettingDialog);
+        normal_radio->setObjectName(QStringLiteral("normal_radio"));
+        normal_radio->setGeometry(QRect(20, 20, 81, 16));
+        normal_radio->setChecked(true);
+        largescale_radio = new QRadioButton(SettingDialog);
+        largescale_radio->setObjectName(QStringLiteral("largescale_radio"));
+        largescale_radio->setGeometry(QRect(20, 40, 81, 15));
+        multi_radio = new QRadioButton(SettingDialog);
+        multi_radio->setObjectName(QStringLiteral("multi_radio"));
+        multi_radio->setGeometry(QRect(20, 60, 81, 15));
 
         retranslateUi(SettingDialog);
         QObject::connect(buttonBox, SIGNAL(accepted()), SettingDialog, SLOT(accept()));
@@ -58,9 +59,9 @@ public:
     void retranslateUi(QDialog *SettingDialog)
     {
         SettingDialog->setWindowTitle(QApplication::translate("SettingDialog", "Dialog", Q_NULLPTR));
-        radioButton->setText(QApplication::translate("SettingDialog", "Normal", Q_NULLPTR));
-        radioButton_2->setText(QApplication::translate("SettingDialog", "LargeScale", Q_NULLPTR));
-        radioButton_3->setText(QApplication::translate("SettingDialog", "MultiReversi", Q_NULLPTR));
+        normal_radio->setText(QApplication::translate("SettingDialog", "Normal", Q_NULLPTR));
+        largescale_radio->setText(QApplication::translate("SettingDialog", "LargeScale", Q_NULLPTR));
+        multi_radio->setText(QApplication::translate("SettingDialog", "MultiReversi", Q_NULLPTR));
     } // retranslateUi
 
 };

@@ -29,7 +29,7 @@
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radioButton">
+  <widget class="QRadioButton" name="normal_radio">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -41,8 +41,11 @@
    <property name="text">
     <string>Normal</string>
    </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
   </widget>
-  <widget class="QRadioButton" name="radioButton_2">
+  <widget class="QRadioButton" name="largescale_radio">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -55,7 +58,7 @@
     <string>LargeScale</string>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radioButton_3">
+  <widget class="QRadioButton" name="multi_radio">
    <property name="geometry">
     <rect>
      <x>20</x>

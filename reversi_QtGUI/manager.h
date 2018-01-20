@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "mainwindow.h"
 
+#include "settingDialog.h"
 #include <vector>
 #include <QObject>
 #include <reversi.h>
@@ -35,10 +36,14 @@ public slots:
 
 	void restartSlot()
 	{
-		for (auto reversi : reversi_list_)
-			reversi->Initialize(PlayerType::Human, PlayerType::Computer);
-		for (vector<RenderReversi>::iterator i = w->render_reversi_list_.begin(); i != w->render_reversi_list_.end(); i++)
-			i->Initialize();
+		SettingDialog* dialog = new SettingDialog();
+		if (dialog->exec())
+		{
+			for (auto reversi : reversi_list_)
+				reversi->Initialize(PlayerType::Human, PlayerType::Computer);
+			for (vector<RenderReversi>::iterator i = w->render_reversi_list_.begin(); i != w->render_reversi_list_.end(); i++)
+				i->Initialize();
+		}
     }
 
 };

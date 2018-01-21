@@ -3,7 +3,6 @@
 #include "reversi.h"
 #include "manager.h"
 
-const Mode mode(Mode::Default);
 
 int main(int argc, char *argv[])
 {

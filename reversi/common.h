@@ -21,4 +21,3 @@ enum class Mode {
 	Multi,
 	LargeScale,
 };
-extern const Mode mode;

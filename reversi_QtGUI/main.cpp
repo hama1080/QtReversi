@@ -6,7 +6,8 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+	Mode mode = Mode::Default;
+	QApplication a(argc, argv);
 
 	Manager manager;
 	unsigned int i_num = 1;
@@ -20,9 +21,9 @@ int main(int argc, char *argv[])
 	{
 		for(unsigned int j =0; j != j_num; j++)
 		{
-			Reversi* reversi = new Reversi(PlayerType::Human, PlayerType::Computer);
+			Reversi* reversi = new Reversi(mode, PlayerType::Human, PlayerType::Computer);
 			Vec2d render_pos(i * 200, j * 200);
-			manager.w->AddReversi(reversi, render_pos);
+			manager.w->AddReversi(mode, reversi, render_pos);
 			manager.reversi_list_.push_back(reversi);
 		}
 	}

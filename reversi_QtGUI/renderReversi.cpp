@@ -7,7 +7,7 @@
 #include "player.h"
 #include "common.h"
 
-RenderReversi::RenderReversi(QGraphicsScene* scene, Reversi * reversi, Vec2d render_pos)
+RenderReversi::RenderReversi(Mode mode, QGraphicsScene* scene, Reversi * reversi, Vec2d render_pos)
 	:scene_(scene), reversi_(reversi), render_pos_(render_pos)
 {
 	switch (mode)

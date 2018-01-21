@@ -12,8 +12,9 @@ const vector<Vec2d> kDirectionList{ UpperLeft, Upper, UpperRight, CenterLeft, Ce
 bool Reversi::waiting_human_input = false;
 unsigned int Reversi::reversi_count = 0;
 
-Reversi::Reversi(PlayerType player0, PlayerType player1)
+Reversi::Reversi(Mode mode, PlayerType player0, PlayerType player1)
 {
+	mode_ = mode;
 	Initialize(player0, player1);
 	reversi_num_ = reversi_count;
 	reversi_count++;
@@ -58,7 +59,7 @@ JudgeResult Reversi::JudgeGame()
 
 void Reversi::Initialize(PlayerType player0, PlayerType player1)
 {
-	if (mode == Mode::LargeScale)
+	if (mode_ == Mode::LargeScale)
 		board_ = new Board(25, 25);
 	else
 		board_ = new Board();	// default, multi

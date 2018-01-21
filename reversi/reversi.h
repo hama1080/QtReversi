@@ -38,9 +38,10 @@ private:
 	Player* now_player_;
 
 	JudgeResult JudgeGame();
+	Mode mode_;
 
 public:
-	Reversi(PlayerType player0 = PlayerType::Computer, PlayerType player1 = PlayerType::Computer);
+	Reversi(Mode mode = Mode::Default, PlayerType player0 = PlayerType::Computer, PlayerType player1 = PlayerType::Computer);
 	~Reversi();
 
 	void Initialize(PlayerType player0, PlayerType player1);

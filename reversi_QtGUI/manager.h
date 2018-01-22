@@ -39,10 +39,11 @@ public slots:
 		SettingDialog* dialog = new SettingDialog();
 		if (dialog->exec())
 		{
+			Mode mode = dialog->GetSelectedMode();
 			for (auto reversi : reversi_list_)
-				reversi->Initialize(PlayerType::Human, PlayerType::Computer);
+				reversi->Initialize(mode, PlayerType::Human, PlayerType::Computer);
 			for (vector<RenderReversi>::iterator i = w->render_reversi_list_.begin(); i != w->render_reversi_list_.end(); i++)
-				i->Initialize();
+				i->Initialize(mode);
 		}
     }
 

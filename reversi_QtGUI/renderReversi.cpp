@@ -247,13 +247,30 @@ void RenderReversi::AddStoneCount(map<STONE_COLOR, unsigned int> stone_cnt_map)
 	return;
 }
 
-void RenderReversi::Initialize()
+void RenderReversi::Initialize(Mode mode)
 {
+	switch (mode)
+	{
+	case Mode::Default:
+	case Mode::LargeScale:
+		kCellSize = 30;
+		break;
+
+	case Mode::Multi:
+		kCellSize = 20;
+		break;
+
+	default:
+		// unexpected mode
+		break;
+	}
 	scene_->clear();
 	stone_map_.clear();
 
 	// Render board
 	pair<unsigned int, unsigned int>  size = reversi_->GetBoardPtr()->GetBoardSize();
+	render_board_size_.first = kCellSize * size.first;
+	render_board_size_.second = kCellSize * size.second;
 	scene_->addRect(render_pos_.first, render_pos_.second, render_board_size_.first, render_board_size_.second, QPen(Qt::black), QBrush(Qt::darkGreen));
 	AddOutline(size);
 	player_info_ = nullptr;

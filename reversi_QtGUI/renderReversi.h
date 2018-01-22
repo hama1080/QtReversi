@@ -35,6 +35,6 @@ public:
 	RenderReversi(Mode mode, QGraphicsScene* scene, Reversi* reversi, Vec2d render_pos);
 	void UpdateScene();
 	Vec2d GetClickPos(int x, int y);
-	void Initialize();
+	void Initialize(Mode mode);
 
 };

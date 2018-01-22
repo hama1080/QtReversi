@@ -15,7 +15,7 @@ unsigned int Reversi::reversi_count = 0;
 Reversi::Reversi(Mode mode, PlayerType player0, PlayerType player1)
 {
 	mode_ = mode;
-	Initialize(player0, player1);
+	Initialize(mode_, player0, player1);
 	reversi_num_ = reversi_count;
 	reversi_count++;
 	return;
@@ -57,9 +57,9 @@ JudgeResult Reversi::JudgeGame()
 	}
 }
 
-void Reversi::Initialize(PlayerType player0, PlayerType player1)
+void Reversi::Initialize(Mode mode, PlayerType player0, PlayerType player1)
 {
-	if (mode_ == Mode::LargeScale)
+	if (mode == Mode::LargeScale)
 		board_ = new Board(25, 25);
 	else
 		board_ = new Board();	// default, multi

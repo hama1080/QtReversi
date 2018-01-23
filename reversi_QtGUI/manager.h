@@ -44,8 +44,10 @@ public slots:
 				reversi->ChangeMode(mode);
 				reversi->Initialize(PlayerType::Human, PlayerType::Computer);
 			}
-			for (vector<RenderReversi>::iterator i = w->render_reversi_list_.begin(); i != w->render_reversi_list_.end(); i++)
-				i->Initialize(mode);
+			for (vector<RenderReversi>::iterator i = w->render_reversi_list_.begin(); i != w->render_reversi_list_.end(); i++) {
+				i->ChangeMode(mode);
+				i->Initialize();
+			}
 		}
     }
 

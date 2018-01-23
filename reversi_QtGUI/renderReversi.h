@@ -14,6 +14,7 @@ class RenderReversi
 private:
 	unsigned int kCellSize;
 
+	Mode mode_;
 	QGraphicsScene* scene_;
 	Reversi* reversi_;
 	Vec2d render_pos_;
@@ -35,6 +36,7 @@ public:
 	RenderReversi(Mode mode, QGraphicsScene* scene, Reversi* reversi, Vec2d render_pos);
 	void UpdateScene();
 	Vec2d GetClickPos(int x, int y);
-	void Initialize(Mode mode);
+	void ChangeMode(Mode mode);
+	void Initialize();
 
 };

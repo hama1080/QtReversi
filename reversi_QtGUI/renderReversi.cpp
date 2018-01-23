@@ -10,7 +10,8 @@
 RenderReversi::RenderReversi(Mode mode, QGraphicsScene* scene, Reversi * reversi, Vec2d render_pos)
 	:scene_(scene), reversi_(reversi), render_pos_(render_pos)
 {
-	switch (mode)
+	mode_ = mode;
+	switch (mode_)
 	{
 	case Mode::Default:
 	case Mode::LargeScale:
@@ -54,6 +55,12 @@ Vec2d RenderReversi::GetClickPos(int x, int y)
 	unsigned int put_pos_x = (x - render_pos_.first) / kCellSize;
 	unsigned int put_pos_y = (y - render_pos_.second) / kCellSize;
 	return Vec2d(put_pos_x, put_pos_y);
+}
+
+void RenderReversi::ChangeMode(Mode mode)
+{
+	mode_ = mode;
+	return;
 }
 
 QGraphicsTextItem*  RenderReversi::AddText(string str, unsigned int pos_x, unsigned int pos_y)
@@ -247,9 +254,9 @@ void RenderReversi::AddStoneCount(map<STONE_COLOR, unsigned int> stone_cnt_map)
 	return;
 }
 
-void RenderReversi::Initialize(Mode mode)
+void RenderReversi::Initialize()
 {
-	switch (mode)
+	switch (mode_)
 	{
 	case Mode::Default:
 	case Mode::LargeScale:

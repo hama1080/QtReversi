@@ -159,6 +159,11 @@ void Reversi::PostProcess(Vec2d put_pos)
 	return;
 }
 
+Mode Reversi::GetMode()
+{
+	return mode_;
+}
+
 Board* Reversi::GetBoardPtr()
 {
 	return board_;

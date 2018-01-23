@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 		{
 			Reversi* reversi = new Reversi(mode, PlayerType::Human, PlayerType::Computer);
 			Vec2d render_pos(i * 200, j * 200);
-			manager.w->AddReversi(mode, reversi, render_pos);
+			manager.w->AddReversi(reversi, render_pos);
 			manager.reversi_list_.push_back(reversi);
 		}
 	}

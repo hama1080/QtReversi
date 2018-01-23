@@ -35,7 +35,7 @@ public:
 	Vec2d top_left_;
 	explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-	void AddReversi(Mode mode, Reversi* reversi, Vec2d render_pos = Vec2d(0, 0));
+	void AddReversi(Reversi* reversi, Vec2d render_pos = Vec2d(0, 0));
 
 public slots:
 	void finishedPostProcessSlot(unsigned int reversi_num);

@@ -44,7 +44,7 @@ public:
 	Reversi(Mode mode = Mode::Default, PlayerType player0 = PlayerType::Computer, PlayerType player1 = PlayerType::Computer);
 	~Reversi();
 
-	void Initialize(Mode mode, PlayerType player0, PlayerType player1);
+	void Initialize(PlayerType player0, PlayerType player1);
 	void PreProcess();
 	void PostProcess(Vec2d put_pos);
 

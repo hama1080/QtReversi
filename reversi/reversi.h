@@ -49,6 +49,7 @@ public:
 	void PostProcess(Vec2d put_pos);
 
 	Mode GetMode();
+	void ChangeMode(Mode mode);
 	Board* GetBoardPtr();
 	static void SetWaitingFlag(bool flag);
 	static bool GetWaitingFlag();

@@ -164,6 +164,12 @@ Mode Reversi::GetMode()
 	return mode_;
 }
 
+void Reversi::ChangeMode(Mode mode)
+{
+	mode_ = mode;
+	return;
+}
+
 Board* Reversi::GetBoardPtr()
 {
 	return board_;

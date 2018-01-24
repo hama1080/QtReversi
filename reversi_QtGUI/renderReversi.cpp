@@ -35,6 +35,7 @@ RenderReversi::RenderReversi(QGraphicsScene* scene, Reversi * reversi, Vec2d ren
 	AddOutline(size);
 	player_info_ = nullptr;
 
+	UpdateScene();
 }
 
 void RenderReversi::UpdateScene()

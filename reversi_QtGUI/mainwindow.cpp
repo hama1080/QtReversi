@@ -34,7 +34,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::AddReversi(Reversi * reversi, Vec2d render_pos)
 {
-	RenderReversi render_reversi(reversi->GetMode(), scene_, reversi, render_pos);
+	RenderReversi render_reversi(scene_, reversi, render_pos);
 	render_reversi_list_.push_back(render_reversi);
 	return;
 }

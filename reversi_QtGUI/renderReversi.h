@@ -33,7 +33,7 @@ private:
 	void AddStoneCount(map<STONE_COLOR, unsigned int> stone_cnt_map);
 
 public:
-	RenderReversi(Mode mode, QGraphicsScene* scene, Reversi* reversi, Vec2d render_pos);
+	RenderReversi(QGraphicsScene* scene, Reversi* reversi, Vec2d render_pos);
 	void UpdateScene();
 	Vec2d GetClickPos(int x, int y);
 	void ChangeMode(Mode mode);

@@ -16,3 +16,35 @@ Mode SettingDialog::GetSelectedMode()
 		return Mode::LargeScale;
 	return Mode::Default;
 }
+
+PlayerType SettingDialog::GetPlayer0Type()
+{
+	unsigned int index = comboBox_Player0->currentIndex();
+	switch (index)
+	{
+	case 0:
+		return PlayerType::Human;
+
+	case 1:
+		return PlayerType::Computer;
+
+	default:
+		return PlayerType::Human;
+	}
+}
+
+PlayerType SettingDialog::GetPlayer1Type()
+{
+	unsigned int index = comboBox_Player1->currentIndex();
+	switch (index)
+	{
+	case 0:
+		return PlayerType::Human;
+
+	case 1:
+		return PlayerType::Computer;
+
+	default:
+		return PlayerType::Human;
+	}
+}

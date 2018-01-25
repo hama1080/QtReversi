@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>211</width>
-    <height>90</height>
+    <width>356</width>
+    <height>88</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,7 +16,7 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>260</x>
      <y>20</y>
      <width>81</width>
      <height>241</height>
@@ -70,6 +70,72 @@
    <property name="text">
     <string>MultiReversi</string>
    </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>20</y>
+     <width>45</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Player1</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>50</y>
+     <width>45</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Player2</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>20</y>
+     <width>81</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Human</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Computer</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="comboBox_2">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>50</y>
+     <width>81</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Human</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Computer</string>
+    </property>
+   </item>
   </widget>
  </widget>
  <resources/>

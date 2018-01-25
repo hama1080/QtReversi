@@ -13,9 +13,11 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QRadioButton>
 
 QT_BEGIN_NAMESPACE
@@ -27,15 +29,19 @@ public:
     QRadioButton *normal_radio;
     QRadioButton *largescale_radio;
     QRadioButton *multi_radio;
+    QLabel *label;
+    QLabel *label_2;
+    QComboBox *comboBox;
+    QComboBox *comboBox_2;
 
     void setupUi(QDialog *SettingDialog)
     {
         if (SettingDialog->objectName().isEmpty())
             SettingDialog->setObjectName(QStringLiteral("SettingDialog"));
-        SettingDialog->resize(211, 90);
+        SettingDialog->resize(356, 88);
         buttonBox = new QDialogButtonBox(SettingDialog);
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
-        buttonBox->setGeometry(QRect(110, 20, 81, 241));
+        buttonBox->setGeometry(QRect(260, 20, 81, 241));
         buttonBox->setOrientation(Qt::Vertical);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
         normal_radio = new QRadioButton(SettingDialog);
@@ -48,6 +54,18 @@ public:
         multi_radio = new QRadioButton(SettingDialog);
         multi_radio->setObjectName(QStringLiteral("multi_radio"));
         multi_radio->setGeometry(QRect(20, 60, 81, 15));
+        label = new QLabel(SettingDialog);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(120, 20, 45, 21));
+        label_2 = new QLabel(SettingDialog);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setGeometry(QRect(120, 50, 45, 21));
+        comboBox = new QComboBox(SettingDialog);
+        comboBox->setObjectName(QStringLiteral("comboBox"));
+        comboBox->setGeometry(QRect(160, 20, 81, 22));
+        comboBox_2 = new QComboBox(SettingDialog);
+        comboBox_2->setObjectName(QStringLiteral("comboBox_2"));
+        comboBox_2->setGeometry(QRect(160, 50, 81, 22));
 
         retranslateUi(SettingDialog);
         QObject::connect(buttonBox, SIGNAL(accepted()), SettingDialog, SLOT(accept()));
@@ -62,6 +80,18 @@ public:
         normal_radio->setText(QApplication::translate("SettingDialog", "Normal", Q_NULLPTR));
         largescale_radio->setText(QApplication::translate("SettingDialog", "LargeScale", Q_NULLPTR));
         multi_radio->setText(QApplication::translate("SettingDialog", "MultiReversi", Q_NULLPTR));
+        label->setText(QApplication::translate("SettingDialog", "Player1", Q_NULLPTR));
+        label_2->setText(QApplication::translate("SettingDialog", "Player2", Q_NULLPTR));
+        comboBox->clear();
+        comboBox->insertItems(0, QStringList()
+         << QApplication::translate("SettingDialog", "Human", Q_NULLPTR)
+         << QApplication::translate("SettingDialog", "Computer", Q_NULLPTR)
+        );
+        comboBox_2->clear();
+        comboBox_2->insertItems(0, QStringList()
+         << QApplication::translate("SettingDialog", "Human", Q_NULLPTR)
+         << QApplication::translate("SettingDialog", "Computer", Q_NULLPTR)
+        );
     } // retranslateUi
 
 };

@@ -31,8 +31,8 @@ public:
     QRadioButton *multi_radio;
     QLabel *label;
     QLabel *label_2;
-    QComboBox *comboBox;
-    QComboBox *comboBox_2;
+    QComboBox *comboBox_Player0;
+    QComboBox *comboBox_Player1;
 
     void setupUi(QDialog *SettingDialog)
     {
@@ -60,12 +60,12 @@ public:
         label_2 = new QLabel(SettingDialog);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(120, 50, 45, 21));
-        comboBox = new QComboBox(SettingDialog);
-        comboBox->setObjectName(QStringLiteral("comboBox"));
-        comboBox->setGeometry(QRect(160, 20, 81, 22));
-        comboBox_2 = new QComboBox(SettingDialog);
-        comboBox_2->setObjectName(QStringLiteral("comboBox_2"));
-        comboBox_2->setGeometry(QRect(160, 50, 81, 22));
+        comboBox_Player0 = new QComboBox(SettingDialog);
+        comboBox_Player0->setObjectName(QStringLiteral("comboBox_Player0"));
+        comboBox_Player0->setGeometry(QRect(160, 20, 81, 22));
+        comboBox_Player1 = new QComboBox(SettingDialog);
+        comboBox_Player1->setObjectName(QStringLiteral("comboBox_Player1"));
+        comboBox_Player1->setGeometry(QRect(160, 50, 81, 22));
 
         retranslateUi(SettingDialog);
         QObject::connect(buttonBox, SIGNAL(accepted()), SettingDialog, SLOT(accept()));
@@ -82,13 +82,13 @@ public:
         multi_radio->setText(QApplication::translate("SettingDialog", "MultiReversi", Q_NULLPTR));
         label->setText(QApplication::translate("SettingDialog", "Player1", Q_NULLPTR));
         label_2->setText(QApplication::translate("SettingDialog", "Player2", Q_NULLPTR));
-        comboBox->clear();
-        comboBox->insertItems(0, QStringList()
+        comboBox_Player0->clear();
+        comboBox_Player0->insertItems(0, QStringList()
          << QApplication::translate("SettingDialog", "Human", Q_NULLPTR)
          << QApplication::translate("SettingDialog", "Computer", Q_NULLPTR)
         );
-        comboBox_2->clear();
-        comboBox_2->insertItems(0, QStringList()
+        comboBox_Player1->clear();
+        comboBox_Player1->insertItems(0, QStringList()
          << QApplication::translate("SettingDialog", "Human", Q_NULLPTR)
          << QApplication::translate("SettingDialog", "Computer", Q_NULLPTR)
         );

@@ -40,9 +40,11 @@ public slots:
 		if (dialog->exec())
 		{
 			Mode mode = dialog->GetSelectedMode();
+			PlayerType player0 = dialog->GetPlayer0Type();
+			PlayerType player1 = dialog->GetPlayer1Type();
 			for (auto reversi : reversi_list_) {
 				reversi->ChangeMode(mode);
-				reversi->Initialize(PlayerType::Human, PlayerType::Computer);
+				reversi->Initialize(player0, player1);
 			}
 			for (vector<RenderReversi>::iterator i = w->render_reversi_list_.begin(); i != w->render_reversi_list_.end(); i++) {
 				i->ChangeMode(mode);

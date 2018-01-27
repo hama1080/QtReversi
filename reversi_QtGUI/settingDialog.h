@@ -7,6 +7,10 @@
 class SettingDialog : public QDialog, public Ui::SettingDialog
 {
 Q_OBJECT
+
+private:
+	PlayerType GetPlayerType(unsigned int index);
+
 public:
 	SettingDialog(QWidget* parent = 0);
 	Mode GetSelectedMode();

@@ -6,6 +6,22 @@ SettingDialog::SettingDialog(QWidget* parent)
 	setupUi(this);
 }
 
+PlayerType SettingDialog::GetPlayerType(unsigned int index)
+{
+	switch (index)
+	{
+	case 0:
+		return PlayerType::Human;
+
+	case 1:
+		return PlayerType::Computer;
+
+	default:
+		return PlayerType::Human;
+	}
+}
+
+
 Mode SettingDialog::GetSelectedMode()
 {
 	if (normal_radio->isChecked())
@@ -19,32 +35,10 @@ Mode SettingDialog::GetSelectedMode()
 
 PlayerType SettingDialog::GetPlayer0Type()
 {
-	unsigned int index = comboBox_Player0->currentIndex();
-	switch (index)
-	{
-	case 0:
-		return PlayerType::Human;
-
-	case 1:
-		return PlayerType::Computer;
-
-	default:
-		return PlayerType::Human;
-	}
+	return GetPlayerType(comboBox_Player0->currentIndex());
 }
 
 PlayerType SettingDialog::GetPlayer1Type()
 {
-	unsigned int index = comboBox_Player1->currentIndex();
-	switch (index)
-	{
-	case 0:
-		return PlayerType::Human;
-
-	case 1:
-		return PlayerType::Computer;
-
-	default:
-		return PlayerType::Human;
-	}
+	return GetPlayerType(comboBox_Player1->currentIndex());
 }

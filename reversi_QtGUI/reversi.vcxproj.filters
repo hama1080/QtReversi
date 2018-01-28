@@ -111,6 +111,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_settingDialog.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="manager.cpp">
+      <Filter>Qt</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h">

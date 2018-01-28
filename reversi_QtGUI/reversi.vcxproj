@@ -173,6 +173,7 @@
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
+    <ClCompile Include="manager.cpp" />
     <ClCompile Include="renderReversi.cpp" />
     <ClCompile Include="settingDialog.cpp" />
   </ItemGroup>

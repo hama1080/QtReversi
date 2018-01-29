@@ -28,7 +28,6 @@ public:
     QDialogButtonBox *buttonBox;
     QRadioButton *normal_radio;
     QRadioButton *largescale_radio;
-    QRadioButton *multi_radio;
     QLabel *label;
     QLabel *label_2;
     QComboBox *comboBox_Player0;
@@ -51,9 +50,6 @@ public:
         largescale_radio = new QRadioButton(SettingDialog);
         largescale_radio->setObjectName(QStringLiteral("largescale_radio"));
         largescale_radio->setGeometry(QRect(20, 40, 81, 15));
-        multi_radio = new QRadioButton(SettingDialog);
-        multi_radio->setObjectName(QStringLiteral("multi_radio"));
-        multi_radio->setGeometry(QRect(20, 60, 81, 15));
         label = new QLabel(SettingDialog);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(120, 20, 45, 21));
@@ -79,7 +75,6 @@ public:
         SettingDialog->setWindowTitle(QApplication::translate("SettingDialog", "Dialog", Q_NULLPTR));
         normal_radio->setText(QApplication::translate("SettingDialog", "Normal", Q_NULLPTR));
         largescale_radio->setText(QApplication::translate("SettingDialog", "LargeScale", Q_NULLPTR));
-        multi_radio->setText(QApplication::translate("SettingDialog", "MultiReversi", Q_NULLPTR));
         label->setText(QApplication::translate("SettingDialog", "Player1", Q_NULLPTR));
         label_2->setText(QApplication::translate("SettingDialog", "Player2", Q_NULLPTR));
         comboBox_Player0->clear();

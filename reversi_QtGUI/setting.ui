@@ -58,19 +58,6 @@
     <string>LargeScale</string>
    </property>
   </widget>
-  <widget class="QRadioButton" name="multi_radio">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>60</y>
-     <width>81</width>
-     <height>15</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>MultiReversi</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>

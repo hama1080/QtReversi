@@ -6,6 +6,7 @@
 
 int main(int argc, char *argv[])
 {
+	//Mode::Multi is optional setting for developer. It is not support the restart operation.
 	Mode mode = Mode::Default;
 	QApplication a(argc, argv);
 

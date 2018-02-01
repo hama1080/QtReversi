@@ -14,6 +14,9 @@ RenderReversi::RenderReversi(QGraphicsScene* scene, Reversi * reversi, Vec2d ren
 	switch (mode_)
 	{
 	case Mode::Default:
+		kCellSize = 50;
+		break;
+
 	case Mode::LargeScale:
 		kCellSize = 30;
 		break;

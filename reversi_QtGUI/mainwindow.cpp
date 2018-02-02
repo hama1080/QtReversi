@@ -67,7 +67,7 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 	if (event->button() == Qt::LeftButton) {
 		int x = event->x();
 		int y = event->y();
-		Vec2d put_pos = render_reversi_list_[0].GetClickPos(x, y);
+		Vec2d put_pos = render_reversi_list_[0].GetClickPos(this->width(), this->height(), x, y);
 
 		if(Reversi::GetWaitingFlag())
 			emit leftClickSignal(put_pos);

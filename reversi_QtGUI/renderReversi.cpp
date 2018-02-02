@@ -54,10 +54,14 @@ void RenderReversi::UpdateScene()
 	}
 }
 
-Vec2d RenderReversi::GetClickPos(int x, int y)
+Vec2d RenderReversi::GetClickPos(int window_width, int window_height, int x, int y)
 {
-	unsigned int put_pos_x = (x - render_pos_.first) / kCellSize;
-	unsigned int put_pos_y = (y - render_pos_.second) / kCellSize;
+	unsigned int diff_width = window_width - scene_->width();
+	unsigned int diff_height = window_height - scene_->height();
+
+	unsigned int put_pos_x = (x - render_pos_.first - diff_width / 2) / kCellSize + 1;
+	unsigned int put_pos_y = (y - render_pos_.second - diff_height / 2) / kCellSize + 1;
+	cout << put_pos_x << ", " << put_pos_y << endl;
 	return Vec2d(put_pos_x, put_pos_y);
 }
 
